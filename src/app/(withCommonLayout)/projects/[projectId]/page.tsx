@@ -29,7 +29,7 @@ const services = [
   },
 ];
 
-const ProjectDetails: React.FC = () => {
+const ProjectDetails = () => {
   const { projectId } = useParams() as { projectId: string };
 
   const project = services.find((service) => service.id === projectId);

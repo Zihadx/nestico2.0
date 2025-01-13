@@ -17,7 +17,7 @@ const projectTypes = [
   { label: "Window Replacement", value: "window-replacement" },
 ];
 
-const HeroSection: React.FC = () => {
+const HeroSection = () => {
   const [selectedValue, setSelectedValue] = useState<string>(
     "Select project type"
   );
