@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "key": "walk-in-shower",
+      "title": "Walk In Shower",
+      "description": "Upgrade your bathroom with a sleek and modern walk-in shower."
+    },
+    {
+      "id": 2,
+      "key": "walk-in-tub",
+      "title": "Walk In Tub",
+      "description": "Enjoy a luxurious and safe bathing experience with our walk-in tubs."
+    },
+    {
+      "id": 3,
+      "key": "kitchen-remodeling",
+      "title": "Kitchen Remodeling",
+      "description": "Transform your kitchen into a modern masterpiece."
+    },
+    {
+      "id": 4,
+      "key": "window-replacement",
+      "title": "Window Replacement",
+      "description": "Enhance your home's energy efficiency with new windows."
+    }
+  ]
+  
