@@ -36,27 +36,29 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative bg-gray-50 mt-10 py-10">
+    <section className="relative bg-gray-50 mt-10 py-10 h-screen">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${img.src})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-white to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-transparent" />
 
 
-      <div className="relative">
-        <div className="lg:w-1/2 z-10 px-6 py-12 lg:py-20 lg:px-28 text-gray-950">
-          <h1 className="text-4xl font-bold leading-tight mb-4">
-            A New Way for Home Improvement Projects
+      <div className="relative mx-auto max-w-6xl px-4 h-full z-10 text-gray-950">
+        <div className="lg:w-1/2 my-28">
+      
+      <div className="bg-green-100 p-4 rounded-full my-3 w-1/2"></div>
+          <h1 className="text-5xl font-bold leading-tight mb-4">
+            A New Way for Home  Improvement <br /> Projects
           </h1>
-          <p className="text-lg mb-6">
+          <p className="text-xl mb-6 text-gray-500 leading-normal">
             Transform Your Home with Ease: Discover the Perfect Helping Hand for
-            Stress-Free Home Improvement Projects.
+            Stress-Free Home Improvement <br /> Projects.
           </p>
         </div>
 
         {/* Dropdown and Button------------------ */}
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-20">
           <div className="flex items-center shadow-lg rounded-lg">
             <DropdownMenu>
               <DropdownMenuTrigger className="bg-white px-4 py-3 rounded-l-lg w-[250px] text-left">
