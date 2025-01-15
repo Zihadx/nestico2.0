@@ -44,7 +44,7 @@ const HomeOwnersHelped = () => {
           {stats.map(({ id, icon, value, label, bgColor }) => (
             <div
               key={id}
-              className={`flex flex-col items-center justify-center px-6 rounded-sm py-10 ${
+              className={`flex flex-col items-center justify-center px-6 py-10 ${
                 bgColor ? bgColor : "bg-white text-gray-500"
               }`}
             >

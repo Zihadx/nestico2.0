@@ -43,7 +43,7 @@ const Projects = () => {
         <div className="grid gap-8 md:gap-24 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-16">
           {services.map(({ id, title }) => (
             <Link href={`/projects/${id}`} key={id}>
-              <div className="group bg-gray-100 shadow-md shadow-gray-400 rounded-sm p-4 flex flex-col items-center hover:shadow-gray-400 hover:shadow-xl transform transition duration-300 cursor-pointer">
+              <div className="group bg-gray-100 shadow-md shadow-gray-400 rounded-sm p-2 flex flex-col items-center hover:shadow-gray-400 hover:shadow-xl transform transition duration-300 cursor-pointer">
                 <Image
                   src={img}
                   alt={title}

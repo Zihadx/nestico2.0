@@ -36,7 +36,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative bg-gray-50 mt-10 py-10 h-screen">
+    <section className="relative bg-gray-50 mt-20 py-10 h-screen">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${img.src})` }}
@@ -48,7 +48,7 @@ const HeroSection = () => {
         <div className="lg:w-1/2 my-28">
       
       <div className="bg-green-100 p-4 rounded-full my-3 w-1/2"></div>
-          <h1 className="text-5xl font-bold leading-tight mb-4">
+          <h1 className="text-4xl font-bold leading-tight mb-4">
             A New Way for Home  Improvement <br /> Projects
           </h1>
           <p className="text-xl mb-6 text-gray-500 leading-normal">
@@ -58,10 +58,11 @@ const HeroSection = () => {
         </div>
 
         {/* Dropdown and Button------------------ */}
-        <div className="flex justify-center mt-20">
-          <div className="flex items-center shadow-lg rounded-lg">
+        <div className="mt-20">
+        <h3 className="text-center text-xl font-semibold mb-4">Start your Home Improvement Project</h3>
+          <div className="flex justify-center items-center rounded-lg">
             <DropdownMenu>
-              <DropdownMenuTrigger className="bg-white px-4 py-3 rounded-l-lg w-[250px] text-left">
+              <DropdownMenuTrigger className="bg-white px-4 py-2 rounded-l-sm w-[250px] text-left shadow-2xl">
                 {selectedValue}
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-[250px]">
@@ -77,7 +78,7 @@ const HeroSection = () => {
             </DropdownMenu>
             <button
               onClick={handleNavigate}
-              className="bg-green-500 text-white px-4 py-3 rounded-r-lg hover:bg-green-600"
+              className="bg-green-500 text-white px-4 py-2 rounded-r-sm hover:bg-green-600"
             >
               Get Estimate
             </button>
