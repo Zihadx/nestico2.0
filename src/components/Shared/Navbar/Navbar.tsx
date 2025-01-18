@@ -53,7 +53,7 @@ const Navbar = () => {
         isScrolled ? "bg-white shadow-md" : "bg-slate-200"
       }`}
     >
-      <div className="container mx-auto px-4 py-1 max-w-6xl">
+      <div className="container mx-auto px-4 py-1 max-w-7xl">
         {!isScrolled && (
           <div className="py-4">
             <Link href="/">
@@ -67,12 +67,12 @@ const Navbar = () => {
             <h3 className="text-center text-xl font-semibold mb-2">
               Start your Home Improvement Project
             </h3>
-            <div className="flex justify-center items-center rounded-lg">
+            <div className="flex flex-wrap justify-center items-center rounded-lg gap-2">
               <DropdownMenu>
-                <DropdownMenuTrigger className="bg-white px-4 py-2 rounded-l-sm w-[250px] text-left shadow-sm shadow-gray-300">
+                <DropdownMenuTrigger className="bg-white px-4 py-2 rounded-sm w-full sm:w-[250px] text-left shadow-sm shadow-gray-300">
                   {selectedValue}
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-[250px]">
+                <DropdownMenuContent className="w-full sm:w-[250px]">
                   {projectTypes.map((project) => (
                     <DropdownMenuItem
                       key={project.value}
@@ -85,7 +85,7 @@ const Navbar = () => {
               </DropdownMenu>
               <button
                 onClick={handleNavigate}
-                className="bg-green-500 text-white px-4 py-2 rounded-r-sm hover:bg-green-600"
+                className="bg-green-500 text-white px-4 py-2 rounded-sm hover:bg-green-600 w-full sm:w-auto min-w-[120px]"
               >
                 Get Estimate
               </button>

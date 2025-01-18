@@ -37,8 +37,8 @@ const stats: Stat[] = [
 
 const HomeOwnersHelped = () => {
   return (
-    <section className="bg-slate-100 py-16 px-6">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="bg-slate-100 py-16 px-4 sm:px-6 lg:px-0">
+      <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-medium mb-12">Homeowners we have helped</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {stats.map(({ id, icon, value, label, bgColor }) => (

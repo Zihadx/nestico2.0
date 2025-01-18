@@ -30,11 +30,14 @@ const works: Work[] = [
 const WorksSections = () => {
   return (
     <section className="bg-[#344763] text-white py-14 px-6 mt-20">
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl font-semibold mb-12">How it works?</h2>
         <div className="flex flex-col lg:flex-row items-center justify-between">
           {works.map((work, index) => (
-            <div key={work.id} className="flex items-center justify-between my-5 lg:my-0">
+            <div
+              key={work.id}
+              className="flex items-center justify-between my-5 lg:my-0"
+            >
               <div className="relative flex flex-col items-center text-center gap-4">
                 <div className="w-16 h-16 bg-gradient-to-b from-green-400 to-[#58bf81] rounded-t-full rounded-bl-full absolute rotate-45"></div>
                 <div className="relative z-10 p-4 rounded-full flex justify-center items-center ">

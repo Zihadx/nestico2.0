@@ -43,13 +43,11 @@ const HeroSection = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-transparent" />
 
-
-      <div className="relative mx-auto max-w-6xl px-4 h-full z-10 text-gray-950">
+      <div className="relative mx-auto max-w-7xl px-4 h-full z-10 text-gray-950">
         <div className="lg:w-1/2 my-28">
-      
-      <div className="bg-green-100 p-4 rounded-full my-3 w-1/2"></div>
+          <div className="bg-green-100 p-4 rounded-full my-3 w-1/2"></div>
           <h1 className="text-4xl font-bold leading-tight mb-4">
-            A New Way for Home  Improvement <br /> Projects
+            A New Way for Home Improvement <br /> Projects
           </h1>
           <p className="text-xl mb-6 text-gray-500 leading-normal">
             Transform Your Home with Ease: Discover the Perfect Helping Hand for
@@ -59,7 +57,9 @@ const HeroSection = () => {
 
         {/* Dropdown and Button------------------ */}
         <div className="mt-20">
-        <h3 className="text-center text-xl font-semibold mb-4">Start your Home Improvement Project</h3>
+          <h3 className="text-center text-xl font-semibold mb-4">
+            Start your Home Improvement Project
+          </h3>
           <div className="flex justify-center items-center rounded-lg">
             <DropdownMenu>
               <DropdownMenuTrigger className="bg-white px-4 py-2 rounded-l-sm w-[250px] text-left shadow-2xl">

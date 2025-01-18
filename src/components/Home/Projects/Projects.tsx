@@ -13,12 +13,14 @@ const services: Service[] = [
   {
     id: "walk-in-shower",
     title: "Walk In Shower",
-    description: "Upgrade your bathroom with a sleek and modern walk-in shower.",
+    description:
+      "Upgrade your bathroom with a sleek and modern walk-in shower.",
   },
   {
     id: "walk-in-tub",
     title: "Walk In Tub",
-    description: "Enjoy a luxurious and safe bathing experience with our walk-in tubs.",
+    description:
+      "Enjoy a luxurious and safe bathing experience with our walk-in tubs.",
   },
   {
     id: "kitchen-remodeling",
@@ -35,7 +37,7 @@ const services: Service[] = [
 const Projects = () => {
   return (
     <section className="mt-10">
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="md:max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-0">
         <h1 className="text-3xl font-semibold text-gray-800">
           Home Improvement Projects We Can Help With
         </h1>
