@@ -4,18 +4,22 @@ import React, { useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 
-
 import img from "../../../../../assets/yt.png";
 import useLocation from "@/components/loactions/dynamicLocations";
 import { services } from "@/data/fakeServiceData";
 import ZipSearchForm from "@/components/ZipSearchForm/ZipSearchForm";
 
-const ProjectDetails = () => {
-  const { projectId } = useParams() as { projectId: string };
-  const location = useLocation();
-  const [zipStatus, setZipStatus] = useState<null | string>(null);
+type Project = {
+  id: string;
+  title: string;
+};
 
-  const project = services.find((service) => service.id === projectId);
+const ProjectDetails = () => {
+  const { projectId } = useParams<{ projectId: string }>();
+  const location = useLocation();
+  const [zipStatus, setZipStatus] = useState<string | null>(null);
+
+  const project = services.find((service) => service.id === projectId) as Project | undefined;
 
   if (!project) {
     return (
@@ -29,7 +33,7 @@ const ProjectDetails = () => {
 
   return (
     <section className="relative bg-gray-50 py-6 md:py-12 max-h-[480px] md:min-h-[500px] mt-20">
-      {/* Background for banner */}
+      {/* Background for banner ----------*/}
       <div className="absolute inset-0">
         <Image
           src={img}

@@ -1,16 +1,16 @@
 "use client";
 
-import supabase from "@/utils/supabase/client";
 import { useState } from "react";
+import supabase from "@/utils/supabase/client";
 
 interface ZipSearchFormProps {
   onStatusChange: (status: string | null) => void;
 }
 
-const ZipSearchForm: React.FC<ZipSearchFormProps> = ({ onStatusChange }) => {
-  const [zipCode, setZipCode] = useState("");
+const ZipSearchForm = ({ onStatusChange }: ZipSearchFormProps) => {
+  const [zipCode, setZipCode] = useState<string>("");
 
-  const handleZipSearch = async () => {
+  const handleZipSearch = async (): Promise<void> => {
     if (!zipCode.trim()) return;
 
     try {
@@ -21,13 +21,12 @@ const ZipSearchForm: React.FC<ZipSearchFormProps> = ({ onStatusChange }) => {
 
       if (error) {
         onStatusChange("Error checking ZIP code");
-      } else if (data.length > 0) {
+      } else if (data && data.length > 0) {
         onStatusChange("matched");
       } else {
         onStatusChange("not_matched");
       }
     } catch (err) {
-      console.error("Unexpected error:", err);
       onStatusChange("Error checking ZIP code");
     }
   };

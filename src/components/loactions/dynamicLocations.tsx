@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 
-const useLocation = () => {
-  const [location, setLocation] = useState("Loading...");
+const useLocation = (): string => {
+  const [location, setLocation] = useState<string>("Loading...");
 
   useEffect(() => {
-    const fetchLocation = async () => {
+    const fetchLocation = async (): Promise<void> => {
       try {
         const response = await fetch("http://ip-api.com/json/");
         const data = await response.json();
