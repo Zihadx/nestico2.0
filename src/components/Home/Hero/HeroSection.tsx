@@ -9,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Image from "next/image";
 
 const projectTypes = [
   { label: "Walk In Shower", value: "walk-in-shower" },
@@ -37,11 +38,19 @@ const HeroSection = () => {
 
   return (
     <section className="relative bg-gray-50 mt-20 py-8 ">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${img.src})` }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-transparent" />
+      <div className="absolute inset-0">
+        <Image
+          src={img}
+          alt="Background"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          className="opacity-50"
+        />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-200 to-transparent" />
+
+
 
       <div className="relative mx-auto max-w-[1200px] px-4 h-full z-10 text-gray-950">
         <div className="lg:w-2/5 mt-28">
