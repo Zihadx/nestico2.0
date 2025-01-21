@@ -36,16 +36,16 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative bg-gray-50 mt-20 py-10 h-screen">
+    <section className="relative bg-gray-50 mt-20 py-8 ">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${img.src})` }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-transparent" />
 
-      <div className="relative mx-auto max-w-7xl px-4 h-full z-10 text-gray-950">
-        <div className="lg:w-1/2 my-28">
-          <div className="bg-green-100 p-4 rounded-full my-3 w-1/2"></div>
+      <div className="relative mx-auto max-w-[1200px] px-4 h-full z-10 text-gray-950">
+        <div className="lg:w-2/5 mt-28">
+          <div className="bg-green-400 opacity-20 p-4 rounded-full my-3 w-1/2"></div>
           <h1 className="text-4xl font-bold leading-tight mb-4">
             A New Way for Home Improvement <br /> Projects
           </h1>

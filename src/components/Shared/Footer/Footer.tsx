@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#344763] text-white">
-      <div className="mx-auto max-w-7xl px-4 py-4 space-y-5">
+      <div className="mx-auto max-w-[1200px] px-4 py-4 space-y-5">
         <div className="py-4">
           <Link href="/">
             <Image src={footerLogo} alt="footerLogo" width={150} height={150} />

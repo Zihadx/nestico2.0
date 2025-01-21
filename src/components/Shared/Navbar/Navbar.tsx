@@ -53,15 +53,15 @@ const Navbar = () => {
         isScrolled ? "bg-white shadow-md" : "bg-slate-200"
       }`}
     >
-      <div className="container mx-auto px-4 py-1 max-w-7xl">
+      <div className="container mx-auto px-4 py-1 max-w-[1200px]">
         {!isScrolled ? (
-          <div className="py-4">
+          <div className="py-3">
             <Link href="/">
-              <Image src={logo} alt="Neu-Logo" width={150} height={150} />
+              <Image src={logo} alt="Neu-Logo" width={146} height={146} />
             </Link>
           </div>
         ) : (
-          <div>
+          <div className="">
             <h3 className="text-center text-xl font-semibold mb-2">
               Start your Home Improvement Project
             </h3>
