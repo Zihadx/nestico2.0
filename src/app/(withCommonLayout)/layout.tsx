@@ -1,20 +1,29 @@
+"use client"
 import HomeOwnersHelped from "@/components/Home/HomeOwnersHelped/HomeOwnersHelped";
 import WorksSections from "@/components/Home/Works/Works";
 import Footer from "@/components/Shared/Footer/Footer";
 import Navbar from "@/components/Shared/Navbar/Navbar";
+import { usePathname } from "next/navigation";
 import React from "react";
 
-const CommonLayout = ({ children }: { children: React.ReactNode }) => {
+const ProjectLayout = ({ children }: { children: React.ReactNode }) => {
+  const pathname = usePathname();
+
+  const isFormRoute = pathname.endsWith("/form");
+
   return (
     <div>
-      {/* navbar implement here------ */}
-      <Navbar />
+      {!isFormRoute && <Navbar />}
       <div>{children}</div>
-      <WorksSections />
-      <HomeOwnersHelped />
-      <Footer />
+      {!isFormRoute && (
+        <>
+          <WorksSections />
+          <HomeOwnersHelped />
+          <Footer />
+        </>
+      )}
     </div>
   );
 };
 
-export default CommonLayout;
+export default ProjectLayout;
