@@ -5,9 +5,9 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 
 import img from "../../../../../assets/yt.png";
-import useLocation from "@/components/loactions/dynamicLocations";
+import useLocation from "@/components/DetailsPage/loactions/dynamicLocations";
 import { services } from "@/data/fakeServiceData";
-import ZipSearchForm from "@/components/ZipSearchForm/ZipSearchForm";
+import ZipSearchForm from "@/components/DetailsPage/ZipSearchForm/ZipSearchForm";
 
 type Project = {
   id: string;
@@ -19,7 +19,9 @@ const ProjectDetails = () => {
   const location = useLocation();
   const [zipStatus, setZipStatus] = useState<string | null>(null);
 
-  const project = services.find((service) => service.id === projectId) as Project | undefined;
+  const project = services.find((service) => service.id === projectId) as
+    | Project
+    | undefined;
 
   if (!project) {
     return (
@@ -55,7 +57,7 @@ const ProjectDetails = () => {
           </h1>
         </div>
 
-        {/* Form Section---------- */}
+        {/* Form Section */}
         <ZipSearchForm onStatusChange={setZipStatus} />
         {zipStatus && (
           <p
@@ -70,10 +72,11 @@ const ProjectDetails = () => {
             {zipStatus === "matched"
               ? "ZIP code matched!"
               : zipStatus === "not_matched"
-              ? "ZIP code not matched."
+              ? "ZIP code is currently not serviced by our contractor."
               : zipStatus}
           </p>
         )}
+
         <p className="text-base text-center font-medium text-gray-600 mt-2">
           Free, no-obligation estimates.
         </p>
