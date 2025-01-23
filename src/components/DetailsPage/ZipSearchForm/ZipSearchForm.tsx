@@ -1,59 +1,57 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import supabase from "@/utils/supabase/client";
 import { CircleCheckBig } from "lucide-react";
 import Link from "next/link";
 
 interface ZipSearchFormProps {
   onStatusChange: (status: string | null) => void;
-  onZipDetailsChange: (details: { city: string; state: string } | null) => void;
+  onZipLocations: (ZipLocations: { city: string; state: string } | null) => void;
 }
 
 const ZipSearchForm = ({
   onStatusChange,
-  onZipDetailsChange,
+  onZipLocations,
 }: ZipSearchFormProps) => {
   const [zipCode, setZipCode] = useState("");
   const [isMatched, setIsMatched] = useState(false);
 
-  const validateZipCode = useCallback(async () => {
-    const trimmedZip = zipCode.trim();
-
-    if (!trimmedZip) {
+  const validateZipCode = async () => {
+    if (!zipCode) {
       onStatusChange(null);
-      onZipDetailsChange(null);
+      onZipLocations(null);
       setIsMatched(false);
       return;
     }
 
     try {
-      const { data, error } = await supabase
+      const { data } = await supabase
         .from("ZIP Codes")
         .select("zip_code, City, state_province")
-        .eq("zip_code", trimmedZip);
+        .eq("zip_code", zipCode);
 
-      if (data && data.length > 0) {
+      if (data?.length) {
         const { City: city, state_province: state } = data[0];
-        setIsMatched(true);
+        onZipLocations({ city, state });
         onStatusChange("matched");
-        onZipDetailsChange({ city, state });
+        setIsMatched(true);
       } else {
         setIsMatched(false);
         onStatusChange("not_matched");
-        onZipDetailsChange(null);
+        onZipLocations(null);
       }
-    } catch (err) {
-      console.error("Validation error:", err);
+    } catch (error) {
+      console.error("Validation error:", error);
       onStatusChange("Error checking ZIP code");
-      onZipDetailsChange(null);
+      onZipLocations(null);
       setIsMatched(false);
     }
-  }, [zipCode, onStatusChange, onZipDetailsChange]);
+  };
 
   useEffect(() => {
     validateZipCode();
-  }, [zipCode, validateZipCode]);
+  }, [zipCode]);
 
   return (
     <div className="text-center">

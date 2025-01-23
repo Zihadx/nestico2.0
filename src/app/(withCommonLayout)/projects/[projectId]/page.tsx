@@ -61,7 +61,7 @@ const ProjectDetails = () => {
         {/* Form Section------------ imported */}
         <ZipSearchForm
           onStatusChange={setZipStatus}
-          onZipDetailsChange={setZipDetails}
+          onZipLocations={setZipDetails}
         />
         {zipStatus && (
           <p
