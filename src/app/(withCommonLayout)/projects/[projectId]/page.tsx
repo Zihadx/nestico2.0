@@ -18,6 +18,7 @@ const ProjectDetails = () => {
   const { projectId } = useParams<{ projectId: string }>();
   const location = useLocation();
   const [zipStatus, setZipStatus] = useState<string | null>(null);
+  const [zipDetails, setZipDetails] = useState<{ city: string; state: string } | null>(null);
 
   const project = services.find((service) => service.id === projectId) as
     | Project
@@ -58,7 +59,10 @@ const ProjectDetails = () => {
         </div>
 
         {/* Form Section------------ imported */}
-        <ZipSearchForm onStatusChange={setZipStatus} />
+        <ZipSearchForm
+          onStatusChange={setZipStatus}
+          onZipDetailsChange={setZipDetails}
+        />
         {zipStatus && (
           <p
             className={`mt-1 text-sm text-center font-medium ${
@@ -70,7 +74,7 @@ const ProjectDetails = () => {
             }`}
           >
             {zipStatus === "matched"
-              ? "ZIP code matched!"
+              ? `${zipDetails?.city}, ${zipDetails?.state}`
               : zipStatus === "not_matched"
               ? "ZIP code is currently not serviced by our contractor."
               : zipStatus}

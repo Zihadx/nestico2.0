@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ServiceForm = () => {
-    return (
-        <div className='font-bold text-5xl h-screen flex justify-center items-center'>
-            <h2>Form coming sooon----------</h2>
-        </div>
-    );
+const page = () => {
+  return (
+    <div className='flex justify-center items-center text-4xl font-bold h-screen'>
+      <h1>From Coming Soon -------------</h1>
+    </div>
+  );
 };
 
-export default ServiceForm;
+export default page;

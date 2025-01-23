@@ -7,45 +7,49 @@ import Link from "next/link";
 
 interface ZipSearchFormProps {
   onStatusChange: (status: string | null) => void;
+  onZipDetailsChange: (details: { city: string; state: string } | null) => void;
 }
 
-const ZipSearchForm = ({ onStatusChange }: ZipSearchFormProps) => {
+const ZipSearchForm = ({
+  onStatusChange,
+  onZipDetailsChange,
+}: ZipSearchFormProps) => {
   const [zipCode, setZipCode] = useState("");
-  const [isMatched, setIsMatched] = useState(false); 
+  const [isMatched, setIsMatched] = useState(false);
 
   const validateZipCode = useCallback(async () => {
     const trimmedZip = zipCode.trim();
 
     if (!trimmedZip) {
       onStatusChange(null);
+      onZipDetailsChange(null);
       setIsMatched(false);
       return;
     }
 
     try {
       const { data, error } = await supabase
-        .from("neu-home")
-        .select("zip_codes");
+        .from("ZIP Codes")
+        .select("zip_code, City, state_province")
+        .eq("zip_code", trimmedZip);
 
-      if (error) {
-        console.error("Supabase error:", error);
-        onStatusChange("Error checking ZIP code");
+      if (data && data.length > 0) {
+        const { City: city, state_province: state } = data[0];
+        setIsMatched(true);
+        onStatusChange("matched");
+        onZipDetailsChange({ city, state });
+      } else {
         setIsMatched(false);
-        return;
+        onStatusChange("not_matched");
+        onZipDetailsChange(null);
       }
-
-      const matched = data.some((row: any) => 
-        row.zip_codes.split(",").map((code: string) => code.trim()).includes(trimmedZip)
-      );
-
-      setIsMatched(matched);
-      onStatusChange(matched ? "matched" : "not_matched");
     } catch (err) {
       console.error("Validation error:", err);
       onStatusChange("Error checking ZIP code");
+      onZipDetailsChange(null);
       setIsMatched(false);
     }
-  }, [zipCode, onStatusChange]);
+  }, [zipCode, onStatusChange, onZipDetailsChange]);
 
   useEffect(() => {
     validateZipCode();
@@ -66,18 +70,12 @@ const ZipSearchForm = ({ onStatusChange }: ZipSearchFormProps) => {
           className="border border-gray-300 text-sm px-6 py-4 rounded-md outline-none transition"
         />
 
-
-        
-
         {isMatched && (
           <CircleCheckBig
             className="absolute text-green-600 w-5 h-5 top-1/2 transform -translate-y-1/2"
             aria-label="Matched"
           />
         )}
-
-
-
 
         <Link
           href={isMatched ? "/projects/walk-in-shower/form" : "#"}
