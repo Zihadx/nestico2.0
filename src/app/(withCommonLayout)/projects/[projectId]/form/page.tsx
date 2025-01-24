@@ -1,143 +1,240 @@
 "use client";
 import { useState } from "react";
+import { Formik, Form as FormikForm, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { useToast } from "@/hooks/use-toast";
 
-const Form = () => {
+const MultiStepForm = () => {
   const [currentStep, setCurrentStep] = useState<number>(0);
-  const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [phone, setPhone] = useState<string>("");
-  const [yesNo, setYesNo] = useState<string>("");
   const [progress, setProgress] = useState<number>(0);
+  const { toast } = useToast();
 
-  const handleNext = () => {
-    setCurrentStep((prev) => prev + 1);
-    setProgress(((currentStep + 1) / 4) * 100); // Adjust for 4 steps
+  const validationSchemas = [
+    Yup.object({
+      homeowner: Yup.string().required("You must select an option"),
+    }),
+    Yup.object({
+      mobileHome: Yup.string().required("You must select an option"),
+    }),
+    Yup.object({
+      name: Yup.string().required("Full name is required"),
+      email: Yup.string().email("Invalid email").required("Email is required"),
+    }),
+    Yup.object({
+      phone: Yup.string()
+        .matches(/^[0-9]{10,15}$/, "Phone number is invalid")
+        .required("Phone number is required"),
+    }),
+  ];
+
+  const initialValues = {
+    homeowner: "",
+    mobileHome: "",
+    name: "",
+    email: "",
+    phone: "",
   };
 
-  const handleSubmit = () => {
-    console.log("Submitting data:", { name, email, phone, yesNo });
-    alert("Form submitted successfully!");
+  const handleNext = (values: any) => {
+    if (currentStep === 3) {
+      handleSubmit(values);
+    } else {
+      setCurrentStep((prev) => prev + 1);
+      setProgress(((currentStep + 1) / 3) * 100);
+    }
   };
 
-  const isNextDisabled =
-    (currentStep === 0 && !name.trim()) ||
-    (currentStep === 1 && !email.trim()) ||
-    (currentStep === 2 && !phone.trim()) ||
-    (currentStep === 3 && !yesNo.trim());
+  const handleSubmit = (values: any) => {
+    console.log("Submitting data:", values);
+
+    toast({
+      title: "Demo Alert",
+      description:
+        "Form has been successfully submitted. This is a demo alert.",
+    });
+  };
+
+  const isLastStep = currentStep === validationSchemas.length - 1;
 
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="w-full lg:w-1/2 p-6 bg-white rounded-lg overflow-hidden shadow-md relative">
-        {/* Progress Bar */}
-        <div
-          className="absolute bottom-0 left-0 h-[5px] bg-black transition-all duration-500 ease-in-out"
-          style={{ width: `${progress}%` }}
-        />
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchemas[currentStep]}
+        onSubmit={(values) => {
+          if (isLastStep) {
+            handleSubmit(values);
+          } else {
+            handleNext(values);
+          }
+        }}
+      >
+        {({ values, isValid, setFieldValue }) => (
+          <FormikForm className="w-full lg:w-1/2 p-6 bg-white rounded-lg shadow-md relative overflow-hidden">
+            {/* Progress Bar */}
+            <div
+              className="absolute bottom-0 left-0 h-[5px] bg-gray-500 transition-all duration-500"
+              style={{ width: `${progress}%` }}
+            />
 
-        {/* Form Heading */}
-        <h2 className="text-2xl font-semibold text-center mb-6">
-          {currentStep === 0
-            ? "What is your name?"
-            : currentStep === 1
-            ? "What is your email?"
-            : currentStep === 2
-            ? "What is your phone number?"
-            : currentStep === 3
-            ? "Do you agree with our terms?"
-            : "Review your details"}
-        </h2>
+            {/* Form Heading */}
+            <h2 className="text-2xl font-semibold text-center mb-6">
+              {currentStep === 0
+                ? "Are you the homeowner or authorized to make property changes?"
+                : currentStep === 1
+                ? "Is it a mobile, modular or manufactured home?"
+                : currentStep === 2
+                ? "Who should I prepare this estimate for?"
+                : "What is your phone number?"}
+            </h2>
 
-        {/* Form Steps */}
-        {currentStep < 4 ? (
-          <div className="text-center">
-            {currentStep === 0 && (
-              <Input
-                type="text"
-                placeholder="Full Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="mb-4"
-              />
-            )}
-            {currentStep === 1 && (
-              <Input
-                type="email"
-                placeholder="Email Address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="mb-4"
-              />
-            )}
-            {currentStep === 2 && (
-              <Input
-                type="tel"
-                placeholder="Phone Number"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="mb-4"
-              />
-            )}
-           {currentStep === 3 && (
-  <RadioGroup
-    className="flex flex-col items-center space-y-2"
-    value={yesNo}
-    onValueChange={(value) => setYesNo(value)} // Correct handler
-  >
-    <div className="flex items-center space-x-2">
-      <RadioGroupItem value="Yes" id="yes" />
-      <label htmlFor="yes" className="text-sm font-medium">
-        Yes
-      </label>
-    </div>
-    <div className="flex items-center space-x-2">
-      <RadioGroupItem value="No" id="no" />
-      <label htmlFor="no" className="text-sm font-medium">
-        No
-      </label>
-    </div>
-  </RadioGroup>
-)}
-
-            <Button
-              onClick={handleNext}
-              disabled={isNextDisabled}
-              variant={isNextDisabled ? "secondary" : "default"}
-              className="w-full"
-            >
-              {currentStep === 3 ? "Review" : "Next"}
-            </Button>
-          </div>
-        ) : (
-          <div>
-            <div className="mb-4">
-              <div className="mb-2">
-                <strong>Name:</strong> {name}
-              </div>
-              <div className="mb-2">
-                <strong>Email:</strong> {email}
-              </div>
-              <div className="mb-2">
-                <strong>Phone:</strong> {phone}
-              </div>
-              <div className="mb-2">
-                <strong>Agreed:</strong> {yesNo}
-              </div>
+            {/* Form Steps */}
+            <div className="text-center">
+              {currentStep === 0 && (
+                <>
+                  <RadioGroup
+                    className="flex flex-col items-center space-y-2"
+                    value={values.homeowner}
+                    onValueChange={(value) => setFieldValue("homeowner", value)}
+                  >
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem
+                        value="Yes"
+                        id="yes"
+                        className="h-6 w-6 border-2 border-green-500 rounded-full focus:ring-2 focus:ring-green-400"
+                      />
+                      <label htmlFor="yes" className="text-sm font-medium">
+                        Yes
+                      </label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem
+                        value="No"
+                        id="no"
+                        className="h-6 w-6 border-2 border-green-500 rounded-full focus:ring-2 focus:ring-green-400"
+                      />
+                      <label htmlFor="no" className="text-sm font-medium">
+                        No
+                      </label>
+                    </div>
+                  </RadioGroup>
+                  <ErrorMessage
+                    name="homeowner"
+                    component="div"
+                    className="text-red-500 text-sm mb-2"
+                  />
+                </>
+              )}
+              {currentStep === 1 && (
+                <>
+                  <RadioGroup
+                    className="flex flex-col items-center space-y-2"
+                    value={values.mobileHome}
+                    onValueChange={(value) =>
+                      setFieldValue("mobileHome", value)
+                    }
+                  >
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem
+                        value="Yes"
+                        id="mobileYes"
+                        className="h-6 w-6 border-2 border-green-500 rounded-full focus:ring-2 focus:ring-green-400"
+                      />
+                      <label
+                        htmlFor="mobileYes"
+                        className="text-sm font-medium"
+                      >
+                        Yes
+                      </label>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem
+                        value="No"
+                        id="mobileNo"
+                        className="h-6 w-6 border-2 border-green-500 rounded-full focus:ring-2 focus:ring-green-400"
+                      />
+                      <label htmlFor="mobileNo" className="text-sm font-medium">
+                        No
+                      </label>
+                    </div>
+                  </RadioGroup>
+                  <ErrorMessage
+                    name="mobileHome"
+                    component="div"
+                    className="text-red-500 text-sm mb-2"
+                  />
+                </>
+              )}
+              {currentStep === 2 && (
+                <div className="w-full lg:w-1/2 mx-auto">
+                  <Field
+                    name="name"
+                    as={Input}
+                    placeholder="Full Name"
+                    className="mb-4"
+                  />
+                  <ErrorMessage
+                    name="name"
+                    component="div"
+                    className="text-red-500 text-sm mb-2"
+                  />
+                  <Field
+                    name="email"
+                    type="email"
+                    as={Input}
+                    placeholder="Email Address"
+                    className="mb-4"
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="text-red-500 text-sm mb-2"
+                  />
+                </div>
+              )}
+              {currentStep === 3 && (
+                <div>
+                  <div className="flex items-center justify-center gap-3 mb-2 w-full lg:w-1/2 mx-auto">
+                    <Field
+                      name="phone"
+                      type="tel"
+                      as={Input}
+                      placeholder="Phone Number"
+                    />
+                    <Button
+                      type="submit"
+                      variant="default"
+                      className="bg-green-500 text-white hover:bg-green-600 disabled:bg-green-300"
+                      disabled={!isValid}
+                    >
+                      {isLastStep ? "Submit" : "Next"}
+                    </Button>
+                  </div>
+                  <ErrorMessage
+                    name="phone"
+                    component="div"
+                    className="text-red-500 text-sm mt-4"
+                  />
+                </div>
+              )}
+              {!isLastStep && (
+                <Button
+                  type="submit"
+                  className="mt-4 bg-green-500 text-white hover:bg-green-600 disabled:bg-green-300"
+                  disabled={!isValid}
+                >
+                  Next
+                </Button>
+              )}
             </div>
-            <Button
-              onClick={handleSubmit}
-              className="w-full"
-              variant="default"
-            >
-              Submit
-            </Button>
-          </div>
+          </FormikForm>
         )}
-      </div>
+      </Formik>
     </div>
   );
 };
 
-export default Form;
+export default MultiStepForm;
