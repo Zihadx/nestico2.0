@@ -74,13 +74,13 @@ const MultiStepForm = () => {
       >
         {({ values, isValid, setFieldValue }) => (
           <FormikForm className="w-full lg:w-1/2 p-6 bg-white rounded-lg shadow-md relative overflow-hidden">
-            {/* Progress Bar */}
+            {/* Progress Bar --------------*/}
             <div
               className="absolute bottom-0 left-0 h-[5px] bg-gray-500 transition-all duration-500"
               style={{ width: `${progress}%` }}
             />
 
-            {/* Form Heading */}
+            {/* Form Heading----------------- */}
             <h2 className="text-2xl font-semibold text-center mb-6">
               {currentStep === 0
                 ? "Are you the homeowner or authorized to make property changes?"
@@ -91,7 +91,7 @@ const MultiStepForm = () => {
                 : "What is your phone number?"}
             </h2>
 
-            {/* Form Steps */}
+            {/* Form Steps----------------- */}
             <div className="text-center">
               {currentStep === 0 && (
                 <>
