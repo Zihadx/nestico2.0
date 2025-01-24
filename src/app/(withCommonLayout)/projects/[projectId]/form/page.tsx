@@ -6,12 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
+import supabase from "@/utils/supabase/client";
 
-const MultiStepForm = () => {
+const Form = () => {
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [progress, setProgress] = useState<number>(0);
   const { toast } = useToast();
 
+  // formic validations --------------------------
   const validationSchemas = [
     Yup.object({
       homeowner: Yup.string().required("You must select an option"),
@@ -30,6 +32,7 @@ const MultiStepForm = () => {
     }),
   ];
 
+  // set initial values --------------------
   const initialValues = {
     homeowner: "",
     mobileHome: "",
@@ -38,6 +41,7 @@ const MultiStepForm = () => {
     phone: "",
   };
 
+  // handle to go next content -----------------------
   const handleNext = (values: any) => {
     if (currentStep === 3) {
       handleSubmit(values);
@@ -47,14 +51,36 @@ const MultiStepForm = () => {
     }
   };
 
-  const handleSubmit = (values: any) => {
-    console.log("Submitting data:", values);
+  // data post to database ---------------------------
+  const handleSubmit = async (values: any) => {
+    try {
+      const { data, error } = await supabase.from("Service_Requests").insert([
+        {
+          intOwner: values.homeowner,
+          intMobileHome: values.mobileHome,
+          fullName: values.name,
+          Email: values.email,
+          phoneNumber: values.phone,
+        },
+      ]);
 
-    toast({
-      title: "Demo Alert",
-      description:
-        "Form has been successfully submitted. This is a demo alert.",
-    });
+      if (error) throw error;
+
+      // toast-------------------------
+      toast({
+        title: "Success!",
+        description: "Your request has been submitted successfully.",
+      });
+
+      console.log("Posted data:", data);
+    } catch (error) {
+      console.error("Error submitting data:", error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   const isLastStep = currentStep === validationSchemas.length - 1;
@@ -74,13 +100,13 @@ const MultiStepForm = () => {
       >
         {({ values, isValid, setFieldValue }) => (
           <FormikForm className="w-full lg:w-1/2 p-6 bg-white rounded-lg shadow-md relative overflow-hidden">
-            {/* Progress Bar --------------*/}
+            {/* Progress Bar --------------------*/}
             <div
               className="absolute bottom-0 left-0 h-[5px] bg-gray-500 transition-all duration-500"
               style={{ width: `${progress}%` }}
             />
 
-            {/* Form Heading----------------- */}
+            {/* Form Heading----------------------- */}
             <h2 className="text-2xl font-semibold text-center mb-6">
               {currentStep === 0
                 ? "Are you the homeowner or authorized to make property changes?"
@@ -91,7 +117,7 @@ const MultiStepForm = () => {
                 : "What is your phone number?"}
             </h2>
 
-            {/* Form Steps----------------- */}
+            {/* Form Steps-------------------------- */}
             <div className="text-center">
               {currentStep === 0 && (
                 <>
@@ -237,4 +263,4 @@ const MultiStepForm = () => {
   );
 };
 
-export default MultiStepForm;
+export default Form;
