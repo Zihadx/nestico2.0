@@ -100,7 +100,7 @@ const Form = () => {
         }}
       >
         {({ values, isValid, setFieldValue }) => (
-          <FormikForm className="w-full lg:w-1/2 p-6 bg-white rounded-lg shadow-md relative overflow-hidden">
+          <FormikForm className="w-full lg:w-1/2 p-6 bg-green-300 rounded-lg shadow-md relative overflow-hidden">
             {/* Progress Bar --------------------*/}
             <div
               className="absolute bottom-0 left-0 h-[5px] bg-gray-500 transition-all duration-500"
