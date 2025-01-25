@@ -3,19 +3,25 @@
 import { useState, useEffect } from "react";
 import supabase from "@/utils/supabase/client";
 import { CircleCheckBig } from "lucide-react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface ZipSearchFormProps {
   onStatusChange: (status: string | null) => void;
-  onZipLocations: (ZipLocations: { city: string; state: string } | null) => void;
+  onZipLocations: (
+    ZipLocations: { city: string; state: string } | null
+  ) => void;
+  projectId: string;
 }
 
 const ZipSearchForm = ({
   onStatusChange,
   onZipLocations,
+  projectId,
 }: ZipSearchFormProps) => {
   const [zipCode, setZipCode] = useState("");
   const [isMatched, setIsMatched] = useState(false);
+
+  const router = useRouter();
 
   const validateZipCode = async () => {
     if (!zipCode) {
@@ -53,6 +59,12 @@ const ZipSearchForm = ({
     validateZipCode();
   }, [zipCode]);
 
+  const handleStartEstimate = () => {
+    if (isMatched) {
+      router.push(`/${projectId}/${zipCode}`);
+    }
+  };
+
   return (
     <div className="text-center">
       <h3 className="text-lg md:text-2xl font-semibold mb-4 md:mb-6">
@@ -75,15 +87,15 @@ const ZipSearchForm = ({
           />
         )}
 
-        <Link
-          href={isMatched ? "/projects/walk-in-shower/form" : "#"}
+        <button
+          onClick={handleStartEstimate}
           className={`${
             isMatched ? "bg-[#55bc7e]" : "bg-[#55bc7e] cursor-not-allowed"
           } text-sm text-white px-4 py-4 rounded-md`}
           aria-disabled={!isMatched}
         >
           Start Free Estimate
-        </Link>
+        </button>
       </div>
     </div>
   );

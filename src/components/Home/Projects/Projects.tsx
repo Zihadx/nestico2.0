@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import img from "../../../../assets/yt.png";
+
 
 interface Service {
   id: string;
   title: string;
   description: string;
+  img: string
 }
 
 // Fake Data---------------
@@ -15,43 +16,48 @@ const services: Service[] = [
     title: "Walk In Shower",
     description:
       "Upgrade your bathroom with a sleek and modern walk-in shower.",
+    img: "/images/icon/Svgs/-_walk in shower.svg", 
   },
   {
     id: "walk-in-tub",
     title: "Walk In Tub",
     description:
       "Enjoy a luxurious and safe bathing experience with our walk-in tubs.",
+    img: "/images/icon/Svgs/-_walk in Tubs.svg", 
   },
   {
     id: "kitchen-remodeling",
     title: "Kitchen Remodeling",
     description: "Transform your kitchen into a modern masterpiece.",
+    img: "/images/icon/Svgs/-_windows.svg", 
   },
   {
     id: "window-replacement",
     title: "Window Replacement",
     description: "Enhance your home's energy efficiency with new windows.",
+    img: "/images/icon/Svgs/-_Kitchen Remodel.svg", 
   },
 ];
+
 
 const Projects = () => {
   return (
     <section className="mt-10">
-      <div className="md:max-w-[1200px] mx-auto text-center px-4 sm:px-6 lg:px-0">
+      <div className="max-w-[1180px] mx-auto text-center px-4 sm:px-6 lg:px-0">
         <h1 className="text-3xl font-semibold text-gray-800">
           Home Improvement Projects We Can Help With
         </h1>
 
         <div className="grid gap-8 md:gap-24 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-16">
-          {services.map(({ id, title }) => (
+          {services.map(({ id, title, img  }) => (
             <Link href={`/projects/${id}`} key={id}>
-              <div className="group bg-gray-100 shadow-md shadow-gray-400 rounded-sm p-2 flex flex-col items-center hover:shadow-gray-400 hover:shadow-xl transform transition duration-300 cursor-pointer">
+              <div className="group bg-gray-100 shadow-md shadow-gray-300 p-2 flex flex-col items-center hover:shadow-gray-300 hover:shadow-xl transform transition duration-300 cursor-pointer">
                 <Image
-                  src={img}
+                   src={img}
                   alt={title}
-                  width={80}
-                  height={80}
-                  className="mb-4 mt-6"
+                  width={100}
+                  height={100}
+                  className="mb-4 mt-6 w-50 h-20"
                 />
                 <h3 className="font-medium text-gray-800 group-hover:text-gray-600">
                   {title}

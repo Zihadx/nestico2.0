@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import img from "../../../../assets/yt.png";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,29 +32,34 @@ const HeroSection = () => {
       alert("Please select a project type!");
       return;
     }
-    router.push(`/projects/${selectedValue}`);
+    router.push(`/${selectedValue}`);
   };
 
   return (
-    <section className="relative bg-gray-50 mt-20 py-8 ">
-      <div className="absolute inset-0">
-        <Image
-          src={img}
-          alt="Background"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          className="opacity-50"
-        />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-200 to-transparent" />
+    <section className="relative bg-gray-50 mt-20 py-8 overflow-hidden">
+     <div className="absolute inset-0 z-0">
+    <Image
+      src="/images/hero-image.webp"
+      alt="Background"
+      layout="fill"
+      objectFit="contain" 
+      objectPosition="100% center"
+      className="translate-x-[200px]"
+    />
+  </div>
+
+  <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-200 via-[50%] to-transparent" />
 
 
 
-      <div className="relative mx-auto max-w-[1200px] px-4 h-full z-10 text-gray-950">
-        <div className="lg:w-2/5 mt-28">
-          <div className="bg-green-400 opacity-20 p-4 rounded-full my-3 w-1/2"></div>
-          <h1 className="text-4xl font-bold leading-tight mb-4">
+
+
+
+
+      <div className="relative mx-auto max-w-[1180px] px-2 h-full z-10 text-gray-950">
+        <div className="lg:w-1/2 mt-28">  
+          <div className="bg-green-500 opacity-10 h-[28px] rounded-full my-2 w-60 "></div>
+          <h1 className="text-[40px] font-bold leading-tight mb-4">
             A New Way for Home Improvement <br /> Projects
           </h1>
           <p className="text-xl mb-6 text-gray-500 leading-normal">
@@ -93,6 +97,10 @@ const HeroSection = () => {
             </button>
           </div>
         </div>
+      </div>
+       {/* Dot SVG in the Bottom Left */}
+       <div className="absolute bottom-0 left-0 z-0 m-2">
+       <Image src="images/dots-v.svg" width={160} height={160} alt="dot-v"/>
       </div>
     </section>
   );

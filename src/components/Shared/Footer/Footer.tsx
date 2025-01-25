@@ -6,11 +6,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#344763] text-white">
-      <div className="mx-auto max-w-[1200px] px-4 py-4 space-y-5">
-        <div className="py-4">
+    <footer className="bg-[#344763] text-white px-2">
+      <div className="mx-auto max-w-[1180px] py-4 ">
+        <div className="mb-4">
           <Link href="/">
-            <Image src={footerLogo} alt="footerLogo" width={150} height={150} />
+            <Image src='images/logo_in.svg' alt="footerLogo" width={150} height={150} />
           </Link>
         </div>
         <nav className="flex justify-between md:w-1/2 items-center">
@@ -27,7 +27,7 @@ const Footer = () => {
             Contact us
           </a>
         </nav>
-        <div className="text-lg">
+        <div className="text-lg mt-10">
           <p>Copyright © {currentYear} Neu Home Services</p>
         </div>
       </div>

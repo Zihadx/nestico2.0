@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { useParams } from "next/navigation";
 import Image from "next/image";
 
-import img from "../../../../../assets/yt.png";
+import img from "../../../assets/yt.png";
 import useLocation from "@/components/DetailsPage/loactions/dynamicLocations";
 import { services } from "@/data/fakeServiceData";
 import ZipSearchForm from "@/components/DetailsPage/ZipSearchForm/ZipSearchForm";
@@ -12,10 +11,12 @@ import ZipSearchForm from "@/components/DetailsPage/ZipSearchForm/ZipSearchForm"
 type Project = {
   id: string;
   title: string;
+  projectid: string
 };
 
-const ProjectDetails = () => {
-  const { projectId } = useParams<{ projectId: string }>();
+const ProjectDetails = ({ params }: { params: { projectid: string } }) => {
+
+  const projectId = params.projectid;
   const location = useLocation();
   const [zipStatus, setZipStatus] = useState<string | null>(null);
   const [zipDetails, setZipDetails] = useState<{ city: string; state: string } | null>(null);
@@ -39,7 +40,8 @@ const ProjectDetails = () => {
       {/* Background for banner ----------*/}
       <div className="absolute inset-0">
         <Image
-          src={img}
+          src='images/inspiration-slide3.webp'
+          // src={img}
           alt="Background"
           layout="fill"
           objectFit="cover"
@@ -60,6 +62,7 @@ const ProjectDetails = () => {
 
         {/* Form Section------------ imported */}
         <ZipSearchForm
+        projectId={projectId}
           onStatusChange={setZipStatus}
           onZipLocations={setZipDetails}
         />

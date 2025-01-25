@@ -10,7 +10,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import logo from "../../../../assets/neulogo.png";
 
 
 interface ProjectType {
@@ -44,20 +43,20 @@ const Navbar = () => {
       alert("Please select a project type!");
       return;
     }
-    router.push(`/projects/${selectedValue}`);
+    router.push(`/${selectedValue}`);
   };
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-colors duration-300 ${
+      className={`fixed px-4 top-0 w-full z-50 transition-colors duration-300 ${
         isScrolled ? "bg-white shadow-md" : "bg-gray-200"
       }`}
     >
-      <div className="container mx-auto px-4 py-1 max-w-[1200px]">
+      <div className="container mx-auto px-4 py-2 max-w-[1180px]">
         {!isScrolled ? (
           <div className="py-3">
             <Link href="/">
-              <Image src={logo} alt="Neu-Logo" width={146} height={146} />
+              <Image src='images/logo.svg' alt="Neu-Logo" width={142} height={142} />
             </Link>
           </div>
         ) : (
