@@ -1,0 +1,76 @@
+"use client";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Navigation, Pagination } from "swiper/modules";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+import "./Inspirations.css";
+
+const Inspirations = () => {
+  const images = [
+    "/images/inspiration-slide1.webp",
+    "/images/inspiration-slide2.webp",
+    "/images/inspiration-slide3.webp",
+    "/images/inspiration-slide4.webp",
+    "/images/inspiration-slide5.webp",
+    "/images/inspiration-slide6.webp",
+    "/images/inspiration-slide7.webp",
+    "/images/inspiration-slide8.webp",
+  ];
+
+  return (
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+          Inspirations
+        </h2>
+
+        <div className="relative group">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={20}
+            slidesPerView={1}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={{
+              nextEl: ".custom-next",
+              prevEl: ".custom-prev",
+            }}
+            className="rounded-sm overflow-hidden shadow-lg pb-16"
+          >
+            {images.map((src, index) => (
+              <SwiperSlide key={index}>
+                <div className="w-full h-[400px] flex items-center justify-center overflow-hidden">
+                  <img
+                    src={src}
+                    alt={`Inspiration ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <button
+            className="custom-prev flex absolute top-1/2 -left-12 z-10 -translate-y-1/2"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="w-10 h-10" />
+          </button>
+          <button
+            className="custom-next flex absolute top-1/2 -right-12 z-10 -translate-y-1/2"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="w-10 h-10" />
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Inspirations;

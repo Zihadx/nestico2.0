@@ -9,6 +9,7 @@ import Image from "next/image";
 import WalkInShower from "@/components/DetailsPage/servicesSection/WalkInShower";
 import Advantages from "@/components/DetailsPage/Advantages/Advantages";
 import Features from "@/components/DetailsPage/Features/Features";
+import Inspirations from "@/components/DetailsPage/Inspirations/Inspirations";
 
 type Project = {
   id: string;
@@ -96,6 +97,7 @@ const ProjectDetails: React.FC = () => {
         <WalkInShower />
         <Advantages/>
         <Features/>
+        <Inspirations/>
       </div>
     </div>
   );
