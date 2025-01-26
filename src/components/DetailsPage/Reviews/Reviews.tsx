@@ -4,13 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import {
-  ChevronLeft,
-  ChevronRight,
-  CircleUser,
-  User as UserIcon,
-  UserRound,
-} from "lucide-react"; // Import the Lucide profile icon
+import { ChevronLeft, ChevronRight, UserRound } from "lucide-react"; // Import the Lucide profile icon
 
 interface Testimonial {
   name: string;
@@ -41,20 +35,20 @@ const Testimonials: Testimonial[] = [
   {
     name: "Sam O",
     feedback:
-      "We recently moved into our new home at the start of the summer, but needed to fix a few things around here.Didnt realize,  how quick the process would be. Met with the contractor and was able to get it paid installed in less than 7 days! I can't tell you how much we love this upgrade!",
+      "We recently moved into our new home at the start of the summer, but needed to fix a few things around here. Didn't realize how quick the process would be. Met with the contractor and was able to get it paid and installed in less than 7 days! I can't tell you how much we love this upgrade!",
   },
   {
     name: "Thuy L",
     feedback:
-      "As someone who struggles with knee pain, the barrier-free entrance is a blessing, and the rainfall showerhead feels like a dream.My bathroom is not only more functional, but looks great too!",
+      "As someone who struggles with knee pain, the barrier-free entrance is a blessing, and the rainfall showerhead feels like a dream. My bathroom is not only more functional but looks great too!",
   },
 ];
 
 const TestimonialsSlider = () => {
   return (
-    <section className="py-16 my-16">
+    <section className="py-16 my-16 px-4">
       <div className="max-w-[1180px] mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
           What Our Customers Are Saying
         </h2>
 
@@ -62,10 +56,21 @@ const TestimonialsSlider = () => {
           <Swiper
             modules={[Navigation]}
             spaceBetween={30}
-            slidesPerView={3}
+            slidesPerView={1}
             navigation={{
               nextEl: ".custom-next",
               prevEl: ".custom-prev",
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
             }}
             className="rounded-lg overflow-hidden"
           >

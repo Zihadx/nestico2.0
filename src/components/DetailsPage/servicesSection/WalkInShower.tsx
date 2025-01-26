@@ -19,8 +19,7 @@ const WalkInShower = () => {
         You will be surprised how affordable a Walk-in Shower can be:
       </p>
       <div className="flex flex-col md:flex-row justify-between items-center gap-6 w-full">
-        {/* Card with fixed height and width, responsive on small screens */}
-        <Card className="p-6 shadow-lg w-full md:w-1/2 h-80">
+        <Card className="p-6 w-full md:w-1/2 h-80">
           <CardContent>
             <ul className="space-y-4">
               {features.map((feature, index) => (
@@ -33,11 +32,10 @@ const WalkInShower = () => {
           </CardContent>
         </Card>
 
-        {/* Image with fixed height and width, responsive on small screens */}
         <div className="w-full md:w-1/2 h-80">
           <Image
-            height={320} // Fixed height to match card height
-            width={320}  // Fixed width to match card width
+            height={320}
+            width={320} 
             src="/images/walk-in-shower.webp"
             alt="Walk-in Shower"
             className="rounded-lg shadow-md w-full h-full object-cover"

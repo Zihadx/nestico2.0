@@ -1,4 +1,4 @@
-import { CheckCircle, SquareCheckBig } from "lucide-react";
+import { SquareCheckBig } from "lucide-react";
 
 const Features = () => {
   const features = [
@@ -26,25 +26,23 @@ const Features = () => {
         <p className="text-lg text-gray-600 mb-8">
           The ergonomic design of walk-in showers makes them safe and simple to use. They are designed for the entire family and family members who may have limited mobility. Features include:
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8 mx-auto">
           {images.map((src, index) => (
             <img
               key={index}
               src={src}
               alt={`Feature image ${index + 1}`}
-              className="rounded-sm"
+              className="rounded-sm mx-auto"
             />
           ))}
         </div>
 
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4">
           {features.map((feature, index) => (
             <div key={index} className="flex items-center p-3">
               <SquareCheckBig strokeWidth={2.5} size={28} className="text-[#55bc7e] flex-shrink-0" />
-              
               <p className="text-xl font-medium ml-4">{feature}</p>
             </div>
-            
           ))}
         </div>
       </div>
