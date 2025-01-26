@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import {
@@ -36,28 +35,22 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative bg-gray-50 mt-20 py-8 overflow-hidden">
-     <div className="absolute inset-0 z-0">
-    <Image
-      src="/images/hero-image.webp"
-      alt="Background"
-      layout="fill"
-      objectFit="contain" 
-      objectPosition="100% center"
-      className="translate-x-[200px]"
-    />
-  </div>
+    <section className="relative bg-gray-50 mt-20 py-8 overflow-hidden px-2 md:px-0">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hero-image.webp"
+          alt="Background"
+          layout="fill"
+          objectFit="contain"
+          objectPosition="100% center"
+          className="translate-x-[200px]"
+        />
+      </div>
 
-  <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-200 via-[50%] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-200 via-[50%] to-transparent" />
 
-
-
-
-
-
-
-      <div className="relative mx-auto max-w-[1180px] px-2 h-full z-10 text-gray-950">
-        <div className="lg:w-1/2 mt-28">  
+      <div className="relative mx-auto max-w-[1180px] px-2 h-full z-10 text-gray-950 -top-24 md:top-0">
+        <div className="lg:w-1/2 mt-28">
           <div className="bg-green-500 opacity-10 h-[28px] rounded-full my-2 w-60 "></div>
           <h1 className="text-[40px] font-bold leading-tight mb-4">
             A New Way for Home Improvement <br /> Projects
@@ -98,9 +91,9 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-       {/* Dot SVG in the Bottom Left */}
-       <div className="absolute bottom-0 left-0 z-0 m-2">
-       <Image src="images/dots-v.svg" width={160} height={160} alt="dot-v"/>
+      {/* Dot SVG in the Bottom Left */}
+      <div className="absolute bottom-0 left-0 z-0 m-2">
+        <Image src="images/dots-v.svg" width={160} height={160} alt="dot-v" />
       </div>
     </section>
   );

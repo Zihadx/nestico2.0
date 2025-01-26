@@ -6,7 +6,7 @@ import WorksSections from "@/components/Home/Works/Works";
 
 export default function Home() {
   return (
-    <div>
+    <div >
       <HeroSection />
       <Projects />
       <WorksSections />

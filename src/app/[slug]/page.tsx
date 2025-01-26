@@ -1,27 +1,29 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
-
-import img from "../../../assets/yt.png";
+import { useParams } from "next/navigation";
 import useLocation from "@/components/DetailsPage/loactions/dynamicLocations";
 import { services } from "@/data/fakeServiceData";
 import ZipSearchForm from "@/components/DetailsPage/ZipSearchForm/ZipSearchForm";
+import Image from "next/image";
 
 type Project = {
   id: string;
   title: string;
-  projectid: string
+  projectid: string;
 };
 
-const ProjectDetails = ({ params }: { params: { projectid: string } }) => {
-
-  const projectId = params.projectid;
+const ProjectDetails: React.FC = () => {
+  const params = useParams();
+  const slug = params?.slug as string;
   const location = useLocation();
   const [zipStatus, setZipStatus] = useState<string | null>(null);
-  const [zipDetails, setZipDetails] = useState<{ city: string; state: string } | null>(null);
+  const [zipDetails, setZipDetails] = useState<{
+    city: string;
+    state: string;
+  } | null>(null);
 
-  const project = services.find((service) => service.id === projectId) as
+  const project = services.find((service) => service.slug === slug) as
     | Project
     | undefined;
 
@@ -38,34 +40,31 @@ const ProjectDetails = ({ params }: { params: { projectid: string } }) => {
   return (
     <section className="relative bg-gray-50 py-6 md:py-12 max-h-[480px] md:min-h-[500px] mt-20">
       {/* Background for banner ----------*/}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0">
         <Image
-          src='images/inspiration-slide3.webp'
-          // src={img}
-          alt="Background"
-          layout="fill"
+          src="/images/inspiration-slide3.webp" 
+          alt="Background Image"
+          layout="fill" 
           objectFit="cover"
-          objectPosition="center"
-          className="opacity-30"
+          quality={100} 
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-transparent z-10" /> 
 
-      {/* Banner Content------------ */}
-      <div className="relative max-w-2xl mx-auto px-2 md:px-6 py-4 md:py-8 text-gray-800 z-10">
+      {/* Banner Content -----------*/}
+      <div className="relative max-w-2xl mx-auto px-2 md:px-6 py-4 md:py-8 text-gray-800 z-20">
         <div className="text-center mb-4 md:mb-10">
           <h1 className="text-3xl lg:text-4xl font-bold mb-4 lg:leading-snug">
             How Much Does It Cost to <span>{project.title}</span> in{" "}
             <span className="font-extrabold">{location}</span>?
           </h1>
         </div>
-
-        {/* Form Section------------ imported */}
         <ZipSearchForm
-        projectId={projectId}
+          projectId={slug}
           onStatusChange={setZipStatus}
           onZipLocations={setZipDetails}
         />
+
         {zipStatus && (
           <p
             className={`mt-1 text-sm text-center font-medium ${

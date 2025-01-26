@@ -3,7 +3,7 @@ import Image from "next/image";
 
 
 interface Service {
-  id: string;
+  slug: string;
   title: string;
   description: string;
   img: string
@@ -12,27 +12,27 @@ interface Service {
 // Fake Data---------------
 const services: Service[] = [
   {
-    id: "walk-in-shower",
+    slug: "walk-in-shower",
     title: "Walk In Shower",
     description:
       "Upgrade your bathroom with a sleek and modern walk-in shower.",
     img: "/images/icon/Svgs/-_walk in shower.svg", 
   },
   {
-    id: "walk-in-tub",
+    slug: "walk-in-tub",
     title: "Walk In Tub",
     description:
       "Enjoy a luxurious and safe bathing experience with our walk-in tubs.",
     img: "/images/icon/Svgs/-_walk in Tubs.svg", 
   },
   {
-    id: "kitchen-remodeling",
+    slug: "kitchen-remodeling",
     title: "Kitchen Remodeling",
     description: "Transform your kitchen into a modern masterpiece.",
     img: "/images/icon/Svgs/-_windows.svg", 
   },
   {
-    id: "window-replacement",
+    slug: "window-replacement",
     title: "Window Replacement",
     description: "Enhance your home's energy efficiency with new windows.",
     img: "/images/icon/Svgs/-_Kitchen Remodel.svg", 
@@ -49,8 +49,8 @@ const Projects = () => {
         </h1>
 
         <div className="grid gap-8 md:gap-24 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-16">
-          {services.map(({ id, title, img  }) => (
-            <Link href={`/projects/${id}`} key={id}>
+          {services.map(({ slug, title, img  }) => (
+            <Link href={`/${slug}`} key={slug}>
               <div className="group bg-gray-100 shadow-md shadow-gray-300 p-2 flex flex-col items-center hover:shadow-gray-300 hover:shadow-xl transform transition duration-300 cursor-pointer">
                 <Image
                    src={img}

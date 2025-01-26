@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="mx-auto max-w-[1180px] py-4 ">
         <div className="mb-4">
           <Link href="/">
-            <Image src='images/logo_in.svg' alt="footerLogo" width={150} height={150} />
+            <Image src='/images/logo_in.svg' alt="footerLogo" width={150} height={150} />
           </Link>
         </div>
         <nav className="flex justify-between md:w-1/2 items-center">

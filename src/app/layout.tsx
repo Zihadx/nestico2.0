@@ -26,12 +26,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${robotoMono.variable} antialiased`}>
-        <div>
-          <Navbar />
-          {children}
-          <Footer />
-        </div>
+      <body
+        className={`${inter.variable} ${robotoMono.variable} antialiased min-h-screen flex flex-col`}
+      >
+        <Navbar />
+        <main className="flex-grow">{children}</main>
+        <Footer />
         <Toaster />
       </body>
     </html>
