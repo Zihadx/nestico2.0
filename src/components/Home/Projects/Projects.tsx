@@ -42,7 +42,7 @@ const services: Service[] = [
 
 const Projects = () => {
   return (
-    <section className="mt-10">
+    <section className="mt-10 mb-20">
       <div className="max-w-[1180px] mx-auto text-center px-4 sm:px-6 lg:px-0">
         <h1 className="text-3xl font-semibold text-gray-800">
           Home Improvement Projects We Can Help With

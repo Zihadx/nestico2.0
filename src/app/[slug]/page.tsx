@@ -10,6 +10,8 @@ import WalkInShower from "@/components/DetailsPage/servicesSection/WalkInShower"
 import Advantages from "@/components/DetailsPage/Advantages/Advantages";
 import Features from "@/components/DetailsPage/Features/Features";
 import Inspirations from "@/components/DetailsPage/Inspirations/Inspirations";
+import WorksSections from "@/components/Home/Works/Works";
+import HomeOwnersHelped from "@/components/Home/HomeOwnersHelped/HomeOwnersHelped";
 
 type Project = {
   id: string;
@@ -98,6 +100,8 @@ const ProjectDetails: React.FC = () => {
         <Advantages/>
         <Features/>
         <Inspirations/>
+        <WorksSections/>
+        <HomeOwnersHelped/>
       </div>
     </div>
   );

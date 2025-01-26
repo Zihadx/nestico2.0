@@ -33,7 +33,7 @@ const works: Work[] = [
 
 const WorksSections = () => {
   return (
-    <section className="bg-[#344763] text-white py-14 px-6 mt-20">
+    <section className="bg-[#344763] text-white py-14 px-6">
       <div className="max-w-[1180px] mx-auto text-center">
         <h2 className="text-3xl font-semibold mb-12">How it works?</h2>
         <div className="flex flex-col lg:flex-row items-center justify-between">
