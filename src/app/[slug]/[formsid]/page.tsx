@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import supabase from "@/utils/supabase/client";
 import { Lock, LockKeyhole } from "lucide-react";
 
+
 const MultiStepForm = () => {
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [progress, setProgress] = useState<number>(0);
@@ -105,7 +106,7 @@ const MultiStepForm = () => {
         }}
       >
         {({ values, isValid, setFieldValue }) => (
-          <FormikForm className="w-full lg:w-1/2 p-6 bg-white rounded-lg shadow-md relative overflow-hidden">
+          <FormikForm className="w-full lg:w-1/2 p-6 bg-white rounded-2xl   shadow-md relative overflow-hidden">
             {/* Progress Bar------------------ */}
             <div
               className="absolute bottom-0 left-0 h-[5px] bg-gray-500 transition-all duration-500"
