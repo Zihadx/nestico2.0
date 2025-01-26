@@ -12,6 +12,7 @@ import Features from "@/components/DetailsPage/Features/Features";
 import Inspirations from "@/components/DetailsPage/Inspirations/Inspirations";
 import WorksSections from "@/components/Home/Works/Works";
 import HomeOwnersHelped from "@/components/Home/HomeOwnersHelped/HomeOwnersHelped";
+import TestimonialsSlider from "@/components/DetailsPage/Reviews/Reviews";
 
 type Project = {
   id: string;
@@ -102,6 +103,7 @@ const ProjectDetails: React.FC = () => {
         <Inspirations/>
         <WorksSections/>
         <HomeOwnersHelped/>
+        <TestimonialsSlider/>
       </div>
     </div>
   );
