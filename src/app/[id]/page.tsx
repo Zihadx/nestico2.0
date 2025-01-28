@@ -14,19 +14,28 @@ import TestimonialsSlider from "@/components/DetailsPage/Reviews/Reviews";
 import Benefits from "@/components/DetailsPage/Benefits/Benefits";
 
 export interface Project {
-  id?: string;
-  title?: string;
-  description?: string;
-  features?: string[];
-  advantages?: string[];
-  inspirations?: { image: string; title: string }[]; // Keeping image here for inspirations
-  reviews?: { name: string; comment: string }[];
-  benefits?: string[]; // Optional
-  images?: string[]; // Optional
-  image?: string; // Make image optional
+  id: string;
+  title: string;
+  description: string;
+  benefits: string[];
+  image: string;
+  advantages: Advantage[];
+  features: {
+    description: string;
+    list: string[];
+    images: string[];
+  };
+  inspirations: {
+    images: string[];
+  };
 }
 
-const ProjectDetails: React.FC = () => {
+interface Advantage {
+  title: string;
+  description: string;
+}
+
+const ProjectDetails = () => {
   const params = useParams();
   const id = params?.id as string;
   const location = useLocation();
@@ -52,7 +61,9 @@ const ProjectDetails: React.FC = () => {
         }
 
         const data: Project[] = await response.json();
-        setAllData(data);
+
+        const validData = data.filter((item): item is Project => !!item.id);
+        setAllData(validData);
       } catch (error) {
         setAllData(null);
       }
@@ -83,7 +94,7 @@ const ProjectDetails: React.FC = () => {
 
   return (
     <div>
-      {/* Hero Section */}
+      {/* details page banner with zip search ------------------- */}
       <section className="relative bg-gray-50 py-6 md:py-12 max-h-[480px] md:min-h-[500px] mt-20">
         <div className="absolute inset-0 z-0">
           <Image
@@ -109,7 +120,7 @@ const ProjectDetails: React.FC = () => {
             onZipLocations={setZipDetails}
           />
 
-          {/* ZIP Validation Message */}
+          {/* ZIP Validation Message---------------- */}
           {zipStatus && (
             <p
               className={`mt-1 text-sm text-center font-medium ${
@@ -134,7 +145,7 @@ const ProjectDetails: React.FC = () => {
         </div>
       </section>
 
-      {/* details page others sections ---------------------------- */}
+      {/* Details page other sections */}
       <Benefits allData={allData} projectId={id} />
       <Advantages allData={allData} projectId={id} />
       <Features allData={allData} projectId={id} />

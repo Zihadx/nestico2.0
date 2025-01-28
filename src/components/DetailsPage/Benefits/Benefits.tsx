@@ -10,10 +10,11 @@ interface Project {
   image: string;
 }
 
-interface BenefitsSectionProps {
+type BenefitsSectionProps = {
   allData: Project[];
   projectId: string;
-}
+};
+
 
 
 const Benefits = ({ allData, projectId }: BenefitsSectionProps) => {
