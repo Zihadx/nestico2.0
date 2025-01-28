@@ -4,13 +4,20 @@ import HomeOwnersHelped from "@/components/Home/HomeOwnersHelped/HomeOwnersHelpe
 import Projects from "@/components/Home/Projects/Projects";
 import WorksSections from "@/components/Home/Works/Works";
 
-export default function Home() {
+const HomePage = async () => {
+
+
+  const dataRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/fakeDb.json`, { cache: "no-cache" })
+  const allData = await dataRes.json();
+  console.log("Data:", allData)
   return (
-    <div >
-      <HeroSection />
+    <div>
+      <HeroSection  allData={allData}/>
       <Projects />
       <WorksSections />
       <HomeOwnersHelped />
     </div>
   );
-}
+};
+
+export default HomePage;

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,29 +9,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 
-const projectTypes = [
-  { label: "Walk In Shower", value: "walk-in-shower" },
-  { label: "Walk In Tub", value: "walk-in-tub" },
-  { label: "Kitchen Remodeling", value: "kitchen-remodeling" },
-  { label: "Window Replacement", value: "window-replacement" },
-];
+interface AllData {
+  allData: { id: string; title: string }[]; // Define the structure of allData
+}
 
-const HeroSection = () => {
-  const [selectedValue, setSelectedValue] = useState<string>(
-    "Select project type"
-  );
-  const router = useRouter();
+const HeroSection = ({ allData }: AllData) => {
+  const [selectedValue, setSelectedValue] = useState<string>(""); // Store only the id
 
-  const handleSelect = (value: string) => {
-    setSelectedValue(value);
-  };
-
-  const handleNavigate = () => {
-    if (selectedValue === "Select project type") {
-      alert("Please select a project type!");
-      return;
-    }
-    router.push(`/${selectedValue}`);
+  const handleSelect = (id: string) => {
+    setSelectedValue(id);
   };
 
   return (
@@ -61,7 +47,7 @@ const HeroSection = () => {
           </p>
         </div>
 
-        {/* Dropdown and Button------------------ */}
+        {/* Dropdown and Button ------------------ */}
         <div className="mt-20">
           <h3 className="text-center text-xl font-semibold mb-4">
             Start your Home Improvement Project
@@ -69,25 +55,29 @@ const HeroSection = () => {
           <div className="flex flex-wrap justify-center items-center rounded-lg gap-2 md:gap-0">
             <DropdownMenu>
               <DropdownMenuTrigger className="bg-white px-4 py-2 md:rounded-l-sm md:rounded-r-none rounded-sm w-full sm:w-[250px] text-left shadow-xl shadow-gray-300">
-                {selectedValue}
+                {selectedValue ? allData.find(item => item.id === selectedValue)?.title : "Select project type"}
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-[250px]">
-                {projectTypes.map((project) => (
+                {allData.map((project) => (
                   <DropdownMenuItem
-                    key={project.value}
-                    onClick={() => handleSelect(project.value)}
+                    key={project.id}
+                    onClick={() => handleSelect(project.id)}
                   >
-                    {project.label}
+                    {project.title}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            <button
-              onClick={handleNavigate}
-              className="bg-green-500 text-white px-4 py-2 md:rounded-r-sm rounded-sm md:rounded-l-none hover:bg-green-600 w-full sm:w-auto min-w-[120px]"
+            <Link
+              href={`/${selectedValue}`} // Navigate dynamically to [id] route
+              passHref
             >
-              Get Estimate
-            </button>
+              <button
+                className="bg-green-500 text-white px-4 py-2 md:rounded-r-sm rounded-sm md:rounded-l-none hover:bg-green-600 w-full sm:w-auto min-w-[120px]"
+              >
+                Get Estimate
+              </button>
+            </Link>
           </div>
         </div>
       </div>
