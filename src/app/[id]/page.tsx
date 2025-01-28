@@ -12,26 +12,28 @@ import Inspirations from "@/components/DetailsPage/Inspirations/Inspirations";
 import WorksSections from "@/components/Home/Works/Works";
 import HomeOwnersHelped from "@/components/Home/HomeOwnersHelped/HomeOwnersHelped";
 import TestimonialsSlider from "@/components/DetailsPage/Reviews/Reviews";
+import OfferSection from "@/components/DetailsPage/servicesSection/WalkInShower";
 
 type Project = {
   id: string;
   title: string;
-  projectid: string;
+  description: string;
+  features: string[];
+  advantages: string[];
+  inspirations: { image: string; title: string }[];
+  reviews: { name: string; comment: string }[];
 };
 
 const ProjectDetails: React.FC = () => {
   const params = useParams();
   const id = params?.id as string;
   const location = useLocation();
-  const [project, setProject] = useState<Project | null>(null);
+  const [allData, setAllData] = useState<Project[] | null>(null);
   const [zipStatus, setZipStatus] = useState<string | null>(null);
   const [zipDetails, setZipDetails] = useState<{ city: string; state: string } | null>(null);
 
-  console.log("Selected Project ID:", id);
-
-  // ✅ Corrected: Fetch the full JSON and filter locally
   useEffect(() => {
-    const fetchProjectData = async () => {
+    const fetchAllData = async () => {
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/fakeDb.json`, {
           cache: "no-cache",
@@ -41,26 +43,27 @@ const ProjectDetails: React.FC = () => {
           throw new Error("Failed to fetch data");
         }
 
-        const allData: Project[] = await response.json();
-
-        // Find project by ID
-        const foundProject = allData.find((item) => item.id === id);
-
-        if (!foundProject) {
-          throw new Error("Project not found");
-        }
-
-        setProject(foundProject);
+        const data: Project[] = await response.json();
+        setAllData(data);
       } catch (error) {
         console.error("Error fetching project data:", error);
-        setProject(null);
+        setAllData(null);
       }
     };
 
-    fetchProjectData();
-  }, [id]);
+    fetchAllData();
+  }, []);
 
-  // ✅ Show error message if project is not found
+  if (!allData) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gray-50 text-gray-700">
+        <h1 className="text-2xl font-bold">Loading data...</h1>
+      </div>
+    );
+  }
+
+  const project = allData.find((item) => item.id === id);
+
   if (!project) {
     return (
       <div className="flex items-center justify-center h-screen bg-gray-50 text-gray-700">
@@ -71,67 +74,31 @@ const ProjectDetails: React.FC = () => {
 
   return (
     <div>
-      {/* Hero Section / Banner */}
+      {/* Hero Section */}
       <section className="relative bg-gray-50 py-6 md:py-12 max-h-[480px] md:min-h-[500px] mt-20">
-        {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/inspiration-slide3.webp"
-            alt="Background Image"
-            layout="fill"
-            objectFit="cover"
-            quality={100}
-          />
+          <Image src="/images/inspiration-slide3.webp" alt="Background Image" layout="fill" objectFit="cover" quality={100} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-transparent z-10" />
 
-        {/* Hero Content */}
         <div className="relative max-w-2xl mx-auto px-2 md:px-6 py-4 md:py-8 text-gray-800 z-20">
           <div className="text-center mb-4 md:mb-10">
             <h1 className="text-3xl lg:text-4xl font-bold mb-4 lg:leading-snug">
-              How Much Does It Cost to <span>{project.title}</span> in{" "}
-              <span className="font-extrabold">{location}</span>?
+              How Much Does It Cost to <span>{project.title}</span> in <span className="font-extrabold">{location}</span>?
             </h1>
           </div>
-
-          {/* Zip Search Form */}
           <ZipSearchForm projectId={id} onStatusChange={setZipStatus} onZipLocations={setZipDetails} />
-
-          {/* Zip Code Status Message */}
-          {zipStatus && (
-            <p
-              className={`mt-1 text-sm text-center font-medium ${
-                zipStatus === "matched"
-                  ? "text-green-600"
-                  : zipStatus === "not_matched"
-                  ? "text-red-600"
-                  : "text-gray-600"
-              }`}
-            >
-              {zipStatus === "matched"
-                ? `${zipDetails?.city}, ${zipDetails?.state}`
-                : zipStatus === "not_matched"
-                ? "ZIP code is currently not serviced by our contractor."
-                : zipStatus}
-            </p>
-          )}
-
-          <p className="text-base text-center font-medium text-gray-600 mt-2">
-            Free, no-obligation estimates.
-          </p>
         </div>
       </section>
 
-      {/* Additional Sections */}
-      <div>
-        <WalkInShower />
-        <Advantages />
-        <Features />
-        <Inspirations />
-        <WorksSections />
-        <HomeOwnersHelped />
-        <TestimonialsSlider />
-      </div>
+      {/* Passing full allData */}
+      <OfferSection allData={allData} projectId={id} />
+      <Advantages allData={allData} projectId={id} />
+      <Features allData={allData} projectId={id} />
+      <Inspirations allData={allData} projectId={id} />
+      <WorksSections />
+      <HomeOwnersHelped />
+      <TestimonialsSlider allData={allData} projectId={id} />
     </div>
   );
 };

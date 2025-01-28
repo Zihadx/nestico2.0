@@ -2,42 +2,64 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import Image from "next/image";
 
-const features = [
-  "Modern style and comfort",
-  "Easy to clean",
-  "Fair price",
-  "Multiple safety options",
-  "Shower seated or standing",
-  "Better accessibility",
-];
+// Define Types for Data
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  benefits: string[];
+  image: string;
+}
 
-const WalkInShower = () => {
+interface OfferSectionProps {
+  allData: Project[];
+  projectId: string;
+}
+
+const OfferSection: React.FC<OfferSectionProps> = ({ allData, projectId }) => {
+  // Find the selected project
+  const project = allData.find((item) => item.id === projectId);
+
+  // Handle missing project
+  if (!project) {
+    console.warn(`Project with ID "${projectId}" not found.`);
+    return null;
+  }
+
   return (
-    <div className="flex flex-col items-center justify-center w-full lg:w-[1180px] mx-auto my-10 px-2">
-      <h1 className="text-4xl font-bold mb-4 text-center">Walk-in Shower</h1>
+    <div className="flex flex-col items-center justify-center w-full lg:w-[1180px] mx-auto my-10 px-4">
+      {/* Title and Description */}
+      <h1 className="text-4xl font-bold mb-4 text-center">{project.title}</h1>
       <p className="text-lg text-gray-600 mb-6 text-center font-semibold">
-        You will be surprised how affordable a Walk-in Shower can be:
+        {project.description}
       </p>
+
+      {/* Content Section */}
       <div className="flex flex-col md:flex-row justify-between items-center gap-6 w-full">
+        {/* Benefits Section */}
         <Card className="p-6 w-full md:w-1/2 h-80">
           <CardContent>
             <ul className="space-y-4">
-              {features.map((feature, index) => (
-                <li key={index} className="flex items-center space-x-3 font-bold text-lg">
+              {project.benefits.map((benefit, index) => (
+                <li
+                  key={index}
+                  className="flex items-center space-x-3 font-bold text-lg"
+                >
                   <Check className="text-green-600 w-5 h-5" />
-                  <span className="text-gray-800">{feature}</span>
+                  <span className="text-gray-800">{benefit}</span>
                 </li>
               ))}
             </ul>
           </CardContent>
         </Card>
 
+        {/* Image Section */}
         <div className="w-full md:w-1/2 h-80">
           <Image
+            src={project.image}
+            alt={project.title}
             height={320}
-            width={320} 
-            src="/images/walk-in-shower.webp"
-            alt="Walk-in Shower"
+            width={320}
             className="rounded-lg shadow-md w-full h-full object-cover"
           />
         </div>
@@ -46,4 +68,4 @@ const WalkInShower = () => {
   );
 };
 
-export default WalkInShower;
+export default OfferSection;
