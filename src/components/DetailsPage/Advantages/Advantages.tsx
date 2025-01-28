@@ -6,6 +6,7 @@ interface Advantage {
 interface Project {
   id: string;
   title: string;
+  description: string;
   advantages: Advantage[];
 }
 
