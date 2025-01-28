@@ -15,12 +15,10 @@ const Navbar = () => {
   const [allData, setAllData] = useState<{ id: string; title: string }[]>([]);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Handle selection of project type
   const handleSelect = (id: string) => {
     setSelectedValue(id);
   };
 
-  // Fetch data for allData
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -35,7 +33,6 @@ const Navbar = () => {
     fetchData();
   }, []);
 
-  // Handle scroll to toggle navbar styles
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
