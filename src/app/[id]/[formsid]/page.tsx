@@ -68,14 +68,14 @@ const MultiStepForm = () => {
       ]);
 
       if (error) {
-        console.error("Error submitting form:", error.message);
+        // console.error("Error submitting form:", error.message);
         toast({
           title: "Submission Error",
           description:
             "There was an error submitting your form. Please try again.",
         });
       } else {
-        console.log("Form submitted successfully:", data);
+        // console.log("Form submitted successfully:", data);
         toast({
           title: "Form Submitted",
           description: "Your form has been successfully submitted.",

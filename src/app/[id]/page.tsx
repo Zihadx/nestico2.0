@@ -54,7 +54,6 @@ const ProjectDetails: React.FC = () => {
         const data: Project[] = await response.json();
         setAllData(data);
       } catch (error) {
-        console.error("Error fetching project data:", error);
         setAllData(null);
       }
     };
@@ -109,6 +108,29 @@ const ProjectDetails: React.FC = () => {
             onStatusChange={setZipStatus}
             onZipLocations={setZipDetails}
           />
+
+          {/* ZIP Validation Message */}
+          {zipStatus && (
+            <p
+              className={`mt-1 text-sm text-center font-medium ${
+                zipStatus === "matched"
+                  ? "text-green-600"
+                  : zipStatus === "not_matched"
+                  ? "text-red-600"
+                  : "text-gray-600"
+              }`}
+            >
+              {zipStatus === "matched"
+                ? `${zipDetails?.city}, ${zipDetails?.state}`
+                : zipStatus === "not_matched"
+                ? "ZIP code is currently not serviced by our contractor."
+                : zipStatus}
+            </p>
+          )}
+
+          <p className="text-base text-center font-medium text-gray-600 mt-2">
+            Free, no-obligation estimates.
+          </p>
         </div>
       </section>
 

@@ -48,7 +48,7 @@ const ZipSearchForm = ({
         onZipLocations(null);
       }
     } catch (error) {
-      console.error("Validation error:", error);
+      // console.error("Validation error:", error);
       onStatusChange("Error checking ZIP code");
       onZipLocations(null);
       setIsMatched(false);

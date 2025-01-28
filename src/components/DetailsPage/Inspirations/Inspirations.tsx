@@ -28,7 +28,7 @@ const Inspirations = ({ allData, projectId }: InspirationProps) => {
   const project = allData.find((item) => item.id === projectId);
 
   if (!project) {
-    console.warn(`Project with ID "${projectId}" not found.`);
+    // console.warn(`Project with ID "${projectId}" not found.`);
     return null;
   }
 
