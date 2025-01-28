@@ -25,15 +25,17 @@ const Advantages: React.FC<AdvantagesProps> = ({ allData, projectId }) => {
     return null;
   }
 
+  const { advantages } = project; 
+
   return (
     <div className="my-10 bg-[#ecf1f4] py-12 px-2">
       <div className="w-full lg:w-[1180px] mx-auto ">
         <h1 className="text-4xl font-semibold mb-6 text-center">
-          Advantages Of Walk-In Showers
+          Advantages Of {project.title}
         </h1>
         <div className="">
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {project.advantages.map((advantage, index) => (
+            {advantages.map((advantage, index) => (
               <li
                 key={index}
                 className="flex flex-col md:flex-row md:items-start gap-4"

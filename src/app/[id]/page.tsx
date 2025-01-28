@@ -5,14 +5,15 @@ import { useParams } from "next/navigation";
 import useLocation from "@/components/DetailsPage/loactions/dynamicLocations";
 import ZipSearchForm from "@/components/DetailsPage/ZipSearchForm/ZipSearchForm";
 import Image from "next/image";
-import WalkInShower from "@/components/DetailsPage/servicesSection/WalkInShower";
+import WalkInShower from "@/components/DetailsPage/Benefits/Benefits";
 import Advantages from "@/components/DetailsPage/Advantages/Advantages";
 import Features from "@/components/DetailsPage/Features/Features";
 import Inspirations from "@/components/DetailsPage/Inspirations/Inspirations";
 import WorksSections from "@/components/Home/Works/Works";
 import HomeOwnersHelped from "@/components/Home/HomeOwnersHelped/HomeOwnersHelped";
 import TestimonialsSlider from "@/components/DetailsPage/Reviews/Reviews";
-import OfferSection from "@/components/DetailsPage/servicesSection/WalkInShower";
+import OfferSection from "@/components/DetailsPage/Benefits/Benefits";
+import Benefits from "@/components/DetailsPage/Benefits/Benefits";
 
 type Project = {
   id: string;
@@ -92,7 +93,7 @@ const ProjectDetails: React.FC = () => {
       </section>
 
       {/* Passing full allData */}
-      <OfferSection allData={allData} projectId={id} />
+      <Benefits  allData={allData} projectId={id} />
       <Advantages allData={allData} projectId={id} />
       <Features allData={allData} projectId={id} />
       <Inspirations allData={allData} projectId={id} />

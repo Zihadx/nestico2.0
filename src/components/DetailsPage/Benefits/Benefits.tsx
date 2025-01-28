@@ -2,7 +2,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import Image from "next/image";
 
-// Define Types for Data
 interface Project {
   id: string;
   title: string;
@@ -16,27 +15,25 @@ interface OfferSectionProps {
   projectId: string;
 }
 
-const OfferSection: React.FC<OfferSectionProps> = ({ allData, projectId }) => {
-  // Find the selected project
+const Benefits: React.FC<OfferSectionProps> = ({ allData, projectId }) => {
   const project = allData.find((item) => item.id === projectId);
 
-  // Handle missing project
   if (!project) {
     console.warn(`Project with ID "${projectId}" not found.`);
     return null;
   }
 
+  const { benefits } = project;
+
   return (
     <div className="flex flex-col items-center justify-center w-full lg:w-[1180px] mx-auto my-10 px-4">
-      {/* Title and Description */}
       <h1 className="text-4xl font-bold mb-4 text-center">{project.title}</h1>
       <p className="text-lg text-gray-600 mb-6 text-center font-semibold">
         {project.description}
       </p>
 
-      {/* Content Section */}
       <div className="flex flex-col md:flex-row justify-between items-center gap-6 w-full">
-        {/* Benefits Section */}
+        {/* Benefits Section----------------------- */}
         <Card className="p-6 w-full md:w-1/2 h-80">
           <CardContent>
             <ul className="space-y-4">
@@ -53,7 +50,7 @@ const OfferSection: React.FC<OfferSectionProps> = ({ allData, projectId }) => {
           </CardContent>
         </Card>
 
-        {/* Image Section */}
+        {/* Image Section-------------------- */}
         <div className="w-full md:w-1/2 h-80">
           <Image
             src={project.image}
@@ -68,4 +65,4 @@ const OfferSection: React.FC<OfferSectionProps> = ({ allData, projectId }) => {
   );
 };
 
-export default OfferSection;
+export default Benefits;

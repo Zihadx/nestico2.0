@@ -47,7 +47,7 @@ const Features: React.FC<AdvantagesProps> = ({ allData, projectId }) => {
 
         <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4">
           {features.list.map((feature, index) => (
-            <div key={index} className="flex items-center p-3">
+            <div key={index} className="flex items-center my-1">
               <SquareCheckBig strokeWidth={2.5} size={28} className="text-[#55bc7e] flex-shrink-0" />
               <p className="text-xl font-medium ml-4">{feature}</p>
             </div>
