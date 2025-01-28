@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-
 import Link from "next/link";
 import {
   DropdownMenu,
@@ -11,19 +10,32 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-interface AllData {
-  allData: { id: string; title: string }[];
-}
-
-const Navbar = ({ allData }: AllData) => {
+const Navbar = () => {
   const [selectedValue, setSelectedValue] = useState<string>("");
+  const [allData, setAllData] = useState<{ id: string; title: string }[]>([]);
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  // Handle selection of project type
   const handleSelect = (id: string) => {
     setSelectedValue(id);
   };
 
-  const [isScrolled, setIsScrolled] = useState(false);
+  // Fetch data for allData
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/fakeDb.json`);
+        const data = await response.json();
+        setAllData(data);
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+      }
+    };
 
+    fetchData();
+  }, []);
+
+  // Handle scroll to toggle navbar styles
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
@@ -32,9 +44,7 @@ const Navbar = ({ allData }: AllData) => {
 
   return (
     <nav
-      className={`fixed px-4 top-0 w-full z-50 transition-colors duration-300 ${
-        isScrolled ? "bg-white shadow-md" : "bg-gray-200"
-      }`}
+      className={`fixed px-4 top-0 w-full z-50 transition-colors duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-gray-200"}`}
     >
       <div className="container mx-auto px-4 py-2 max-w-[1180px]">
         {!isScrolled ? (
@@ -61,7 +71,7 @@ const Navbar = ({ allData }: AllData) => {
                     : "Select project type"}
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-[250px]">
-                  {allData && allData.length > 0 ? (
+                  {allData.length > 0 ? (
                     allData.map((project) => (
                       <DropdownMenuItem
                         key={project.id}

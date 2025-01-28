@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import useLocation from "@/components/DetailsPage/loactions/dynamicLocations";
+import useLocation from "@/components/DetailsPage/locations/dynamicLocations";
 import ZipSearchForm from "@/components/DetailsPage/ZipSearchForm/ZipSearchForm";
 import Image from "next/image";
 import Advantages from "@/components/DetailsPage/Advantages/Advantages";
@@ -29,6 +29,7 @@ export interface Project {
     images: string[];
   };
 }
+
 
 interface Advantage {
   title: string;
