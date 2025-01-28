@@ -6,7 +6,6 @@ import WorksSections from "@/components/Home/Works/Works";
 
 const HomePage = async () => {
 
-
   const dataRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/fakeDb.json`, { cache: "no-cache" })
   const allData = await dataRes.json();
   console.log("Data:", allData)

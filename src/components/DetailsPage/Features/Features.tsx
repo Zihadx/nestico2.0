@@ -16,17 +16,15 @@ interface AdvantagesProps {
   projectId: string;
 }
 
-const Features: React.FC<AdvantagesProps> = ({ allData, projectId }) => {
-  // Find the selected project
+const Features = ({ allData, projectId }: AdvantagesProps) => {
   const project = allData.find((item) => item.id === projectId);
 
-  // Handle missing project
   if (!project) {
     console.warn(`Project with ID "${projectId}" not found.`);
     return null;
   }
 
-  const { features } = project; // Destructure features from the project
+  const { features } = project;
 
   return (
     <section className="py-12 bg-gray-50">

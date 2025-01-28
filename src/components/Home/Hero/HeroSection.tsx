@@ -10,11 +10,11 @@ import {
 import Image from "next/image";
 
 interface AllData {
-  allData: { id: string; title: string }[]; // Define the structure of allData
+  allData: { id: string; title: string }[]; 
 }
 
 const HeroSection = ({ allData }: AllData) => {
-  const [selectedValue, setSelectedValue] = useState<string>(""); // Store only the id
+  const [selectedValue, setSelectedValue] = useState<string>("");
 
   const handleSelect = (id: string) => {
     setSelectedValue(id);
@@ -69,7 +69,7 @@ const HeroSection = ({ allData }: AllData) => {
               </DropdownMenuContent>
             </DropdownMenu>
             <Link
-              href={`/${selectedValue}`} // Navigate dynamically to [id] route
+              href={`/${selectedValue}`}
               passHref
             >
               <button
@@ -81,7 +81,6 @@ const HeroSection = ({ allData }: AllData) => {
           </div>
         </div>
       </div>
-      {/* Dot SVG in the Bottom Left */}
       <div className="absolute bottom-0 left-0 z-0 m-2">
         <Image src="images/dots-v.svg" width={160} height={160} alt="dot-v" />
       </div>

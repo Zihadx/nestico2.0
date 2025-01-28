@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import { Navigation, Pagination } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-
+import "./Inspirations.css";
 
 interface Inspiration {
   images: string[];
@@ -24,21 +24,15 @@ interface InspirationProps {
   projectId: string;
 }
 
-import "./Inspirations.css";
-
-const Inspirations: React.FC<InspirationProps> = ({ allData, projectId }) => {
-
-
+const Inspirations = ({ allData, projectId }: InspirationProps) => {
   const project = allData.find((item) => item.id === projectId);
-
 
   if (!project) {
     console.warn(`Project with ID "${projectId}" not found.`);
     return null;
   }
 
-  const { inspirations } = project; 
-
+  const { inspirations } = project;
 
   return (
     <section className="py-16 bg-[#ecf1f4] overflow-hidden px-6">
@@ -52,9 +46,7 @@ const Inspirations: React.FC<InspirationProps> = ({ allData, projectId }) => {
             modules={[Navigation, Pagination]}
             spaceBetween={20}
             slidesPerView={1}
-            pagination={{
-              clickable: true,
-            }}
+            pagination={{ clickable: true }}
             navigation={{
               nextEl: ".custom-next",
               prevEl: ".custom-prev",
