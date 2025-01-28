@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+
 import Link from "next/link";
 import {
   DropdownMenu,
@@ -11,40 +11,24 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-
-interface ProjectType {
-  label: string;
-  value: string;
+interface AllData {
+  allData: { id: string; title: string }[];
 }
 
-const ProjectTypes: ProjectType[] = [
-  { label: "Walk In Shower", value: "walk-in-shower" },
-  { label: "Walk In Tub", value: "walk-in-tub" },
-  { label: "Kitchen Remodeling", value: "kitchen-remodeling" },
-  { label: "Window Replacement", value: "window-replacement" },
-];
+const Navbar = ({ allData }: AllData) => {
+  const [selectedValue, setSelectedValue] = useState<string>("");
 
-const Navbar = () => {
+  const handleSelect = (id: string) => {
+    setSelectedValue(id);
+  };
+
   const [isScrolled, setIsScrolled] = useState(false);
-  const [selectedValue, setSelectedValue] = useState<string>("Select project type");
-  const router = useRouter();
-
-
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-
-  const handleNavigate = (): void => {
-    if (selectedValue === "Select project type") {
-      alert("Please select a project type!");
-      return;
-    }
-    router.push(`/${selectedValue}`);
-  };
 
   return (
     <nav
@@ -56,38 +40,48 @@ const Navbar = () => {
         {!isScrolled ? (
           <div className="py-3">
             <Link href="/">
-              <Image src='images/logo.svg' alt="Neu-Logo" width={142} height={142} />
+              <Image
+                src="images/logo.svg"
+                alt="Neu-Logo"
+                width={142}
+                height={142}
+              />
             </Link>
           </div>
         ) : (
-          <div className="">
+          <div>
             <h3 className="text-center text-xl font-semibold mb-2">
               Start your Home Improvement Project
             </h3>
             <div className="flex flex-wrap justify-center items-center rounded-lg gap-2 md:gap-0">
               <DropdownMenu>
-                <DropdownMenuTrigger className="bg-white px-4 py-2 md:rounded-l-sm md:rounded-r-none rounded-sm w-full sm:w-[250px] text-left shadow-sm shadow-gray-300">
-                  {selectedValue}
+                <DropdownMenuTrigger className="bg-white px-4 py-2 md:rounded-l-sm md:rounded-r-none rounded-sm w-full sm:w-[250px] text-left shadow-xl shadow-gray-300">
+                  {selectedValue
+                    ? allData.find((item) => item.id === selectedValue)?.title
+                    : "Select project type"}
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-full sm:w-[250px]">
-                  {ProjectTypes.map((project) => (
-                    <DropdownMenuItem
-                      key={project.value}
-                      onClick={() => setSelectedValue(project.value)}
-                    >
-                      {project.label}
+                <DropdownMenuContent className="w-[250px]">
+                  {allData && allData.length > 0 ? (
+                    allData.map((project) => (
+                      <DropdownMenuItem
+                        key={project.id}
+                        onClick={() => handleSelect(project.id)}
+                      >
+                        {project.title}
+                      </DropdownMenuItem>
+                    ))
+                  ) : (
+                    <DropdownMenuItem disabled>
+                      No projects available
                     </DropdownMenuItem>
-                  ))}
+                  )}
                 </DropdownMenuContent>
               </DropdownMenu>
-
-
-              <button
-                onClick={handleNavigate}
-                className="bg-green-500 text-white px-4 py-2 md:rounded-r-sm rounded-sm md:rounded-l-none hover:bg-green-600 w-full sm:w-auto min-w-[120px]"
-              >
-                Get Estimate
-              </button>
+              <Link href={`/${selectedValue}`} passHref>
+                <button className="bg-green-500 text-white px-4 py-2 md:rounded-r-sm rounded-sm md:rounded-l-none hover:bg-green-600 w-full sm:w-auto min-w-[120px]">
+                  Get Estimate
+                </button>
+              </Link>
             </div>
           </div>
         )}

@@ -3,6 +3,7 @@ import HomeOwnersHelped from "@/components/Home/HomeOwnersHelped/HomeOwnersHelpe
 
 import Projects from "@/components/Home/Projects/Projects";
 import WorksSections from "@/components/Home/Works/Works";
+import Navbar from "@/components/Shared/Navbar/Navbar";
 
 const HomePage = async () => {
 
@@ -11,6 +12,7 @@ const HomePage = async () => {
   console.log("Data:", allData)
   return (
     <div>
+      <Navbar allData={allData} /> 
       <HeroSection  allData={allData}/>
       <Projects />
       <WorksSections />
