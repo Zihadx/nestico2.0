@@ -22,8 +22,8 @@ const Inspirations = () => {
   ];
 
   return (
-    <section className="py-16 bg-[#ecf1f4]">
-      <div className="max-w-[1180px] mx-auto px-4">
+    <section className="py-16 bg-[#ecf1f4] overflow-hidden px-6">
+      <div className="max-w-[1180px] mx-auto px-2">
         <h2 className="text-4xl font-semibold text-center mb-12 text-gray-800">
           Inspirations
         </h2>

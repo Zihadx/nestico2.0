@@ -13,7 +13,7 @@ const features = [
 
 const WalkInShower = () => {
   return (
-    <div className="flex flex-col items-center justify-center w-full lg:w-[1180px] mx-auto my-10">
+    <div className="flex flex-col items-center justify-center w-full lg:w-[1180px] mx-auto my-10 px-2">
       <h1 className="text-4xl font-bold mb-4 text-center">Walk-in Shower</h1>
       <p className="text-lg text-gray-600 mb-6 text-center font-semibold">
         You will be surprised how affordable a Walk-in Shower can be:

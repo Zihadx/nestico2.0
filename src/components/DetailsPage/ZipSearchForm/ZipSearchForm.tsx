@@ -77,7 +77,7 @@ const ZipSearchForm = ({
           aria-label="ZIP code"
           value={zipCode}
           onChange={(e) => setZipCode(e.target.value)}
-          className="border border-gray-300 text-sm px-6 py-4 rounded-md outline-none transition"
+          className="border border-gray-300 text-sm px-4 lg:px-6 py-4 rounded-md outline-none transition"
         />
 
         {isMatched && (
@@ -91,7 +91,7 @@ const ZipSearchForm = ({
           onClick={handleStartEstimate}
           className={`${
             isMatched ? "bg-[#55bc7e]" : "bg-[#55bc7e] cursor-not-allowed"
-          } text-sm text-white px-4 py-4 rounded-md`}
+          } text-sm text-white px-2 lg:px-4 py-4 rounded-md`}
           aria-disabled={!isMatched}
         >
           Start Free Estimate

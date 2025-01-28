@@ -4,10 +4,10 @@ import { Formik, Form as FormikForm, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { RadioGroup} from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
 import supabase from "@/utils/supabase/client";
-import { Lock, LockKeyhole } from "lucide-react";
+import { LockKeyhole } from "lucide-react";
 
 
 const MultiStepForm = () => {
@@ -211,7 +211,7 @@ const MultiStepForm = () => {
                 </>
               )}
 
-              {/* mobile, modular or manu-------------------*/}
+              {/* mobile, modular or man..-------------------*/}
               {currentStep === 1 && (
                 <>
                   <RadioGroup
