@@ -1,9 +1,17 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import supabase from "@/utils/supabase/client";
 import { CircleCheckBig } from "lucide-react";
-import { useRouter } from "next/navigation";
+import {
+  Dialog,
+  DialogContent,
+} from "@/components/ui/dialog";
+import SubmitForm from "@/components/SubmitForm/SubmitForm";
+
+interface Project {
+  id: string;
+  title: string;
+}
 
 interface ZipSearchFormProps {
   onStatusChange: (status: string | null) => void;
@@ -20,9 +28,36 @@ const ZipSearchForm = ({
 }: ZipSearchFormProps) => {
   const [zipCode, setZipCode] = useState("");
   const [isMatched, setIsMatched] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [projectTitle, setProjectTitle] = useState<string | null>(null);
 
-  const router = useRouter();
+  // access project title-----------------
+  useEffect(() => {
+    const fetchProjectTitle = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/fakeDb.json`,
+          {
+            cache: "no-cache",
+          }
+        );
 
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+
+        const data: Project[] = await response.json();
+        const project = data.find((item) => item.id === projectId);
+        setProjectTitle(project ? project.title : "Unknown Project");
+      } catch (error) {
+        setProjectTitle("Unknown Project");
+      }
+    };
+
+    fetchProjectTitle();
+  }, [projectId]);
+
+  // Validate ZIP Code using Supabase----------------
   const validateZipCode = async () => {
     if (!zipCode) {
       onStatusChange(null);
@@ -48,7 +83,6 @@ const ZipSearchForm = ({
         onZipLocations(null);
       }
     } catch (error) {
-      // console.error("Validation error:", error);
       onStatusChange("Error checking ZIP code");
       onZipLocations(null);
       setIsMatched(false);
@@ -59,9 +93,10 @@ const ZipSearchForm = ({
     validateZipCode();
   }, [zipCode]);
 
+  // Open modal when ZIP code is matched
   const handleStartEstimate = () => {
     if (isMatched) {
-      router.push(`/${projectId}/${zipCode}`);
+      setIsModalOpen(true);
     }
   };
 
@@ -97,6 +132,16 @@ const ZipSearchForm = ({
           Start Free Estimate
         </button>
       </div>
+
+      {/* Modal for Form content Submit-----------*/}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="max-w-5xl p-6">
+          <SubmitForm 
+          projectTitle={projectTitle} 
+          zipCode={zipCode} 
+          />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
