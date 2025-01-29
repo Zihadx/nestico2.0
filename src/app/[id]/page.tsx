@@ -68,7 +68,7 @@ const ProjectDetails = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0); // Show sticky form after 300px scroll
+      setIsScrolled(window.scrollY > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -98,6 +98,15 @@ const ProjectDetails = () => {
       {isScrolled && (
         <div className="fixed top-0 left-0 w-full bg-white shadow-md z-50 px-4 py-3">
           <ZipSearchForm projectId={id} onStatusChange={setZipStatus} onZipLocations={setZipDetails} />
+          {zipStatus && (
+            <p className={`mt-1 text-sm text-center font-medium ${zipStatus === "matched" ? "text-green-600" : zipStatus === "not_matched" ? "text-red-600" : "text-gray-600"}`}>
+              {zipStatus === "matched"
+                ? `${zipDetails?.city}, ${zipDetails?.state}`
+                : zipStatus === "not_matched"
+                ? "ZIP code is currently not serviced by our contractor."
+                : zipStatus}
+            </p>
+          )}
         </div>
       )}
       <section className="relative bg-gray-50 py-6 md:py-12 max-h-[480px] md:min-h-[500px] mt-20">
