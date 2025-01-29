@@ -8,7 +8,7 @@ NEU Home is a responsive, modern web application designed for home services. It 
 
 ## Live Demo
 
-Check out the live version of the project: [NEU Home Live](https://neu-home.vercel.app/)
+Check out the live version of the project: [Neu Home Live](https://neu-home.vercel.app/)
 
 ## Tech Stack
 
