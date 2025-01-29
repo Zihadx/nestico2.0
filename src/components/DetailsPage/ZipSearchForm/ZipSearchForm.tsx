@@ -103,7 +103,7 @@ const ZipSearchForm = ({
       <h3 className="text-lg md:text-2xl font-semibold mb-4 md:mb-6">
         Let's find out! Enter your ZIP code below
       </h3>
-      <div className="flex justify-center items-center gap-3 relative">
+      <div className="flex justify-center items-center gap-3 relative px-2">
         <input
           type="text"
           placeholder="Enter ZIP code"
@@ -124,7 +124,7 @@ const ZipSearchForm = ({
           onClick={handleStartEstimate}
           className={`${
             isMatched ? "bg-[#55bc7e]" : "bg-[#55bc7e] cursor-not-allowed"
-          } text-sm text-white px-2 lg:px-4 py-4 rounded-md`}
+          } text-sm text-white px-2 lg:px-4 py-4 rounded-md min-w-[150px]`}
           aria-disabled={!isMatched}
         >
           Start Free Estimate
