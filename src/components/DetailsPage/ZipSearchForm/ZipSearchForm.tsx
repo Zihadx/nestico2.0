@@ -1,12 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import supabase from "@/utils/supabase/client";
-import { CircleCheckBig } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-} from "@/components/ui/dialog";
+import { CircleCheckBig, CrossIcon, X } from "lucide-react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import SubmitForm from "@/components/SubmitForm/SubmitForm";
+
 
 interface Project {
   id: string;
@@ -93,7 +91,7 @@ const ZipSearchForm = ({
     validateZipCode();
   }, [zipCode]);
 
-  // Open modal when ZIP code is matched
+  // Open modal when ZIP code is matched----------------
   const handleStartEstimate = () => {
     if (isMatched) {
       setIsModalOpen(true);
@@ -136,10 +134,16 @@ const ZipSearchForm = ({
       {/* Modal for Form content Submit-----------*/}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="max-w-5xl p-6">
-          <SubmitForm 
-          projectTitle={projectTitle} 
-          zipCode={zipCode} 
-          />
+          <button
+            className="absolute top-2 right-2 p-1 text-2xl z-20 rounded-full bg-opacity-70 bg-gray-600 text-white"
+            onClick={() => setIsModalOpen(false)}
+            aria-label="Close"
+          >
+            <X />
+          </button>
+
+          {/* submit form content imported-------- */}
+          <SubmitForm projectTitle={projectTitle} zipCode={zipCode} />
         </DialogContent>
       </Dialog>
     </div>
