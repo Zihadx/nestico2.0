@@ -94,7 +94,7 @@ const ProjectDetails = () => {
   }
 
   return (
-    <div>
+    <div className="overflow-hidden">
       {/* details page banner with zip search ------------------- */}
       <section className="relative bg-gray-50 py-6 md:py-12 max-h-[480px] md:min-h-[500px] mt-20">
         <div className="absolute inset-0 z-0">

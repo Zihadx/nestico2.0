@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import supabase from "@/utils/supabase/client";
-import { CircleCheckBig, CrossIcon, X } from "lucide-react";
+import { CircleCheckBig, X } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import SubmitForm from "@/components/SubmitForm/SubmitForm";
 

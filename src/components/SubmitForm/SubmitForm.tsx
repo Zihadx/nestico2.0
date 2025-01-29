@@ -336,7 +336,7 @@ const SubmitForm = ({ projectTitle, zipCode }: SubmitFormProps) => {
               {/* phone number and submit---------------- */}
               {currentStep === 3 && (
                 <div>
-                  <div className="flex items-center justify-center gap-3 mb-2 w-full lg:w-1/2 mx-auto">
+                  <div className="flex flex-col md:flex-row items-center justify-center gap-3 mb-2 w-full lg:w-1/2 mx-auto">
                     <div className="relative w-full">
                       <Field
                         name="phone"
@@ -357,7 +357,7 @@ const SubmitForm = ({ projectTitle, zipCode }: SubmitFormProps) => {
                     <Button
                       type="submit"
                       variant="default"
-                      className="bg-green-500 p-6 text-white hover:bg-green-600 disabled:bg-green-300"
+                      className="w-full md:max-w-48 bg-green-500 p-6 text-white hover:bg-green-600 disabled:bg-green-300"
                       disabled={!isValid}
                     >
                       {isLastStep ? "Submit my request" : "Next"}

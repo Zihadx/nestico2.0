@@ -52,7 +52,7 @@ const HeroSection = ({ allData }: AllData) => {
           <h3 className="text-center text-xl font-semibold mb-4">
             Start your Home Improvement Project
           </h3>
-          <div className="flex flex-wrap justify-center items-center rounded-lg gap-2 md:gap-0">
+          <div className="flex justify-center items-center rounded-lg gap-2 md:gap-0">
             <DropdownMenu>
               <DropdownMenuTrigger className="bg-white px-4 py-2 md:rounded-l-sm md:rounded-r-none rounded-sm w-full sm:w-[250px] text-left shadow-xl shadow-gray-300">
                 {selectedValue ? allData.find(item => item.id === selectedValue)?.title : "Select project type"}
@@ -73,7 +73,7 @@ const HeroSection = ({ allData }: AllData) => {
               passHref
             >
               <button
-                className="bg-green-500 text-white px-4 py-2 md:rounded-r-sm rounded-sm md:rounded-l-none hover:bg-green-600 w-full sm:w-auto min-w-[120px]"
+                className="bg-green-500 text-white px-4 py-2 md:rounded-r-sm rounded-sm md:rounded-l-none hover:bg-green-600 w-full sm:w-auto min-w-[150px]"
               >
                 Get Estimate
               </button>
