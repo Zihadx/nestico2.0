@@ -48,7 +48,7 @@ const Navbar = () => {
           <div className="py-3">
             <Link href="/">
               <Image
-                src="images/logo.svg"
+                src="/images/logo/nesticologo.png"
                 alt="Neu-Logo"
                 width={142}
                 height={142}
