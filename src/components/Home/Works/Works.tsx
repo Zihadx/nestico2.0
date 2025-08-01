@@ -1,68 +1,57 @@
-import React from "react";
+"use client";
+
 import Image from "next/image";
-
-interface Work {
-  id: number;
-  title: string;
-  description: string;
-  img: string
-}
-
-// Fake data----------
-const works: Work[] = [
+import { ArrowRight } from "lucide-react";
+// import arrowImage from "/images/Works/WorksSectionsArrow.png";
+const steps = [
   {
-    id: 1,
-    title: "Share",
-    description: "Share a few things about your home improvement project.",
-    img: "/images/icon/icon-share.svg"
+    title: "Book",
+    description: "Select the date and time like your professional to show up",
+    image: "/images/Works/WorksSections1.jpg",
   },
   {
-    id: 2,
-    title: "Match",
-    description: "Get matched with one of our friendly local contractors.",
-    img: "/images/icon/icon-match.svg"
+    title: "Schedule",
+    description: "Certified Taskers come over and do your task",
+    image:  "/images/Works/WorksSections2.jpg",
   },
   {
-    id: 3,
-    title: "Free Estimate",
-    description:
-      "One of our local contractors will get in touch to set up a 100% free estimate.",
-      img: "/images/icon/icon-estimate.svg"
+    title: "Relax",
+    description: "Your task is completed to your satisfaction — guaranteed",
+    image:  "/images/Works/WorksSections3.jpg",
   },
 ];
 
 const WorksSections = () => {
   return (
-    <section className="bg-[#344763] text-white py-14 px-6">
-      <div className="max-w-[1180px] mx-auto text-center">
-        <h2 className="text-3xl font-semibold mb-12">How it works?</h2>
-        <div className="flex flex-col lg:flex-row items-center justify-between">
-          {works.map((work, index) => (
-            <div
-              key={work.id}
-              className="flex items-center justify-between my-5 lg:my-0"
-            >
-              <div className="relative flex flex-col items-center text-center gap-6">
-                <div className="w-16 h-16 bg-[#55bc7e] rounded-t-full rounded-bl-full absolute rotate-45"></div>
-                <div className="relative z-10 p-2 rounded-full flex justify-center items-center">
-                 
-                  <Image src={work.img} width={50} height={50} alt="img" className="w-14 h-14 mb-2"/>
-                </div>
-                <h3 className="text-xl font-medium relative z-10">
-                  {work.id}. {work.title}
-                </h3>
-                <p className="text-lg text-gray-300 relative z-10">
-                  {work.description}
-                </p>
-              </div>
-              {index < works.length - 1 && (
-              
-                <Image src='images/icon/angle-right.svg' width={50} height={50} alt="img" className="w-16 h-16 hidden lg:block translate-x-[20px] translate-y-[-70px]"/>
-               
-              )}
+    <section className="py-16 px-4 bg-white">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+          How it works
+        </h2>
+        <div className="w-12 h-1 bg-[#22d3ee] mx-auto mt-2 rounded-full" />
+      </div>
+
+      <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-6 max-w-6xl mx-auto">
+        {steps.map((step, index) => (
+          <div key={index} className="flex flex-col items-center text-center relative">
+            {/* Circle Image */}
+            <div className="w-36 h-36 relative rounded-full overflow-hidden shadow-md mb-4">
+              <Image src={step.image} alt={step.title} fill className="object-cover" />
             </div>
-          ))}
-        </div>
+
+            {/* Title & Description */}
+            <h3 className="text-xl font-semibold text-gray-800">{step.title}</h3>
+            <p className="text-sm text-gray-600 mt-2 max-w-xs">{step.description}</p>
+
+            {/* Arrow (only between items) */}
+            {index < steps.length - 1 && (
+              <div className="hidden md:block absolute right-[-60px] top-1/2 transform -translate-y-1/2">
+                
+                <Image src="/images/Works/WorksSectionsArrow.png" alt={step.title} width={100} height={100} className="-translate-x-4 rotate-12"/>
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     </section>
   );
