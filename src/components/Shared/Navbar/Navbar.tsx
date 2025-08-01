@@ -1,51 +1,18 @@
-"use client";
+"use client"
 
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu"
+import { PhoneCall } from "lucide-react"
+import Image from "next/image"
 
 const Navbar = () => {
-  const [selectedValue, setSelectedValue] = useState<string>("");
-  const [allData, setAllData] = useState<{ id: string; title: string }[]>([]);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  const handleSelect = (id: string) => {
-    setSelectedValue(id);
-  };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/fakeDb.json`);
-        const data = await response.json();
-        setAllData(data);
-      } catch (error) {
-        console.error("Failed to fetch data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+ 
 
   return (
-    <nav
-      className={`fixed px-4 top-0 w-full z-50 transition-colors duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-gray-200"}`}
-    >
-      <div className="container mx-auto px-4 py-2 max-w-[1180px]">
-        {!isScrolled ? (
-          <div className="py-3">
+    <header className="w-full flex items-center justify-between px-6 py-4 shadow-sm bg-white">
+      {/* Logo */}
+      <div className="py-3">
             <Link href="/">
               <Image
                 src="/images/logo/nesticologo.png"
@@ -55,45 +22,47 @@ const Navbar = () => {
               />
             </Link>
           </div>
-        ) : (
-          <div>
-            <h3 className="text-center text-xl font-semibold mb-2">
-              Start your Home Improvement Project
-            </h3>
-            <div className="flex justify-center items-center rounded-lg gap-2 md:gap-0">
-              <DropdownMenu>
-                <DropdownMenuTrigger className="bg-white px-4 py-2 md:rounded-l-sm md:rounded-r-none rounded-sm w-full sm:w-[250px] text-left shadow-md shadow-gray-300">
-                  {selectedValue
-                    ? allData.find((item) => item.id === selectedValue)?.title
-                    : "Select project type"}
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-[250px]">
-                  {allData.length > 0 ? (
-                    allData.map((project) => (
-                      <DropdownMenuItem
-                        key={project.id}
-                        onClick={() => handleSelect(project.id)}
-                      >
-                        {project.title}
-                      </DropdownMenuItem>
-                    ))
-                  ) : (
-                    <DropdownMenuItem disabled>
-                      No projects available
-                    </DropdownMenuItem>
-                  )}
-                </DropdownMenuContent>
-              </DropdownMenu>
-              <Link href={`/${selectedValue}`} passHref>
-                <button className="bg-green-500 text-white px-4 py-2 md:rounded-r-sm rounded-sm md:rounded-l-none hover:bg-green-600 w-full sm:w-auto min-w-[150px]">
-                  Get Estimate
-                </button>
-              </Link>
-            </div>
-          </div>
-        )}
+
+      {/* Navigation Links -----------*/}
+      <nav className="flex space-x-6 items-center text-sm font-medium text-gray-700">
+        <DropdownMenu>
+          <DropdownMenuTrigger className="hover:text-cyan-500 focus:outline-none relative">
+            HOME
+            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-cyan-400"></span>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem>Home 1</DropdownMenuItem>
+            <DropdownMenuItem>Home 2</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        <Link href="#">ABOUT</Link>
+        <Link href="#">SERVICE</Link>
+
+        <DropdownMenu>
+          <DropdownMenuTrigger className="hover:text-cyan-500 focus:outline-none">
+            PAGES
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem>Page 1</DropdownMenuItem>
+            <DropdownMenuItem>Page 2</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        <Link href="#">CONTACT</Link>
+      </nav>
+
+      {/* Contact & Button */}
+      <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-1 text-sm text-gray-600">
+          <PhoneCall className="h-4 w-4" />
+          <span>+88 017*****</span>
+        </div>
+        <Button className="bg-cyan-400 hover:bg-cyan-500 text-white rounded-md px-4">
+          Get Free Quote
+        </Button>
       </div>
-    </nav>
+    </header>
   );
 };
 

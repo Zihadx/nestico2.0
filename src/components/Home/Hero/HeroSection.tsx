@@ -21,29 +21,28 @@ const HeroSection = ({ allData }: AllData) => {
   };
 
   return (
-    <section className="relative bg-gray-50 mt-20 py-8 overflow-hidden px-2 md:px-0">
+    <section className="relative py-8 overflow-hidden px-2 md:px-0">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-image.webp"
+          src="/images/hero/hero.png"
           alt="Background"
           layout="fill"
-          objectFit="contain"
+          // objectFit="contain"
           objectPosition="100% center"
-          className="translate-x-[200px]"
+          className="w-full h-full object-cover lg:object-contain translate-x-40 md:translate-x-0"
         />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-200 via-[50%] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-100 via-[45%] to-transparent" />
 
-      <div className="relative mx-auto max-w-[1180px] px-2 h-full z-10 text-gray-950 -top-24 md:top-0">
-        <div className="lg:w-1/2 mt-28">
-          <div className="bg-green-500 opacity-10 h-[28px] rounded-full my-2 w-60 "></div>
-          <h1 className="text-[40px] font-bold leading-tight mb-4">
-            A New Way for Home Improvement <br /> Projects
+      <div className="relative mx-auto max-w-[1180px] px-2 h-full z-10 text-gray-950 ">
+        <div className="lg:w-1/2">
+          <div className="bg-[#22d3ee] opacity-10 h-[28px] rounded-full my-2 w-60 "></div>
+          <h1 className="text-3xl text-[#064f5a] md:text-4xl lg:text-5xl font-bold leading-tight mb-4">
+            Upgrade Your Space: The Ultimate Partner for Hassle-Free Home Improvement
           </h1>
-          <p className="text-xl mb-6 text-gray-500 leading-normal">
-            Transform Your Home with Ease: Discover the Perfect Helping Hand for
-            Stress-Free Home Improvement <br /> Projects.
+          <p className="text-lg mb-6 text-gray-500 leading-normal">
+           Say goodbye to stress and chaos. Find the perfect solution to make your home upgrade smooth, simple, and totally under control — no sweat, all style.
           </p>
         </div>
 
@@ -73,7 +72,7 @@ const HeroSection = ({ allData }: AllData) => {
               passHref
             >
               <button
-                className="bg-green-500 text-white px-4 py-2 md:rounded-r-sm rounded-sm md:rounded-l-none hover:bg-green-600 w-full sm:w-auto min-w-[150px]"
+                className="bg-[#22d3ee] text-white px-4 py-2 md:rounded-r-sm rounded-sm md:rounded-l-none hover:bg-[#22d3ee]/60 w-full sm:w-auto min-w-[150px]"
               >
                 Get Estimate
               </button>
