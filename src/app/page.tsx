@@ -1,5 +1,6 @@
 import HeroSection from "@/components/Home/Hero/HeroSection";
 import HomeOwnersHelped from "@/components/Home/HomeOwnersHelped/HomeOwnersHelped";
+import MoreProjects from "@/components/Home/Projects/MoreProjects";
 
 import Projects from "@/components/Home/Projects/Projects";
 import WorksSections from "@/components/Home/Works/Works";
@@ -14,6 +15,7 @@ const HomePage = async () => {
     <div>
       <HeroSection  allData={allData}/>
       <Projects />
+      <MoreProjects/>
       <WorksSections />
       <HomeOwnersHelped />
     </div>

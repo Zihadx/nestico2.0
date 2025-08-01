@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-
 interface Service {
   slug: string;
   title: string;
@@ -45,8 +44,15 @@ const Projects = () => {
     <section className="mt-10 mb-20">
       <div className="max-w-[1180px] mx-auto text-center px-4 sm:px-6 lg:px-0">
         <h1 className="text-3xl font-semibold text-gray-800">
-          Home Improvement Projects We Can Help With
+          Our services
         </h1>
+        <div
+          className="w-12 h-1 bg-[#22d3ee] mx-auto mt-2 rounded-full"
+          
+        />
+     
+        
+        
 
         <div className="grid gap-8 md:gap-24 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-16">
           {services.map(({ slug, title, img  }) => (

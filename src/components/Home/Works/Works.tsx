@@ -86,7 +86,7 @@ const WorksSections = () => {
                   alt="arrow"
                   width={80}
                   height={80}
-                  className="-translate-x-4 rotate-12"
+                  className="-translate-x-4 rotate-45 -translate-y-20"
                 />
               </motion.div>
             )}

@@ -47,8 +47,8 @@ const HeroSection = ({ allData }: AllData) => {
         >
           <motion.div
             className="bg-[#22d3ee] opacity-10 h-[28px] rounded-full my-2 w-60"
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+            initial={{ scale: 0.5, opacity: 1 }}
+            animate={{ scale: 1, opacity: 0.1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           />
           <motion.h1
