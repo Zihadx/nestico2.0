@@ -3,6 +3,7 @@ import HomeOwnersHelped from "@/components/Home/HomeOwnersHelped/HomeOwnersHelpe
 import MoreProjects from "@/components/Home/Projects/MoreProjects";
 
 import Projects from "@/components/Home/Projects/Projects";
+import TrustSecuritySection from "@/components/Home/TrustSecuritySection/TrustSecuritySection";
 import WorksSections from "@/components/Home/Works/Works";
 
 
@@ -17,6 +18,7 @@ const HomePage = async () => {
       <Projects />
       <MoreProjects/>
       <WorksSections />
+      <TrustSecuritySection/>
       <HomeOwnersHelped />
     </div>
   );
