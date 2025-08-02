@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const DownloadAppSection = () => {
   return (
-    <section className="w-full bg-gradient-to-r from-[#22d3ee] to-[#104b5f] text-white py-4 my-32 relative">
+    <section className="w-full bg-gradient-to-r from-[#22d3ee] to-[#104b5f] text-white py-4 my-24 relative">
       <div className="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-12">
         {/* Phone Image with smooth scale-in animation */}
         <motion.div

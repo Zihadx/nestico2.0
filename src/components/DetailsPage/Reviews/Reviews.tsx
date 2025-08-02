@@ -60,7 +60,7 @@ const testimonials: Testimonial[] = [
 
 const TestimonialsSlider = () => {
   return (
-    <section className="py-20 ">
+    <section className="mt-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
           What Our Customers Say

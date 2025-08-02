@@ -54,7 +54,7 @@ const CompanyProgress = () => {
             viewport={{ once: true, amount: 0.3 }}
             variants={cardVariants}
           >
-            <div className="bg-gradient-to-br from-[#42b1e7] to-[#24e4eb] w-20 h-20 flex items-center justify-center rounded-full shadow-md mb-4">
+            <div className="bg-gradient-to-r from-[#22d3ee] to-[#104b5f] text-white w-20 h-20 flex items-center justify-center rounded-full shadow-md mb-4">
               {stat.icon}
             </div>
             <div className="text-xl font-bold text-black mb-1">
