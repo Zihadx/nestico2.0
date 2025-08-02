@@ -66,7 +66,7 @@ const titleVariants: Variants = {
 
 const Projects = () => {
   return (
-    <section className="mt-10 mb-20 px-4 sm:px-6 lg:px-0 max-w-6xl mx-auto text-center" id="next-section">
+    <section className="mt-10 mb-20 px-4 sm:px-6 lg:px-0 max-w-6xl mx-auto text-center">
       <motion.div initial="hidden" animate="visible" variants={titleVariants}>
         <h1 className="text-3xl md:text-4xl font-semibold text-gray-800">
           Our Services
@@ -77,28 +77,27 @@ const Projects = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-12">
         {services.map(({ slug, title, img }, i) => (
           <Link href={`/${slug}`} key={slug} passHref>
-  <motion.div
-    custom={i}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    variants={cardVariants}
-    className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center justify-start border-b-2 border-transparent transition-colors duration-500 hover:border-cyan-500 cursor-pointer"
-  >
-    <Image
-      src={img}
-      alt={title}
-      width={100}
-      height={100}
-      className="mb-4 mt-6 w-50 h-20"
-      priority
-    />
-    <h3 className="font-medium text-gray-800 group-hover:text-gray-600">
-      {title}
-    </h3>
-  </motion.div>
-</Link>
-
+            <motion.div
+              custom={i}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={cardVariants}
+              className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center justify-start border-b-2 border-transparent transition-colors duration-500 hover:border-cyan-500 cursor-pointer"
+            >
+              <Image
+                src={img}
+                alt={title}
+                width={100}
+                height={100}
+                className="mb-4 mt-6 w-50 h-20"
+                priority
+              />
+              <h3 className="font-medium text-gray-800 group-hover:text-gray-600">
+                {title}
+              </h3>
+            </motion.div>
+          </Link>
         ))}
       </div>
     </section>

@@ -9,7 +9,6 @@ import Advantages from "@/components/DetailsPage/Advantages/Advantages";
 import Features from "@/components/DetailsPage/Features/Features";
 import Inspirations from "@/components/DetailsPage/Inspirations/Inspirations";
 import WorksSections from "@/components/Home/Works/Works";
-import HomeOwnersHelped from "@/components/Home/HomeOwnersHelped/HomeOwnersHelped";
 import TestimonialsSlider from "@/components/DetailsPage/Reviews/Reviews";
 import Benefits from "@/components/DetailsPage/Benefits/Benefits";
 
@@ -144,7 +143,6 @@ const ProjectDetails = () => {
       <Features allData={allData} projectId={id} />
       <Inspirations allData={allData} projectId={id} />
       <WorksSections />
-      <HomeOwnersHelped />
       <TestimonialsSlider />
     </div>
   );

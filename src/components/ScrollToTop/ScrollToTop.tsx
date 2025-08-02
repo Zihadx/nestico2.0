@@ -22,7 +22,7 @@ const ScrollToTop = () => {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-5 z-20 right-5 shadow-xl bg-gradient-to-r from-[#22d3ee] via-[#0c3b4a] to-[#104b5f] text-white p-2 rounded-lg transition-opacity duration-500 ${
+      className={`fixed bottom-5 z-20 right-5 shadow-xl bg-gradient-to-r from-[#22d3ee] via-[#0c3b4a] to-[#104b5f] text-white p-2 rounded-xl transition-opacity duration-500 ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       aria-label="Scroll to top"

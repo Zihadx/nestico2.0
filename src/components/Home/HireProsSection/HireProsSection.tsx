@@ -37,7 +37,7 @@ const features: FeatureItem[] = [
 
 const HireProsSection: React.FC = () => {
   return (
-    <section className="relative w-full h-screen overflow-hidden text-white" id="next-section">
+    <section className="relative w-full h-screen overflow-hidden text-white">
       {/* Background with Parallax */}
       <div className="absolute inset-0 z-0">
         <Parallax speed={-60}>
@@ -96,8 +96,12 @@ const HireProsSection: React.FC = () => {
                 <CardContent className="flex items-start gap-4 p-4">
                   <CheckCircle className="mt-1 text-white" size={24} />
                   <div>
-                    <h3 className="text-lg font-semibold mb-1">{feature.title}</h3>
-                    <p className="text-sm text-white/80">{feature.description}</p>
+                    <h3 className="text-lg font-semibold mb-1">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-white/80">
+                      {feature.description}
+                    </p>
                   </div>
                 </CardContent>
               </Card>

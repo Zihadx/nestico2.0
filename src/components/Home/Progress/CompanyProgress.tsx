@@ -69,7 +69,7 @@ const useCountUp = (end: number, duration = 1.5) => {
 
 const CompanyProgress = () => {
   return (
-    <section className="bg-[#f8f8f8] py-20 px-4" id="next-section">
+    <section className="bg-[#f8f8f8] py-20 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center">
         {stats.map((stat, i) => {
           const { count, ref } = useCountUp(stat.value);
