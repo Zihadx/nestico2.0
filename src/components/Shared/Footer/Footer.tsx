@@ -1,95 +1,93 @@
+"use client";
+
 import React from "react";
-import {
-  Facebook,
-  Twitter,
-  Instagram,
-  Linkedin,
-  Github,
-} from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowUp } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Branding */}
-        <div>
-          <div className="py-3">
-            <Link href="/">
-              <Image
-                src="/images/logo/nesticologo.png"
-                alt="Neu-Logo"
-                width={142}
-                height={142}
-              />
-            </Link>
-          </div>
-          <p className="text-gray-400 leading-relaxed">
-            Building trust and security for your home improvement needs.
-            Quality work, transparent service, and your satisfaction guaranteed.
+    <footer
+      className="relative bg-black text-gray-300 py-12 px-6 overflow-hidden"
+      id="footer"
+    >
+      {/* Gradient Background */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(6, 182, 212, 0.25), transparent 70%), #000000",
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Logo + Description */}
+        <div className="space-y-4">
+          <Image
+            src="/images/logo/nesticologo.png"
+            alt="Logo"
+            width={120}
+            height={40}
+            className="object-contain"
+          />
+          <p className="text-sm text-gray-400">
+            Empowering your journey with trust and innovation.
           </p>
         </div>
 
-        {/* Quick Links */}
+        {/* Company Links */}
         <div>
-          <h3 className="text-xl font-semibold mb-4 text-white">Quick Links</h3>
-          <ul className="space-y-2">
+          <h4 className="text-white font-semibold mb-4">Company</h4>
+          <ul className="space-y-2 text-sm">
             <li>
-              <a href="/" className="hover:text-cyan-400 transition-colors">
-                Home
-              </a>
+              <Link href="#">About Us</Link>
             </li>
             <li>
-              <a href="/services" className="hover:text-cyan-400 transition-colors">
-                Services
-              </a>
+              <Link href="#">Careers</Link>
             </li>
             <li>
-              <a href="/about" className="hover:text-cyan-400 transition-colors">
-                About Us
-              </a>
+              <Link href="#">Blog</Link>
             </li>
             <li>
-              <a href="/contact" className="hover:text-cyan-400 transition-colors">
-                Contact
-              </a>
+              <Link href="#">Press</Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Resources Links */}
+        <div>
+          <h4 className="text-white font-semibold mb-4">Resources</h4>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <Link href="#">Help Center</Link>
+            </li>
+            <li>
+              <Link href="#">Community</Link>
+            </li>
+            <li>
+              <Link href="#">Partners</Link>
+            </li>
+            <li>
+              <Link href="#">Guides</Link>
             </li>
           </ul>
         </div>
 
         {/* Contact */}
         <div>
-          <h3 className="text-xl font-semibold mb-4 text-white">Contact</h3>
-          <p>123 Home St, City, Country</p>
-          <p>Email: support@yourcompany.com</p>
-          <p>Phone: +880 123 456 7890</p>
-        </div>
-
-        {/* Social Media */}
-        <div>
-          <h3 className="text-xl font-semibold mb-4 text-white">Follow Us</h3>
-          <div className="flex space-x-4">
-            <a href="#" aria-label="Facebook" className="hover:text-cyan-400">
-              <Facebook size={24} />
-            </a>
-            <a href="#" aria-label="Twitter" className="hover:text-cyan-400">
-              <Twitter size={24} />
-            </a>
-            <a href="#" aria-label="Instagram" className="hover:text-cyan-400">
-              <Instagram size={24} />
-            </a>
-            <a href="#" aria-label="LinkedIn" className="hover:text-cyan-400">
-              <Linkedin size={24} />
-            </a>
-            <a href="#" aria-label="GitHub" className="hover:text-cyan-400">
-              <Github size={24} />
-            </a>
-          </div>
+          <h4 className="text-white font-semibold mb-4">Contact</h4>
+          <ul className="space-y-2 text-sm">
+            <li>Email: support@yourcompany.com</li>
+            <li>Phone: +880 1234 567890</li>
+            <li>Address: Dhaka, Bangladesh</li>
+          </ul>
         </div>
       </div>
 
-      <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
+      {/* Bottom Copyright */}
+      <div className="relative z-10 mt-10 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
         &copy; {new Date().getFullYear()} YourCompany. All rights reserved.
       </div>
     </footer>

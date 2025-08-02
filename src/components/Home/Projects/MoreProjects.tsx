@@ -92,7 +92,7 @@ const MoreProjects = () => {
   const displayed = showAll ? services : services.slice(0, 8);
 
   return (
-    <section className="mt-16 mb-24 px-4">
+    <section className="mt-16 mb-24 px-4" id="next-section">
       <div className="max-w-6xl mx-auto text-center">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}

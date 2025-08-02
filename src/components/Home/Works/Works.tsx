@@ -23,7 +23,7 @@ const steps = [
 
 const WorksSections = () => {
   return (
-    <section className="mt-16 px-4 bg-white overflow-hidden">
+    <section className="mt-16 px-4 bg-white overflow-hidden" id="next-section">
       {/* Heading */}
       <motion.div
         className="text-center mb-12"

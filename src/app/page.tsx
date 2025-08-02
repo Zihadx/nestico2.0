@@ -11,6 +11,8 @@ import MoreProjects from "@/components/Home/Projects/MoreProjects";
 import Projects from "@/components/Home/Projects/Projects";
 import TrustSecuritySection from "@/components/Home/TrustSecuritySection/TrustSecuritySection";
 import WorksSections from "@/components/Home/Works/Works";
+import ScrollDown from "@/components/ScrollToTop/ScrollDown/ScrollDown";
+import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 
 
 const HomePage = async () => {
@@ -30,6 +32,8 @@ const HomePage = async () => {
       <DownloadAppSection/>
       <CompanyProgress/>
       <ConsultationSection/>
+      <ScrollDown />
+      <ScrollToTop />
     </div>
   );
 };

@@ -5,7 +5,10 @@ import { motion } from "framer-motion";
 
 const ConsultationSection = () => {
   return (
-    <section className="w-full bg-gradient-to-r from-[#22d3ee] to-[#104b5f] text-white py-10">
+    <section
+      className="w-full bg-gradient-to-r from-[#22d3ee] to-[#104b5f] text-white py-10"
+      id="next-section"
+    >
       <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

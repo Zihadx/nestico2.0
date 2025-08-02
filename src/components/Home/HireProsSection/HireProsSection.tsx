@@ -37,7 +37,7 @@ const features: FeatureItem[] = [
 
 const HireProsSection: React.FC = () => {
   return (
-    <section className="relative w-full h-screen overflow-hidden text-white">
+    <section className="relative w-full h-screen overflow-hidden text-white" id="next-section">
       {/* Background with Parallax */}
       <div className="absolute inset-0 z-0">
         <Parallax speed={-60}>

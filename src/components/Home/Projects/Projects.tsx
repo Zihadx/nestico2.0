@@ -66,7 +66,7 @@ const titleVariants: Variants = {
 
 const Projects = () => {
   return (
-    <section className="mt-10 mb-20 px-4 sm:px-6 lg:px-0 max-w-6xl mx-auto text-center">
+    <section className="mt-10 mb-20 px-4 sm:px-6 lg:px-0 max-w-6xl mx-auto text-center" id="next-section">
       <motion.div initial="hidden" animate="visible" variants={titleVariants}>
         <h1 className="text-3xl md:text-4xl font-semibold text-gray-800">
           Our Services
