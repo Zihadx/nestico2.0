@@ -1,4 +1,6 @@
+
 import HeroSection from "@/components/Home/Hero/HeroSection";
+import HireProsSection from "@/components/Home/HireProsSection/HireProsSection";
 import HomeOwnersHelped from "@/components/Home/HomeOwnersHelped/HomeOwnersHelped";
 import CompanyProgress from "@/components/Home/Progress/CompanyProgress";
 import MoreProjects from "@/components/Home/Projects/MoreProjects";
@@ -20,6 +22,7 @@ const HomePage = async () => {
       <MoreProjects/>
       <WorksSections />
       <TrustSecuritySection/>
+      <HireProsSection/>
       <CompanyProgress/>
     </div>
   );

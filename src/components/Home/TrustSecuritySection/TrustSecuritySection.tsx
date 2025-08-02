@@ -65,7 +65,7 @@ const cardVariants: Variants = {
 
 const TrustSecuritySection = () => {
   return (
-    <section className="bg-[#22d3ee] py-16 px-4 text-white">
+    <section className="bg-gradient-to-r from-[#22d3ee] via-[#0c3b4a] to-[#104b5f] py-16 px-4 text-white">
       <div className="max-w-7xl mx-auto text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold">
           Your Trust and Security
