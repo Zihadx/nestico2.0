@@ -4,52 +4,66 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import { ChevronLeft, ChevronRight, UserRound } from "lucide-react"; // Import the Lucide profile icon
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import Image from "next/image";
 
 interface Testimonial {
   name: string;
   feedback: string;
+  clientProfile?: string;
 }
 
-const Testimonials: Testimonial[] = [
+const testimonials: Testimonial[] = [
   {
     name: "Barbara R",
     feedback:
-      "My new walk-in shower is a game-changer! It's like stepping into a spa every morning. The design is sleek, and the water pressure feels like a mini waterfall. I'm in love!",
+      "My new walk-in shower is a game-changer! It's like stepping into a spa every morning!",
+    clientProfile:
+      "https://i.ibb.co/cY8ptVF/caleb-george-Ae-Zncpkq-MVU-unsplash-1.jpg",
   },
   {
     name: "Jason C",
     feedback:
-      "Talk about a stress-reliever! This walk-in shower has transformed my daily routine. No more cramped spaces, just pure relaxation. Highly recommended!",
+      "Talk about a stress-reliever! This shower has transformed my routine. Highly recommended!",
+    clientProfile:
+      "https://i.ibb.co/qFtCn3N/pexels-andrea-piacquadio-837140.jpg",
   },
   {
     name: "Jill G",
     feedback:
-      "I can't believe I waited so long to get a walk-in shower. It’s a space-saver and a style statement all in one. The installation was a breeze, and I'm thrilled with the results!",
+      "I can't believe I waited this long. It’s stylish, spacious, and the install was a breeze!",
+    clientProfile:
+      "https://i.ibb.co/cY8ptVF/caleb-george-Ae-Zncpkq-MVU-unsplash-1.jpg",
   },
   {
     name: "Terry F",
     feedback:
-      "This walk-in shower has changed the way I start my day. It's spacious, easy to clean, and feels like a luxurious retreat. I can't imagine my bathroom without it now!",
+      "Feels like a luxurious retreat. Easy to clean, beautifully designed. A must-have!",
+    clientProfile:
+      "https://i.ibb.co/qFtCn3N/pexels-andrea-piacquadio-837140.jpg",
   },
   {
     name: "Sam O",
     feedback:
-      "We recently moved into our new home at the start of the summer, but needed to fix a few things around here. Didn't realize how quick the process would be. Met with the contractor and was able to get it paid and installed in less than 7 days! I can't tell you how much we love this upgrade!",
+      "Didn’t expect it to be this quick. From quote to install in under 7 days. Incredible!",
+    clientProfile:
+      "https://i.ibb.co/qFtCn3N/pexels-andrea-piacquadio-837140.jpg",
   },
   {
     name: "Thuy L",
     feedback:
-      "As someone who struggles with knee pain, the barrier-free entrance is a blessing, and the rainfall showerhead feels like a dream. My bathroom is not only more functional but looks great too!",
+      "The barrier-free entry is life-changing for my knees. The rainfall head is dreamy!",
+    clientProfile:
+      "https://i.ibb.co/qFtCn3N/pexels-andrea-piacquadio-837140.jpg",
   },
 ];
 
 const TestimonialsSlider = () => {
   return (
-    <section className="py-16 my-16 px-4">
-      <div className="max-w-[1180px] mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-          What Our Customers Are Saying
+    <section className="py-20 ">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
+          What Our Customers Say
         </h2>
 
         <div className="relative group">
@@ -62,9 +76,6 @@ const TestimonialsSlider = () => {
               prevEl: ".custom-prev",
             }}
             breakpoints={{
-              640: {
-                slidesPerView: 1,
-              },
               768: {
                 slidesPerView: 2,
               },
@@ -72,36 +83,47 @@ const TestimonialsSlider = () => {
                 slidesPerView: 3,
               },
             }}
-            className="rounded-lg overflow-hidden"
           >
-            {Testimonials.map((testimonial, index) => (
-              <SwiperSlide key={index}>
-                <div className="flex flex-col items-center text-center p-4">
-                  <div className="w-16 h-16 rounded-full border flex items-center justify-center">
-                    <UserRound className="w-10 h-10" />
-                  </div>
-                  <h4 className="font-semibold my-4 text-gray-900">
-                    {testimonial.name}
-                  </h4>
-                  <p className="mb-4 text-sm text-gray-700">
+            {testimonials.map((testimonial, index) => (
+              <SwiperSlide key={index} className="h-full py-10">
+                <div className="p-6 bg-white/50 dark:bg-white/10 backdrop-blur-md rounded-xl shadow-md hover:shadow-xl transition duration-300 h-full flex flex-col justify-between border border-white/20 max-w-sm mx-auto text-center">
+                  <Quote className="text-cyan-500 w-6 h-6 mb-2 mx-auto" />
+                  <p className="text-gray-800 dark:text-gray-200 text-base mb-6 flex-grow">
                     {testimonial.feedback}
                   </p>
+                  <div className="flex flex-col items-center gap-2 mt-auto">
+                    {testimonial.clientProfile ? (
+                      <Image
+                        src={testimonial.clientProfile}
+                        alt={testimonial.name}
+                        width={48}
+                        height={48}
+                        className="rounded-full object-cover border-2 border-cyan-400 h-14 w-14"
+                      />
+                    ) : (
+                      <div className="w-12 h-12 bg-gray-200 rounded-full" />
+                    )}
+                    <span className="font-semibold text-gray-900 dark:text-white">
+                      {testimonial.name}
+                    </span>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
 
+          {/* Arrows */}
           <button
-            className="custom-prev flex absolute top-1/2 -left-12 z-10 -translate-y-1/2"
-            aria-label="Previous slide"
+            className="custom-prev absolute top-1/2 -left-6 -translate-y-1/2 z-10 p-2 bg-white/80 dark:bg-slate-700 rounded-full shadow hover:scale-105 transition"
+            aria-label="Previous"
           >
-            <ChevronLeft className="w-10 h-10" />
+            <ChevronLeft className="w-6 h-6 text-gray-800 dark:text-white" />
           </button>
           <button
-            className="custom-next flex absolute top-1/2 -right-12 z-10 -translate-y-1/2"
-            aria-label="Next slide"
+            className="custom-next absolute top-1/2 -right-6 -translate-y-1/2 z-10 p-2 bg-white/80 dark:bg-slate-700 rounded-full shadow hover:scale-105 transition"
+            aria-label="Next"
           >
-            <ChevronRight className="w-10 h-10" />
+            <ChevronRight className="w-6 h-6 text-gray-800 dark:text-white" />
           </button>
         </div>
       </div>

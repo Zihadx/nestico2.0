@@ -25,7 +25,7 @@ const HomePage = async () => {
       <WorksSections />
       <TrustSecuritySection/>
       <HireProsSection/>
-      {/* <TestimonialsSlider /> */}
+      <TestimonialsSlider />
       <DownloadAppSection/>
       <CompanyProgress/>
     </div>

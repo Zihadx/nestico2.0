@@ -78,8 +78,6 @@ const DownloadAppSection = () => {
           </div>
         </motion.div>
       </div>
-
-      {/* ↓ Centered arrow between image and text, animated bounce */}
       <motion.div
         initial={{ opacity: 0, y: 0 }}
         animate={{
