@@ -36,20 +36,20 @@ const Navbar = () => {
           </DropdownMenuContent>
         </DropdownMenu>
 
-        <Link href="#">ABOUT</Link>
-        <Link href="#">SERVICE</Link>
+        <Link href="/about">ABOUT</Link>
+        <Link href="service">SERVICE</Link>
 
         <DropdownMenu>
           <DropdownMenuTrigger className="hover:text-cyan-500 focus:outline-none">
             PAGES
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem>Page 1</DropdownMenuItem>
+            <DropdownMenuItem>Booking</DropdownMenuItem>
             <DropdownMenuItem>Page 2</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
 
-        <Link href="#">CONTACT</Link>
+        <Link href="/contact">CONTACT</Link>
       </nav>
 
       {/* Contact & Button */}
