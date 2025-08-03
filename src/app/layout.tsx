@@ -4,7 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import Navbar from "@/components/Shared/Navbar/Navbar";
 import Footer from "@/components/Shared/Footer/Footer";
-import ParallaxWrapper from "@/lib/ParallaxWrapper";
+import ParallaxWrapper from "@/utils/ParallaxWrapper";
 
 const inter = Inter({
   variable: "--font-inter",

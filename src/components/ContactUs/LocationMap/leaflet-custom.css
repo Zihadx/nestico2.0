@@ -1,0 +1,5 @@
+/* styles/leaflet-custom.css */
+
+.leaflet-container {
+  outline: none;
+}
