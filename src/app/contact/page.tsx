@@ -1,6 +1,9 @@
 "use client";
 
+import ContactForm from "@/components/ContactUs/ContactForm/ContactForm";
 import ContactUsBanner from "@/components/ContactUs/ContactUsBanner/ContactUsBanner";
+import FAQSection from "@/components/ContactUs/FAQSection/FAQSection";
+import WhyWorkWithUs from "@/components/ContactUs/WhyWorkWithUs/WhyWorkWithUs";
 import dynamic from "next/dynamic";
 import React from "react";
 
@@ -15,6 +18,9 @@ const ContactPage = () => {
     <div>
       <ContactUsBanner />
       <LocationMap />
+      <WhyWorkWithUs/>
+      <FAQSection/>
+      <ContactForm/>
     </div>
   );
 };

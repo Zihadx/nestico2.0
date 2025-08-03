@@ -9,7 +9,7 @@ const ContactUsBanner = () => {
       {/* Background Image ------------------*/}
       <div className="relative w-full h-[150px] md:h-[200px]">
         <Image
-          src="/images/about/AboutUsBanner.jpg"
+          src="https://i.ibb.co/WvqVnsqg/contactus-Banner.jpg"
           alt="Banner Image"
           layout="fill"
           objectFit="cover"
