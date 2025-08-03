@@ -7,7 +7,7 @@ const AboutUsBanner = () => {
   return (
     <div>
       {/* Background Image ------------------*/}
-      <div className="relative w-full h-[200px]">
+      <div className="relative w-full h-[150px] md:h-[200px]">
         <Image
           src="/images/about/AboutUsBanner.jpg"
           alt="Banner Image"
@@ -20,17 +20,17 @@ const AboutUsBanner = () => {
         {/* Content ------------------*/}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
           <h1 className="text-3xl md:text-4xl font-semibold mb-4">ABOUT US</h1>
-          <div className="flex items-center space-x-2 text-lg md:text-xl">
+          <div className="flex items-center space-x-2 text-base md:text-lg">
             <Link
               href="/"
-              className="text-lg md:text-xl font-medium hover:underline"
+              className="font-medium hover:underline decoration-cyan-400 hover:decoration-cyan-500"
             >
               Home
             </Link>
-            <ChevronsLeft />
+            <ChevronsLeft className="text-cyan-400"/>
             <Link
               href="/about"
-              className="text-lg md:text-xl font-medium hover:underline"
+              className="font-medium hover:underline decoration-cyan-400 hover:decoration-cyan-500"
             >
               About Us
             </Link>
