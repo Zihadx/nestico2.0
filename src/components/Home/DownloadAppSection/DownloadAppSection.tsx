@@ -1,10 +1,18 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 const DownloadAppSection = () => {
+  const [phone, setPhone] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert(`Sending app link to ${phone}`);
+  };
   return (
     <section className="w-full bg-gradient-to-r from-[#22d3ee] to-[#104b5f] text-white py-4 my-24 relative">
       <div className="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -26,6 +34,7 @@ const DownloadAppSection = () => {
         </motion.div>
 
         {/* Text and Buttons with fade-up animation */}
+
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,15 +42,40 @@ const DownloadAppSection = () => {
           viewport={{ once: true }}
           className="flex-1 text-center"
         >
-          <h2 className="text-4xl font-bold text-white mb-4">
-            <span className="text-white">DOWNLOAD</span> APP NOW
-          </h2>
-          <p className="text-white text-lg mb-6">
-            Select your device platform and get{" "}
-            <br className="hidden md:block" /> download start
+          <p className="flex items-center justify-center text-sm text-gray-100 tracking-wider uppercase mb-2">
+            <span className="w-8 h-px bg-gray-100 mr-3"></span>
+            Download Our App
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white  mb-4">
+            Any Service, Any Time, Anywhere.
+          </h2>
+          <p className="text-gray-100 dark:text-gray-300 mb-6">
+            Give us your mobile number. You’ll get an SMS with the app download
+            link.
+          </p>
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col sm:flex-row items-center justify-center gap-3"
+          >
+            <Input
+              type="tel"
+              placeholder="Type your mobile number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="w-full sm:w-[300px] rounded-full text-white bg-white/10 placeholder:text-white border border-white/60 focus-visible:border-cyan-500 focus-visible:ring-1 focus-visible:ring-cyan-500 focus-visible:ring-offset-0 focus:outline-none"
+              required
+            />
+
+            <Button
+              type="submit"
+              className="bg-[#22d3ee] hover:bg-[#22d3ee]/60 text-white px-6 py-2 rounded-full"
+            >
+              Get the app
+            </Button>
+          </form>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             {/* Apple Button */}
             <motion.div whileHover={{ scale: 1.05 }}>
               <Button

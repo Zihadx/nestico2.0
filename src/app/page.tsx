@@ -1,7 +1,7 @@
 
-import TestimonialsSlider from "@/components/DetailsPage/Reviews/Reviews";
 import ConsultationSection from "@/components/Home/ConsultationSection/ConsultationSection";
 import DownloadAppSection from "@/components/Home/DownloadAppSection/DownloadAppSection";
+import HappyClients from "@/components/Home/HappyClients/HappyClients";
 import HeroSection from "@/components/Home/Hero/HeroSection";
 import HireProsSection from "@/components/Home/HireProsSection/HireProsSection";
 import CompanyProgress from "@/components/Home/Progress/CompanyProgress";
@@ -27,7 +27,7 @@ const HomePage = async () => {
       <WorksSections />
       <TrustSecuritySection/>
       <HireProsSection/>
-      <TestimonialsSlider />
+      <HappyClients />
       <DownloadAppSection/>
       <CompanyProgress/>
       <ConsultationSection/>
