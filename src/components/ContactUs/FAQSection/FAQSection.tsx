@@ -11,27 +11,27 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: "What types of services do you offer?",
+    question: "🛠️ What types of services do you offer?",
     answer:
       "We offer a wide range of home services including electrical work, plumbing, car repair, cleaning, and interior design.",
   },
   {
-    question: "Are your technicians verified and trained?",
+    question: "✅ Are your technicians verified and trained?",
     answer:
       "Yes, every team member is background-checked, professionally trained, and committed to providing respectful service.",
   },
   {
-    question: "Do you offer emergency 24/7 support?",
+    question: "🚨 Do you offer emergency 24/7 support?",
     answer:
       "Absolutely. Our emergency response team is on call 24/7 to handle urgent repairs or issues.",
   },
   {
-    question: "How can I book a service?",
+    question: "📞 How can I book a service?",
     answer:
       "You can contact us through the contact form, WhatsApp button, or call our hotline directly.",
   },
   {
-    question: "Is there a satisfaction guarantee?",
+    question: "🎯 Is there a satisfaction guarantee?",
     answer:
       "Yes. We won’t close a job until you're fully satisfied — no questions asked.",
   },
@@ -39,23 +39,23 @@ const faqs: FAQItem[] = [
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section className="bg-white dark:bg-zinc-900 py-16 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* Left Side - Lottie */}
-        <div className="flex justify-center">
-          {/* <Lottie animationData={faqAnimation} loop className="w-full max-w-md" /> */}
-          <h1>Lottie</h1>
-        </div>
+    <section
+      className="relative w-full min-h-screen flex items-center justify-center px-4 py-20 bg-center bg-no-repeat bg-contain"
+      style={{
+        backgroundImage: "url('/images/others/faq.png')",
+      }}
+    >
+      <div className="relative z-10 max-w-3xl w-full rounded-3xl shadow-2xl overflow-hidden">
+        <div className="absolute inset-0 z-0 rounded-3xl border border-gray-200 backdrop-blur-2xl bg-gradient-to-r from-[#22d3ee]/30 to-[#104b5f]/30" />
 
-        {/* Right Side - FAQ */}
-        <div>
-          <h2 className="text-3xl font-bold mb-10 text-zinc-800 dark:text-white text-center md:text-left">
+        {/* Card content-------------- */}
+        <div className="relative z-10 p-8 sm:p-10 text-gray-900">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center">
             Frequently Asked Questions
           </h2>
 
@@ -64,38 +64,48 @@ const FAQSection = () => {
               const isOpen = index === openIndex;
 
               return (
-                <div
+                <motion.div
                   key={index}
-                  className="border border-zinc-300 dark:border-zinc-700 rounded-xl overflow-hidden shadow-sm"
+                  layout
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: index * 0.05 }}
+                  className="border border-white/20 rounded-xl overflow-hidden transition-all duration-300"
                 >
                   <button
-                    className="w-full flex items-center justify-between p-4 text-left focus:outline-none"
                     onClick={() => toggleFAQ(index)}
+                    className="w-full flex items-center justify-between p-4 sm:p-5 text-left"
                   >
-                    <span className="text-lg font-medium text-zinc-800 dark:text-zinc-100">
+                    <span className="text-lg font-semibold text-gray-900">
                       {faq.question}
                     </span>
-                    {isOpen ? (
-                      <ChevronUp className="text-blue-500" />
-                    ) : (
-                      <ChevronDown className="text-blue-500" />
-                    )}
+                    <motion.div
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {isOpen ? (
+                        <ChevronUp className="text-[#104b5f]" />
+                      ) : (
+                        <ChevronDown className="text-[#104b5f]" />
+                      )}
+                    </motion.div>
                   </button>
+
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div
                         layout
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.35, ease: "easeInOut" }}
-                        className="px-4 pb-4 text-sm text-muted-foreground"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="px-4 sm:px-5 pb-4"
                       >
-                        {faq.answer}
+                        <p className="text-gray-700 font-semibold">{faq.answer}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
+                </motion.div>
               );
             })}
           </div>
