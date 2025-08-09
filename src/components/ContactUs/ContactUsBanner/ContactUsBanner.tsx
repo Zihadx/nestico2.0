@@ -7,7 +7,7 @@ const ContactUsBanner = () => {
   return (
     <div>
       {/* Background Image ------------------*/}
-      <div className="relative w-full h-[150px] md:h-[200px]">
+      <div className="relative w-full h-[320px] mt-20">
         <Image
           src="https://i.ibb.co/WvqVnsqg/contactus-Banner.jpg"
           alt="Banner Image"
@@ -16,7 +16,7 @@ const ContactUsBanner = () => {
           className="object-cover"
         />
         {/* Overlay----------------- */}
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-500 to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black to-black/20" />
         {/* Content ------------------*/}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
           <h1 className="text-3xl md:text-4xl font-semibold mb-4">CONTACT US</h1>

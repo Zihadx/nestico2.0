@@ -10,15 +10,15 @@ const Navbar = () => {
  
 
   return (
-    <header className="w-full flex items-center justify-between px-6 py-4 shadow-sm bg-white">
+    <header className="w-full flex items-center justify-between px-6 h-20 shadow-sm bg-white fixed top-0 z-50 transition-all duration-300">
       {/* Logo */}
-      <div className="py-3">
+      <div className="py-2">
             <Link href="/">
               <Image
                 src="/images/logo/nesticologo.png"
                 alt="Neu-Logo"
-                width={142}
-                height={142}
+                width={120}
+                height={120}
               />
             </Link>
           </div>

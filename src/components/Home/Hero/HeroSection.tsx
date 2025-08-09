@@ -84,7 +84,7 @@ const HeroSection = ({ allData }: AllData) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.5 }}
           >
-            Start your Home Improvement Project
+            Transform Your Space—Start Now
           </motion.h3>
 
           <motion.div

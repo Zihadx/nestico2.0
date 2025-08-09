@@ -40,15 +40,21 @@ const ProjectDetails = () => {
   const location = useLocation();
   const [allData, setAllData] = useState<Project[] | null>(null);
   const [zipStatus, setZipStatus] = useState<string | null>(null);
-  const [zipDetails, setZipDetails] = useState<{ city: string; state: string } | null>(null);
+  const [zipDetails, setZipDetails] = useState<{
+    city: string;
+    state: string;
+  } | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const fetchAllData = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/fakeDb.json`, {
-          cache: "no-cache",
-        });
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/fakeDb.json`,
+          {
+            cache: "no-cache",
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch data");
@@ -87,53 +93,35 @@ const ProjectDetails = () => {
   if (!project) {
     return (
       <div className="flex items-center justify-center h-screen bg-gray-50 text-gray-700">
-        <h1 className="text-2xl font-bold">Project not found. Please check the URL.</h1>
+        <h1 className="text-2xl font-bold">
+          Project not found. Please check the URL.
+        </h1>
       </div>
     );
   }
 
   return (
-    <div className="overflow-hidden">
-      {isScrolled && (
-        <div className="fixed top-0 left-0 w-full bg-white shadow-md z-50 px-4 py-3">
-          <ZipSearchForm projectId={id} onStatusChange={setZipStatus} onZipLocations={setZipDetails} />
-          {zipStatus && (
-            <p className={`mt-1 text-sm text-center font-medium ${zipStatus === "matched" ? "text-green-600" : zipStatus === "not_matched" ? "text-red-600" : "text-gray-600"}`}>
-              {zipStatus === "matched"
-                ? `${zipDetails?.city}, ${zipDetails?.state}`
-                : zipStatus === "not_matched"
-                ? "ZIP code is currently not serviced by our contractor."
-                : zipStatus}
-            </p>
-          )}
-        </div>
-      )}
-      <section className="relative bg-gray-50 py-6 md:py-12 max-h-[480px] md:min-h-[500px] mt-20">
+    <div className="overflow-hidden mt-20">
+   
+      <section className="relative bg-gray-50 py-6 h-[320px]">
         <div className="absolute inset-0 z-0">
-          <Image src="/images/inspiration-slide3.webp" alt="Background Image" layout="fill" objectFit="cover" quality={100} />
+          <Image
+            src={project.image}
+            alt="Background Image"
+            width={500}
+            height={500}
+            className="object-cover w-full h-full "
+          />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-200 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black to-black/20 z-10" />
 
-        <div className="relative max-w-2xl mx-auto px-2 md:px-6 py-4 md:py-8 text-gray-800 z-20">
+        <div className="relative max-w-2xl mx-auto px-2 md:px-6 py-4 md:py-8 text-white z-20 mt-12">
           <div className="text-center mb-4 md:mb-10">
             <h1 className="text-3xl lg:text-4xl font-bold mb-4 lg:leading-snug">
               How Much Does It Cost to <span>{project.title}</span> in{" "}
-              <span className="font-extrabold">{location}</span>?
+              <span className="font-extrabold text-[#22d3ee]">{location}</span>?
             </h1>
           </div>
-          <ZipSearchForm projectId={id} onStatusChange={setZipStatus} onZipLocations={setZipDetails} />
-
-          {/* ZIP Validation Message---------- */}
-          {zipStatus && (
-            <p className={`mt-1 text-sm text-center font-medium ${zipStatus === "matched" ? "text-green-600" : zipStatus === "not_matched" ? "text-red-600" : "text-gray-600"}`}>
-              {zipStatus === "matched"
-                ? `${zipDetails?.city}, ${zipDetails?.state}`
-                : zipStatus === "not_matched"
-                ? "ZIP code is currently not serviced by our contractor."
-                : zipStatus}
-            </p>
-          )}
-          <p className="text-base text-center font-medium text-gray-600 mt-2">Free, no-obligation estimates.</p>
         </div>
       </section>
 

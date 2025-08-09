@@ -11,7 +11,7 @@
       "Shower seated or standing",
       "Better accessibility"
     ],
-    "image": "/images/walk-in-shower.webp",
+    "image": "https://i.ibb.co.com/ZpwrmZZJ/Walk-in-Shower-Banner.jpg",
     "advantages": [
       {
         "title": "Reduced Water Usage",
@@ -51,10 +51,10 @@
         "Numerous designs available"
       ],
       "images": [
-        "/images/feature-1.webp",
-        "/images/feature-2.webp",
-        "/images/feature-3.webp",
-        "/images/feature-4.webp"
+        "https://i.ibb.co.com/qLFNRHzR/Walk-in-Shower-Banner1.jpg",
+        "https://i.ibb.co.com/qLFNRHzR/Walk-in-Shower-Banner1.jpg",
+        "https://i.ibb.co.com/qLFNRHzR/Walk-in-Shower-Banner1.jpg",
+        "https://i.ibb.co.com/qLFNRHzR/Walk-in-Shower-Banner1.jpg"
       ]
     },
     "inspirations": {
@@ -67,12 +67,9 @@
         "/images/inspiration-slide6.webp",
         "/images/inspiration-slide7.webp",
         "/images/inspiration-slide8.webp"
-      
       ]
     }
   },
-
-
 
   {
     "id": "walk-in-tub",
@@ -86,7 +83,7 @@
       "Reduce Knee aches",
       "Home Therapy"
     ],
-    "image": "/images/WIT/WIT-splash.webp",
+    "image": "https://i.ibb.co.com/23DhMJ6z/Walk-in-Tubs-Banner.jpg",
     "advantages": [
       {
         "title": "Insomania",
@@ -126,11 +123,10 @@
         "A leak-proof locking door"
       ],
       "images": [
-        "/images/WIT/wit-feature-1.webp",
-        "/images/WIT/wit-feature-2.webp",
-        "/images/WIT/wit-feature-3.webp",
-        "/images/WIT/wit-feature-4.webp"
-      
+        "https://i.ibb.co.com/ZRKmwXFq/Walk-in-Tubs-Banner.jpg",
+        "https://i.ibb.co.com/ZRKmwXFq/Walk-in-Tubs-Banner.jpg",
+        "https://i.ibb.co.com/ZRKmwXFq/Walk-in-Tubs-Banner.jpg",
+        "https://i.ibb.co.com/ZRKmwXFq/Walk-in-Tubs-Banner.jpg"
       ]
     },
     "inspirations": {
@@ -143,12 +139,9 @@
         "/images/WIT/insp6.webp",
         "/images/WIT/insp7.webp",
         "/images/WIT/insp8.webp"
-     
-      
       ]
     }
   },
-
 
   {
     "id": "kitchen-remodeling",
@@ -162,9 +155,8 @@
       "RIncrease the value of your home",
       "Modern style and comfort"
     ],
-    "image": "/images/walk-in-shower.webp",
+    "image": "https://i.ibb.co.com/TBjmnnKj/Kitchen-Remodeling-Banner.jpg",
     "advantages": [
-      
       {
         "title": "Better Cooking Experience",
         "description": "A well-organized and streamlined kitchen makes it easier to cook nutritious meals quickly and easily. Plus, having all of the necessary tools at hand allows you to create more sophisticated dishes."
@@ -203,11 +195,10 @@
         "Flooring"
       ],
       "images": [
-        "/images/feature-1.webp",
-        "/images/feature-2.webp",
-        "/images/feature-3.webp",
-        "/images/feature-4.webp"
-      
+        "https://i.ibb.co.com/TBjmnnKj/Kitchen-Remodeling-Banner.jpg",
+        "https://i.ibb.co.com/TBjmnnKj/Kitchen-Remodeling-Banner.jpg",
+        "https://i.ibb.co.com/TBjmnnKj/Kitchen-Remodeling-Banner.jpg",
+        "https://i.ibb.co.com/TBjmnnKj/Kitchen-Remodeling-Banner.jpg"
       ]
     },
     "inspirations": {
@@ -220,12 +211,9 @@
         "/images/inspiration-slide6.webp",
         "/images/inspiration-slide7.webp",
         "/images/inspiration-slide8.webp"
-      
       ]
     }
   },
-
-
 
   {
     "id": "window-replacement",
@@ -239,9 +227,8 @@
       "Energy Savings",
       "Modern Styles"
     ],
-    "image": "/images/WIN/win-splash.webp",
+    "image": "https://i.ibb.co.com/mFBmxL6C/Window-replacement-Banner.jpg",
     "advantages": [
-      
       {
         "title": "Home & Skin Protection",
         "description": "UV-guard on windows helps prevent fading of flooring and furnishings in addition to reducing dangerous radiation for healthier skin."
@@ -280,11 +267,586 @@
         "Condensation Reduction"
       ],
       "images": [
-        "/images/WIN/win-feature-1.webp",
-        "/images/WIN/win-feature-2.webp",
-        "/images/WIN/win-feature-3.webp",
-        "/images/WIN/win-feature-4.webp"
-      
+        "https://i.ibb.co.com/mFBmxL6C/Window-replacement-Banner.jpg",
+        "https://i.ibb.co.com/mFBmxL6C/Window-replacement-Banner.jpg",
+        "https://i.ibb.co.com/mFBmxL6C/Window-replacement-Banner.jpg",
+        "https://i.ibb.co.com/mFBmxL6C/Window-replacement-Banner.jpg"
+      ]
+    },
+    "inspirations": {
+      "images": [
+        "/images/WIN/win-insp1.webp",
+        "/images/WIN/win-insp2.webp",
+        "/images/WIN/win-insp3.webp",
+        "/images/WIN/win-insp4.webp",
+        "/images/WIN/win-insp5.webp",
+        "/images/WIN/win-insp6.webp",
+        "/images/WIN/win-insp7.webp",
+        "/images/WIN/win-insp8.webp"
+      ]
+    }
+  },
+
+  {
+    "id": "plumbing",
+    "title": "Plumbing",
+    "description": "Fast and reliable plumbing service to fix leaks, install fixtures, and maintain your water system.",
+    "benefits": [
+      "Affordable local service",
+      "Quick leak detection",
+      "Experienced professionals",
+      "Modern tools used",
+      "Ensures hygiene",
+      "Long-term fix guaranteed"
+    ],
+    "image": "https://i.ibb.co.com/bxwT2CB/Plumbing.jpg",
+    "advantages": [
+      {
+        "title": "Water Damage Prevention",
+        "description": "Fixing leaks early prevents structural damage and mold growth."
+      },
+      {
+        "title": "Efficient Water Flow",
+        "description": "Proper plumbing improves water pressure and usage."
+      },
+      {
+        "title": "Safe Installations",
+        "description": "Expert installation prevents future damage or hazards."
+      },
+      {
+        "title": "Cost Saving",
+        "description": "Avoid high water bills caused by leaks."
+      },
+      {
+        "title": "Property Value Boost",
+        "description": "Well-maintained plumbing adds value to your home."
+      },
+      {
+        "title": "Eco-Friendly",
+        "description": "Modern fixtures reduce water waste."
+      }
+    ],
+    "features": {
+      "description": "Plumbing offers numerous features and improvements for your home.",
+      "list": [
+        "Leak detection & repair",
+        "Toilet, sink & tap installation",
+        "Water heater and geyser setup",
+        "Pipe refitting and fixing",
+        "Drain unclogging and flushing",
+        "Bathroom plumbing overhaul",
+        "Outdoor plumbing setup",
+        "Routine plumbing maintenance"
+      ],
+      "images": [
+        "https://i.ibb.co.com/bxwT2CB/Plumbing.jpg",
+        "https://i.ibb.co.com/bxwT2CB/Plumbing.jpg",
+        "https://i.ibb.co.com/bxwT2CB/Plumbing.jpg",
+        "https://i.ibb.co.com/bxwT2CB/Plumbing.jpg"
+      ]
+    },
+    "inspirations": {
+      "images": [
+        "/images/WIN/win-insp1.webp",
+        "/images/WIN/win-insp2.webp",
+        "/images/WIN/win-insp3.webp",
+        "/images/WIN/win-insp4.webp",
+        "/images/WIN/win-insp5.webp",
+        "/images/WIN/win-insp6.webp",
+        "/images/WIN/win-insp7.webp",
+        "/images/WIN/win-insp8.webp"
+      ]
+    }
+  },
+
+  {
+    "id": "appliance-repair",
+    "title": "Appliance Repair",
+    "description": "Professional appliance repair services to restore your home devices to perfect working condition.",
+    "benefits": [
+      "Fast doorstep service",
+      "Certified technicians",
+      "Covers all major brands",
+      "Cost-effective repair",
+      "Warranty on service",
+      "Saves device replacement cost"
+    ],
+    "image": "https://i.ibb.co.com/WNTsZ7Vy/Appliance-Repair.jpg",
+    "advantages": [
+      {
+        "title": "Extended Appliance Life",
+        "description": "Timely repair can prolong the life of your electronics."
+      },
+      {
+        "title": "Affordable Solution",
+        "description": "Much cheaper than buying new appliances."
+      },
+      {
+        "title": "Same-Day Service",
+        "description": "Quick turnaround for critical appliances."
+      },
+      {
+        "title": "Eco-Friendly",
+        "description": "Repair reduces e-waste."
+      },
+      {
+        "title": "Safety Assured",
+        "description": "Avoid hazards from malfunctioning electronics."
+      },
+      {
+        "title": "Expert Diagnosis",
+        "description": "We identify root issues to prevent future problems."
+      }
+    ],
+    "features": {
+      "description": "Appliance Repair offers numerous features and improvements for your home.",
+      "list": [
+        "Washing machine repair",
+        "Refrigerator not cooling",
+        "Microwave oven malfunction",
+        "TV/display fix",
+        "AC remote/sensor issue",
+        "Water purifier service",
+        "Dishwasher service",
+        "Geyser and heater repair"
+      ],
+      "images": [
+        "https://i.ibb.co.com/WNTsZ7Vy/Appliance-Repair.jpg",
+        "https://i.ibb.co.com/WNTsZ7Vy/Appliance-Repair.jpg",
+        "https://i.ibb.co.com/WNTsZ7Vy/Appliance-Repair.jpg",
+        "https://i.ibb.co.com/WNTsZ7Vy/Appliance-Repair.jpg"
+      ]
+    },
+    "inspirations": {
+      "images": [
+        "/images/WIN/win-insp1.webp",
+        "/images/WIN/win-insp2.webp",
+        "/images/WIN/win-insp3.webp",
+        "/images/WIN/win-insp4.webp",
+        "/images/WIN/win-insp5.webp",
+        "/images/WIN/win-insp6.webp",
+        "/images/WIN/win-insp7.webp",
+        "/images/WIN/win-insp8.webp"
+      ]
+    }
+  },
+
+  {
+    "id": "siding-door",
+    "title": "Siding Door",
+    "description": "Smooth and secure sliding door services including repair, replacement, and installation.",
+    "benefits": [
+      "Modern door styles",
+      "Soft-close setup available",
+      "Repair & replacement",
+      "Noise reduction benefit",
+      "Improved safety",
+      "Space saving"
+    ],
+    "image": "https://i.ibb.co.com/gZDSWDM7/Siding-Door.jpg",
+    "advantages": [
+      {
+        "title": "Smooth Function",
+        "description": "Doors glide effortlessly, no more getting stuck."
+      },
+      {
+        "title": "Improved Aesthetics",
+        "description": "Enhances modern interior looks."
+      },
+      {
+        "title": "Noise Insulation",
+        "description": "Keep your room quiet and cozy."
+      },
+      {
+        "title": "Safe Locks",
+        "description": "Better door security with new lock systems."
+      },
+      {
+        "title": "Space Efficiency",
+        "description": "Sliding doors free up usable space."
+      },
+      {
+        "title": "Durable Materials",
+        "description": "Lasts long with minimal maintenance."
+      }
+    ],
+    "features": {
+      "description": "Siding Door offers numerous features and improvements for your home.",
+      "list": [
+        "Track repair or replacement",
+        "Glass panel replacement",
+        "Handle and lock fixing",
+        "Sliding mechanism upgrade",
+        "Soft-close installation",
+        "Aluminum and wood door servicing",
+        "Door seal replacement",
+        "Frame re-alignment"
+      ],
+      "images": [
+        "https://i.ibb.co.com/gZDSWDM7/Siding-Door.jpg",
+        "https://i.ibb.co.com/gZDSWDM7/Siding-Door.jpg",
+        "https://i.ibb.co.com/gZDSWDM7/Siding-Door.jpg",
+        "https://i.ibb.co.com/gZDSWDM7/Siding-Door.jpg"
+      ]
+    },
+    "inspirations": {
+      "images": [
+        "/images/WIN/win-insp1.webp",
+        "/images/WIN/win-insp2.webp",
+        "/images/WIN/win-insp3.webp",
+        "/images/WIN/win-insp4.webp",
+        "/images/WIN/win-insp5.webp",
+        "/images/WIN/win-insp6.webp",
+        "/images/WIN/win-insp7.webp",
+        "/images/WIN/win-insp8.webp"
+      ]
+    }
+  },
+
+  {
+    "id": "geyser-installation",
+    "title": "Geyser Installation",
+    "description": "Safe and secure geyser installation for both electric and gas units with complete setup.",
+    "benefits": [
+      "Certified installation",
+      "Wall-mounted options",
+      "Gas or electric types",
+      "Safe pipe connections",
+      "Quick service",
+      "Energy saving setup"
+    ],
+    "image": "https://i.ibb.co.com/Vpp98Rsc/Geyser-Installation.jpg",
+    "advantages": [
+      {
+        "title": "Energy Efficiency",
+        "description": "Installations ensure proper energy consumption."
+      },
+      {
+        "title": "Safety First",
+        "description": "Avoid leaks and risk with professional setup."
+      },
+      {
+        "title": "Convenient Hot Water",
+        "description": "Access hot water any time you need."
+      },
+      {
+        "title": "Long-Lasting Setup",
+        "description": "Minimizes future repair costs."
+      },
+      {
+        "title": "Clean Installation",
+        "description": "Tidy, damage-free process."
+      },
+      {
+        "title": "Space Efficient",
+        "description": "Wall-mounted designs save bathroom space."
+      }
+    ],
+    "features": {
+      "description": "Geyser Installation offers numerous features and improvements for your home.",
+      "list": [
+        "Geyser wall mounting",
+        "Gas pipe connection",
+        "Water inlet-outlet setup",
+        "Electric wiring & switch setup",
+        "Leak testing and safety check",
+        "Old geyser removal",
+        "Mini geyser installation",
+        "Routine servicing"
+      ],
+      "images": [
+        "https://i.ibb.co.com/Vpp98Rsc/Geyser-Installation.jpg",
+        "https://i.ibb.co.com/Vpp98Rsc/Geyser-Installation.jpg",
+        "https://i.ibb.co.com/Vpp98Rsc/Geyser-Installation.jpg",
+        "https://i.ibb.co.com/Vpp98Rsc/Geyser-Installation.jpg"
+      ]
+    },
+    "inspirations": {
+      "images": [
+        "/images/WIN/win-insp1.webp",
+        "/images/WIN/win-insp2.webp",
+        "/images/WIN/win-insp3.webp",
+        "/images/WIN/win-insp4.webp",
+        "/images/WIN/win-insp5.webp",
+        "/images/WIN/win-insp6.webp",
+        "/images/WIN/win-insp7.webp",
+        "/images/WIN/win-insp8.webp"
+      ]
+    }
+  },
+
+  {
+    "id": "vehicle-repair",
+    "title": "Vehicle Repair",
+    "description": "On-demand vehicle repair services for motorbikes and cars with expert doorstep support.",
+    "benefits": [
+      "Bike & car services",
+      "Doorstep repair available",
+      "Expert mechanics",
+      "Spare parts support",
+      "Fast delivery",
+      "Trusted local support"
+    ],
+    "image": "https://i.ibb.co.com/s9Lh170K/Vehicle-Repair.jpg",
+    "advantages": [
+      {
+        "title": "No Tow Needed",
+        "description": "We come to you, saving time and hassle."
+      },
+      {
+        "title": "Expert Mechanics",
+        "description": "Trained in all models and systems."
+      },
+      {
+        "title": "Quick Diagnosis",
+        "description": "Immediate issue detection and solution."
+      },
+      {
+        "title": "Safety Ensured",
+        "description": "Brake and clutch fixes to prevent accidents."
+      },
+      {
+        "title": "Full Servicing",
+        "description": "Oil, filters, battery checkups."
+      },
+      {
+        "title": "On-the-spot Fix",
+        "description": "Many issues fixed same-day."
+      }
+    ],
+    "features": {
+      "description": "Vehicle Repair offers numerous features and improvements for your home.",
+      "list": [
+        "Engine tune-up",
+        "Brake pad replacement",
+        "Battery installation",
+        "Oil/filter change",
+        "Flat tire fix",
+        "Chain servicing",
+        "Clutch adjustment",
+        "Bike polishing and wash"
+      ],
+      "images": [
+        "https://i.ibb.co.com/s9Lh170K/Vehicle-Repair.jpg",
+        "https://i.ibb.co.com/s9Lh170K/Vehicle-Repair.jpg",
+        "https://i.ibb.co.com/s9Lh170K/Vehicle-Repair.jpg",
+        "https://i.ibb.co.com/s9Lh170K/Vehicle-Repair.jpg"
+      ]
+    },
+    "inspirations": {
+      "images": [
+        "/images/WIN/win-insp1.webp",
+        "/images/WIN/win-insp2.webp",
+        "/images/WIN/win-insp3.webp",
+        "/images/WIN/win-insp4.webp",
+        "/images/WIN/win-insp5.webp",
+        "/images/WIN/win-insp6.webp",
+        "/images/WIN/win-insp7.webp",
+        "/images/WIN/win-insp8.webp"
+      ]
+    }
+  },
+
+  {
+    "id": "pest-control",
+    "title": "Pest Control",
+    "description": "Protect your home with professional pest control services that target bugs, insects, and rodents.",
+    "benefits": [
+      "Child & pet safe chemicals",
+      "Covers all insects & bugs",
+      "Odorless treatments",
+      "Trained exterminators",
+      "Home hygiene improvement",
+      "Preventive care included"
+    ],
+    "image": "https://i.ibb.co.com/MkHJr9pv/Pest-Control.jpg",
+    "advantages": [
+      {
+        "title": "Allergen Removal",
+        "description": "Get rid of bugs causing allergies."
+      },
+      {
+        "title": "Healthier Environment",
+        "description": "No more germs from pests."
+      },
+      {
+        "title": "Property Protection",
+        "description": "Termite control saves your furniture."
+      },
+      {
+        "title": "Safe Solutions",
+        "description": "We use eco-safe chemicals."
+      },
+      {
+        "title": "Preventive Action",
+        "description": "Stop reinfestation with routine care."
+      },
+      {
+        "title": "Peace of Mind",
+        "description": "Sleep easy with a pest-free home."
+      }
+    ],
+    "features": {
+      "description": "Pest Control offers numerous features and improvements for your home.",
+      "list": [
+        "Cockroach & bug control",
+        "Mosquito fogging",
+        "Rodent and rat removal",
+        "Ant infestation clearing",
+        "Termite treatment",
+        "Garden pest treatment",
+        "Home sanitization after pest control",
+        "Quarterly preventive plan"
+      ],
+      "images": [
+        "https://i.ibb.co.com/MkHJr9pv/Pest-Control.jpg",
+        "https://i.ibb.co.com/MkHJr9pv/Pest-Control.jpg",
+        "https://i.ibb.co.com/MkHJr9pv/Pest-Control.jpg",
+        "https://i.ibb.co.com/MkHJr9pv/Pest-Control.jpg"
+      ]
+    },
+    "inspirations": {
+      "images": [
+        "/images/WIN/win-insp1.webp",
+        "/images/WIN/win-insp2.webp",
+        "/images/WIN/win-insp3.webp",
+        "/images/WIN/win-insp4.webp",
+        "/images/WIN/win-insp5.webp",
+        "/images/WIN/win-insp6.webp",
+        "/images/WIN/win-insp7.webp",
+        "/images/WIN/win-insp8.webp"
+      ]
+    }
+  },
+
+  {
+    "id": "painting",
+    "title": "Painting",
+    "description": "Beautiful and lasting painting service for walls, ceilings, and exteriors of your home.",
+    "benefits": [
+      "Smooth finishes",
+      "Top branded paints",
+      "Color consultation",
+      "Waterproof coats",
+      "Texture & design paint",
+      "Fast drying process"
+    ],
+    "image": "https://i.ibb.co.com/0RbQh7hT/Painting.jpg",
+    "advantages": [
+      {
+        "title": "Visual Appeal",
+        "description": "Instant makeover for your rooms."
+      },
+      {
+        "title": "Increased Property Value",
+        "description": "Fresh paint improves market value."
+      },
+      {
+        "title": "Protection from Damp",
+        "description": "Prevents water damage and mold."
+      },
+      {
+        "title": "Custom Colors",
+        "description": "Wide range of shades and tones."
+      },
+      {
+        "title": "Time Efficient",
+        "description": "Most jobs completed in 1–2 days."
+      },
+      {
+        "title": "Durable Finish",
+        "description": "Long-lasting shine with quality paint."
+      }
+    ],
+    "features": {
+      "description": "Painting offers numerous features and improvements for your home.",
+      "list": [
+        "Interior wall painting",
+        "Ceiling touch-up",
+        "Exterior paint work",
+        "Waterproof coating",
+        "Accent wall design",
+        "Paint removal & polish",
+        "Color matching help",
+        "Rental property refresh"
+      ],
+      "images": [
+        "https://i.ibb.co.com/0RbQh7hT/Painting.jpg",
+        "https://i.ibb.co.com/0RbQh7hT/Painting.jpg",
+        "https://i.ibb.co.com/0RbQh7hT/Painting.jpg",
+        "https://i.ibb.co.com/0RbQh7hT/Painting.jpg"
+      ]
+    },
+    "inspirations": {
+      "images": [
+        "/images/WIN/win-insp1.webp",
+        "/images/WIN/win-insp2.webp",
+        "/images/WIN/win-insp3.webp",
+        "/images/WIN/win-insp4.webp",
+        "/images/WIN/win-insp5.webp",
+        "/images/WIN/win-insp6.webp",
+        "/images/WIN/win-insp7.webp",
+        "/images/WIN/win-insp8.webp"
+      ]
+    }
+  },
+
+  {
+    "id": "carpentry",
+    "title": "Carpentry",
+    "description": "Expert carpentry for customized furniture, repairs, and fittings with smooth finishing.",
+    "benefits": [
+      "Custom furniture design",
+      "Wood polishing",
+      "Fast repairs",
+      "Affordable packages",
+      "Space-optimized solutions",
+      "Sturdy builds"
+    ],
+    "image": "https://i.ibb.co.com/FCFs8qM/Carpentry.jpg",
+    "advantages": [
+      {
+        "title": "Custom Fit",
+        "description": "Furniture made to fit your space perfectly."
+      },
+      {
+        "title": "Durable Builds",
+        "description": "Long-lasting wooden construction."
+      },
+      {
+        "title": "Repairs Done Fast",
+        "description": "We fix your broken items promptly."
+      },
+      {
+        "title": "Style Upgrade",
+        "description": "Polish and paint for modern look."
+      },
+      {
+        "title": "Storage Solutions",
+        "description": "Maximize space with intelligent design."
+      },
+      {
+        "title": "Cost-effective",
+        "description": "Better value than store-bought."
+      }
+    ],
+    "features": {
+      "description": "Carpentry offers numerous features and improvements for your home.",
+      "list": [
+        "Bed, table & sofa repair",
+        "Kitchen cabinet fitting",
+        "TV unit wall mount",
+        "Shelf & rack installation",
+        "Wooden door servicing",
+        "New furniture build",
+        "Varnishing & polish",
+        "Sliding storage drawers"
+      ],
+      "images": [
+        "https://i.ibb.co.com/FCFs8qM/Carpentry.jpg",
+        "https://i.ibb.co.com/FCFs8qM/Carpentry.jpg",
+        "https://i.ibb.co.com/FCFs8qM/Carpentry.jpg",
+        "https://i.ibb.co.com/FCFs8qM/Carpentry.jpg"
       ]
     },
     "inspirations": {
