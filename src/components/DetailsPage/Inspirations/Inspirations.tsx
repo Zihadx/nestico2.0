@@ -20,7 +20,12 @@ interface InspirationProps {
   projectId: string;
 }
 
-const transition = { type: "spring", stiffness: 100, damping: 20, duration: 0.6 };
+const transition = {
+  type: "spring" as const,
+  stiffness: 100,
+  damping: 20,
+  duration: 0.6,
+};
 
 const Inspirations = ({ allData, projectId }: InspirationProps) => {
   const project = allData.find((item) => item.id === projectId);
@@ -86,7 +91,7 @@ const Inspirations = ({ allData, projectId }: InspirationProps) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.15 }}
                 className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-[#22d3ee] to-[#104b5f]"
-                pointerEvents="none"
+                style={{ pointerEvents: "none" }}
               />
             </motion.div>
           </AnimatePresence>

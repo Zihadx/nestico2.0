@@ -22,7 +22,7 @@ const HeroSection = ({ allData }: AllData) => {
   };
 
   return (
-    <section className="relative min-h-[85vh] py-8 overflow-hidden px-2 md:px-0">
+    <section className="relative min-h-[85vh] py-8 overflow-hidden px-2 md:px-0 mt-20">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image

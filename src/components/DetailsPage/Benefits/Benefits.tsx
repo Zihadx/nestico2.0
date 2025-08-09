@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, ScanSearch } from "lucide-react";
+import { Check, Fullscreen, ScanSearch } from "lucide-react";
 
 interface Project {
   id: string;
@@ -100,16 +100,12 @@ const Benefits = ({ allData, projectId }: BenefitsSectionProps) => {
                 role="list"
                 aria-label="Project benefits"
               >
-                {benefits.map((b, i) => (
+                {benefits.map((benefit, i) => (
                   <motion.li
                     key={i}
                     variants={item}
                     className="group relative flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50/70 transition-all cursor-pointer"
-                    onClick={() => handleCopy(b)}
-                    tabIndex={0}
-                    onKeyDown={(e) => e.key === "Enter" && handleCopy(b)}
-                    aria-expanded={expanded === i}
-                    title="Click to copy"
+                    title={benefit}
                   >
                     <span className="flex-none rounded-full bg-[#22d3ee]/10 p-2">
                       <Check className="w-4 h-4 text-[#22d3ee]" />
@@ -117,7 +113,7 @@ const Benefits = ({ allData, projectId }: BenefitsSectionProps) => {
 
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center justify-between">
-                        <p className="font-semibold truncate">{b}</p>
+                        <p className="font-semibold truncate">{benefit}</p>
                       </div>
 
                       <div className="mt-2 h-2 bg-slate-100 rounded-full overflow-hidden">
@@ -162,12 +158,16 @@ const Benefits = ({ allData, projectId }: BenefitsSectionProps) => {
             <motion.div
               className="absolute inset-0 bg-black/40 flex flex-col justify-end p-6 opacity-0"
               whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             >
-              <div className="backdrop-blur-lg bg-white/20 p-4 rounded-xl">
+              <motion.div
+                className="backdrop-blur-lg bg-white/20 p-4 rounded-xl"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 200, damping: 20 }}
+              >
                 <p className="text-white font-bold text-lg">{title}</p>
                 <p className="text-white/80 text-sm">{description}</p>
-              </div>
+              </motion.div>
             </motion.div>
 
             {/* Live Preview Badge */}
@@ -177,7 +177,7 @@ const Benefits = ({ allData, projectId }: BenefitsSectionProps) => {
               transition={{ type: "spring", stiffness: 200 }}
             >
               <div className="w-10 h-10 rounded-lg bg-white/60 flex items-center justify-center">
-                <ScanSearch className="text-slate-800" />
+                <Fullscreen className="text-slate-800" />
               </div>
               <div>
                 <p className="text-sm font-semibold text-black/50">

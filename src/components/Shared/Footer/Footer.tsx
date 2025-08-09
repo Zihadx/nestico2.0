@@ -88,7 +88,7 @@ const Footer = () => {
 
       {/* Bottom Copyright */}
       <div className="relative z-10 mt-10 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
-        &copy; {new Date().getFullYear()} YourCompany. All rights reserved.
+        &copy; {new Date().getFullYear()} Nestico By Nur Zihad. All rights reserved.
       </div>
     </footer>
   );
