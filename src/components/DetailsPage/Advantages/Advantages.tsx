@@ -60,7 +60,7 @@ const Advantages = ({ allData, projectId }: AdvantagesProps) => {
 
   return (
     <section className="relative py-14 px-4 bg-gradient-to-b from-white to-slate-50 min-h-[600px]">
-      <div className="max-w-[1180px] mx-auto">
+      <div className="max-w-7xl mx-auto">
         <motion.header
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}

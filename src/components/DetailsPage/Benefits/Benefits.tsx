@@ -63,7 +63,7 @@ const Benefits = ({ allData, projectId }: BenefitsSectionProps) => {
       initial="hidden"
       animate="show"
       variants={container}
-      className="max-w-[1180px] mx-auto my-12 px-4"
+      className="max-w-7xl mx-auto my-12 px-4"
       aria-labelledby="benefits-heading"
     >
       <div className="flex flex-col items-center text-center mb-8">

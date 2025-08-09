@@ -79,7 +79,7 @@ const Features = ({ allData, projectId }: AdvantagesProps) => {
         {/* Image Grid */}
         <motion.div
           variants={containerVariants}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 max-w-5xl mx-auto mb-16"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 max-w-7xl mx-auto mb-16"
         >
           {features.images.map((src, idx) => (
             <motion.div
@@ -111,21 +111,21 @@ const Features = ({ allData, projectId }: AdvantagesProps) => {
         {/* Feature List */}
         <motion.div
           variants={containerVariants}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto"
         >
           {features.list.map((feature, idx) => (
             <motion.div
               key={idx}
               variants={featureItemVariants}
               whileHover={{ scale: 1.06 }}
-              className="flex items-center gap-5 p-6 bg-white bg-opacity-50 backdrop-blur-sm rounded-3xl border border-white/40 shadow-md cursor-pointer select-none transition-transform"
+              className="flex items-center gap-5 p-4 bg-cyan-50 bg-opacity-30 hover:bg-opacity-50 backdrop-blur-md rounded-md border border-white/40 shadow-md cursor-pointer select-none transition-transform"
             >
               <SquareCheckBig
-                size={36}
-                strokeWidth={2.5}
-                className="text-[var(--gradient-start)] drop-shadow-lg transition-colors duration-300 group-hover:text-[var(--gradient-end)]"
+                size={28}
+                strokeWidth={2}
+                className="text-cyan-400 drop-shadow-lg transition-colors duration-300 group-hover:text-cyan-400"
               />
-              <p className="text-xl font-semibold text-slate-900 leading-snug">{feature}</p>
+              <p className="text-lg font-semibold text-slate-900 leading-snug">{feature}</p>
             </motion.div>
           ))}
         </motion.div>
