@@ -115,7 +115,7 @@ const ProjectDetails = () => {
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black to-black/20 z-10" />
 
-        <div className="relative max-w-2xl mx-auto px-2 md:px-6 py-4 md:py-8 text-white z-20 mt-12">
+        <div className="relative max-w-2xl mx-auto px-2 md:px-6 py-4 md:py-8 text-white z-20 mt-20 md:mt-12">
           <div className="text-center mb-4 md:mb-10">
             <h1 className="text-3xl lg:text-4xl font-bold mb-4 lg:leading-snug">
               How Much Does It Cost to <span>{project.title}</span> in{" "}

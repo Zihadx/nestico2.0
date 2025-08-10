@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -9,6 +9,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
+import { ArrowRight, ChevronDown, Hammer, Paintbrush, Wrench } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface AllData {
   allData: { id: string; title: string }[];
@@ -21,114 +23,145 @@ const HeroSection = ({ allData }: AllData) => {
     setSelectedValue(id);
   };
 
-  return (
-    <section className="relative min-h-[85vh] py-8 overflow-hidden px-2 md:px-0 mt-20">
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero/hero.png"
-          alt="Background"
-          layout="fill"
-          objectPosition="100% center"
-          className="w-full h-full object-cover lg:object-contain translate-x-40 md:translate-x-0"
-        />
-      </div>
+  // Add this state + effect at the top inside your component
+  const images = [
+    "/images/hero/hero.png",
+    "/images/hero/HeroBg.png",
+    "/images/hero/hero.png",
+  ];
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-100 via-[45%] to-transparent" />
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 4000); // change every 4s
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="relative min-h-[80vh] flex items-center overflow-hidden mt-20">
+      {/* Background */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-cyan-100 via-white to-transparent"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >  
+      </motion.div>
+
+      {/* Decorative Glow */}
+      <div className="absolute -top-20 -right-20 w-[400px] h-[400px] bg-cyan-300/30 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-cyan-500/20 rounded-full blur-lg" />
 
       {/* Content */}
-      <div className="relative mx-auto max-w-[1180px] px-2 h-full z-10 text-gray-950">
+      <div className="relative z-10 mx-auto max-w-[1280px] w-full px-4 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+        {/* Text Side */}
         <motion.div
-          className="lg:w-1/2"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
+          <span className="inline-block px-4 py-1.5 bg-cyan-200/60 rounded-full text-cyan-500 text-sm font-medium shadow-sm mb-4">
+            Hassle-Free Home Upgrades
+          </span>
+
+          <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-8 00">
+            Upgrade Your Space with{" "}
+            <span className="text-cyan-500">Premium Home Services</span>
+          </h1>
+
+          <p className="mt-6 text-lg text-gray-700 max-w-xl">
+            Say goodbye to the stress of home improvement. We connect you with
+            trusted professionals for smooth, stylish, and stress-free upgrades.
+          </p>
+
+          {/* Dropdown + CTA */}
           <motion.div
-            className="bg-[#22d3ee] opacity-10 h-[28px] rounded-full my-2 w-60"
-            initial={{ scale: 0.5, opacity: 1 }}
-            animate={{ scale: 1, opacity: 0.1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          />
-          <motion.h1
-            className="text-3xl text-[#064f5a] md:text-4xl lg:text-5xl font-bold leading-tight mb-4"
-            initial={{ opacity: 0, y: 40 }}
+            className="mt-8 flex flex-col sm:flex-row gap-3"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Upgrade Your Space: The Ultimate Partner for Hassle-Free Home Improvement
-          </motion.h1>
-          <motion.p
-            className="text-lg mb-6 text-gray-500 leading-normal"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-          >
-            Say goodbye to stress and chaos. Find the perfect solution to make your
-            home upgrade smooth, simple, and totally under control — no sweat, all
-            style.
-          </motion.p>
-        </motion.div>
-
-        {/* Dropdown and Button */}
-        <motion.div
-          className="mt-20"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-        >
-          <motion.h3
-            className="text-center text-xl font-semibold mb-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-          >
-            Transform Your Space—Start Now
-          </motion.h3>
-
-          <motion.div
-            className="flex justify-center items-center rounded-lg gap-2 md:gap-0"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.2, duration: 0.6 }}
-          >
             <DropdownMenu>
-              <DropdownMenuTrigger className="bg-white px-4 py-2 md:rounded-l-sm md:rounded-r-none rounded-sm w-full sm:w-[250px] text-left shadow-xl shadow-gray-300 transition hover:shadow-gray-400">
-                {selectedValue
-                  ? allData.find((item) => item.id === selectedValue)?.title
-                  : "Select project type"}
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  className="flex items-center justify-between w-full sm:w-[250px] bg-white shadow-lg hover:shadow-xl border-gray-200"
+                >
+                  {selectedValue
+                    ? allData.find((item) => item.id === selectedValue)?.title
+                    : "Select project type"}
+                  <ChevronDown className="ml-2 w-4 h-4 text-cyan-600" />
+                
+                </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-[250px]">
                 {allData.map((project) => (
                   <DropdownMenuItem
                     key={project.id}
                     onClick={() => handleSelect(project.id)}
+                    className="flex items-center gap-2"
                   >
+                    <Wrench className="w-4 h-4 text-gray-500" />
                     {project.title}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link href={`/${selectedValue}`} passHref>
-              <button className="bg-[#22d3ee] text-white px-4 py-2 md:rounded-r-sm rounded-sm md:rounded-l-none hover:bg-[#22d3ee]/70 w-full sm:w-auto min-w-[150px] transition">
+            <Link href={`/${selectedValue || "#"}`} passHref>
+              <Button
+                className="bg-cyan-500 hover:bg-cyan-600 text-white shadow-lg hover:shadow-xl transition flex items-center gap-2"
+                disabled={!selectedValue}
+              >
                 Get Estimate
-              </button>
+                <ArrowRight className="w-4 h-4" />
+              </Button>
             </Link>
           </motion.div>
         </motion.div>
-      </div>
 
-      {/* Decorative Dots */}
-      <motion.div
-        className="absolute bottom-0 left-0 z-0 m-2"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
-      >
-        <Image src="/images/dots-v.svg" width={160} height={160} alt="dot-v" />
-      </motion.div>
+        {/* Image Side */}
+        <motion.div
+          className="relative flex justify-center lg:justify-end"
+          initial={{ opacity: 0, x: 80 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <div className="relative w-full max-w-md">
+            <motion.div
+              key={currentImage}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <Image
+                src={images[currentImage]}
+                alt="Home Improvement"
+                width={600}
+                height={500}
+                className="rounded-2xl shadow-xl"
+              />
+            </motion.div>
+
+            {/* Floating Card */}
+            <motion.div
+              className="absolute -bottom-6 -left-6 bg-white/90 backdrop-blur-md rounded-xl p-4 shadow-lg border border-gray-100 flex items-center gap-3"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.6 }}
+            >
+              <Paintbrush className="w-8 h-8 text-cyan-500" />
+              <div>
+                <p className="text-sm font-medium">Stylish Interior</p>
+                <p className="text-xs text-gray-500">Modern & Minimal</p>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };

@@ -10,7 +10,7 @@ const Navbar = () => {
  
 
   return (
-    <header className="w-full flex items-center justify-between px-6 h-20 shadow-sm bg-white fixed top-0 z-50 transition-all duration-300">
+    <header className="w-full flex items-center justify-between px-6 h-20 shadow-sm bg-gray-100/60 fixed top-0 z-50 transition-all duration-300 backdrop-blur-lg ">
       {/* Logo */}
       <div className="py-2">
             <Link href="/">
