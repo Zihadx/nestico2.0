@@ -14,15 +14,15 @@ const DownloadAppSection = () => {
     alert(`Sending app link to ${phone}`);
   };
   return (
-    <section className="w-full bg-gradient-to-r from-[#22d3ee] to-[#104b5f] text-white py-4 my-24 relative">
-      <div className="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-12">
+    <section className="w-full bg-gradient-to-r from-[#22d3ee] to-[#104b5f] text-white my-24 relative">
+      <div className="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center justify-between gap-10">
         {/* Phone Image with smooth scale-in animation */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1.7 }}
+          whileInView={{ opacity: 1, scale: 1.6 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="relative w-full max-w-xs transform scale-[150%]"
+          className="relative max-w-xs transform"
         >
           <Image
             width={500}
@@ -40,7 +40,7 @@ const DownloadAppSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="flex-1 text-center"
+          className="flex-1 text-center py-16"
         >
           <p className="flex items-center justify-center text-sm text-gray-100 tracking-wider uppercase mb-2">
             <span className="w-8 h-px bg-gray-100 mr-3"></span>
@@ -123,14 +123,14 @@ const DownloadAppSection = () => {
           ease: "easeInOut",
           repeat: Infinity,
         }}
-        className="absolute bottom-[15%] left-[40%] transform -translate-x-1/2 z-10"
+        className="absolute top-[34%] left-[60%] md:top-[50%] md:left-[36%] transform md:-translate-x-1/2 z-10 "
       >
         <Image
           width={100}
           height={100}
           src="/images/downloadApp/appArrow.png"
           alt="Down Arrow"
-          className="mx-auto -rotate-12"
+          className="mx-auto rotate-90 md:-rotate-12 scale-y-[-1] md:scale-y-100"
         />
       </motion.div>
     </section>

@@ -35,9 +35,9 @@ const features: FeatureItem[] = [
   },
 ];
 
-const HireProsSection: React.FC = () => {
+const HireProsSection = () => {
   return (
-    <section className="relative w-full h-screen overflow-hidden text-white">
+    <section className="relative w-full min-h-screen overflow-hidden text-white">
       {/* Background with Parallax */}
       <div className="absolute inset-0 z-0">
         <Parallax speed={-60}>
@@ -55,17 +55,17 @@ const HireProsSection: React.FC = () => {
       </div>
 
       {/* Foreground Content */}
-      <div className="relative z-10 flex items-center justify-center h-screen px-6 md:px-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center w-full max-w-7xl">
+      <div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 md:px-20 mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center w-full max-w-7xl">
           {/* Image */}
           <motion.div
-            className="flex justify-center md:justify-start"
+            className="flex justify-center md:justify-start order-2 md:order-1"
             initial={{ opacity: 0, scale: 0.85 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <div className="w-full max-w-[500px] md:max-w-[600px]">
+            <div className="w-full max-w-[350px] sm:max-w-[450px] md:max-w-[600px]">
               <Image
                 src="/images/meet/meet2.png"
                 alt="Home Improvement Pro"
@@ -79,13 +79,13 @@ const HireProsSection: React.FC = () => {
 
           {/* Text Features */}
           <motion.div
-            className="space-y-6"
+            className="space-y-6 order-1 md:order-2"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight mb-6 sm:mb-8 text-center md:text-left">
               Meet the Hire Pros
             </h2>
             {features.map((feature, index) => (
