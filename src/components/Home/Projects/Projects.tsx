@@ -43,9 +43,13 @@ const Projects = ({ allData }: ProjectsProps) => {
 
   return (
     <section className="relative w-full py-20 bg-gradient-to-br from-gray-200 via-gray-50 to-gray-100 overflow-hidden">
-      {/* Glow Elements */}
-      <div className="absolute top-[-200px] left-[-200px] w-[500px] h-[500px] bg-cyan-500/50 blur-[120px] rounded-full" />
-      <div className="absolute bottom-[-200px] right-[-200px] w-[500px] h-[500px] bg-cyan-800/20 blur-[120px] rounded-full" />
+      {/* Glow Elements--------- */}
+
+
+      <div className="absolute top-[-200px] left-[-200px] w-[500px] h-[500px] bg-cyan-800/30 blur-[120px] rounded-full" />
+
+
+      <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-cyan-500/50 blur-[120px] rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 grid md:grid-cols-2 gap-16 items-start">
         {/* Left Content */}
@@ -60,19 +64,21 @@ const Projects = ({ allData }: ProjectsProps) => {
           <span
             aria-hidden="true"
             id="bgTitle"
-            className="absolute bottom-3 md:left-1/3 text-gray-300 font-extrabold select-none pointer-events-none"
+            className="absolute bottom-3 md:left-1/3 text-gray-300 font-extrabold select-none pointer-events-none text-center"
             style={bgTitleStyles}
           >
             Upgrade Your Lifestyle
           </span>
 
           {/* Main Heading */}
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-800 relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-800 relative z-10"
+          onMouseEnter={() => handleTitleHover(true)}
+              onMouseLeave={() => handleTitleHover(false)}
+          >
             <span>Upgrade Your Home with our service,</span> <br />
             <span
               className="bg-gradient-to-r from-cyan-500 to-cyan-700 bg-clip-text text-transparent relative"
-              onMouseEnter={() => handleTitleHover(true)}
-              onMouseLeave={() => handleTitleHover(false)}
+              
             >
               Upgrade Your Lifestyle
             </span>

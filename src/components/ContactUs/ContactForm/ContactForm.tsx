@@ -83,7 +83,7 @@ const ContactForm = () => {
             </div>
             <div className="flex items-center gap-3 p-4 border rounded-lg shadow-sm bg-gradient-to-r from-[#104b5f] to-[#22d3ee] text-white">
               <Mail className="text-white" />
-              <span>example@email.com</span>
+              <span>nestico.nurzihad@gmail.com</span>
             </div>
             <div className="flex items-center gap-3 p-4 border rounded-lg shadow-sm">
               <MapPin className="text-blue-500" />

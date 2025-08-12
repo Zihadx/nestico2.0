@@ -107,8 +107,9 @@ const CtrlScrollZoomHandler = ({
 };
 
 const LocationMap = () => {
-  const defaultCenter: LatLngExpression = [24.3745, 88.6042];
-  const companyLocation: LatLngExpression = [24.3745, 88.6042];
+  const { Clock, Globe, Users } = require("lucide-react");
+  const defaultCenter: LatLngExpression = [24.365839, 88.600122];
+  const companyLocation: LatLngExpression = [24.365839, 88.600122];
 
   const [selectedLocation, setSelectedLocation] =
     useState<LatLngExpression | null>(null);
@@ -143,17 +144,17 @@ const LocationMap = () => {
         <CardContent className="mt-5 space-y-5 text-gray-700">
           <div className="flex items-center gap-3">
             <MapPin size={24} className="text-blue-500" />
-            <p>123 Example Street, Rajshahi, Bangladesh</p>
+            <p>Zero Point, Rajshahi, Bangladesh</p>
           </div>
 
           <div className="flex items-center gap-3">
             <Phone size={24} className="text-green-500" />
-            <p>+880 1234-56*****</p>
+            <p>+880 1751217218</p>
           </div>
 
           <div className="flex items-center gap-3">
             <Mail size={24} className="text-purple-500" />
-            <p>nestico@gmail.comcom.loading.....</p>
+            <p>nestico.nurzihad@gmail.com</p>
           </div>
 
           <div className="flex items-center gap-3">

@@ -4,6 +4,7 @@ import DownloadAppSection from "@/components/Home/DownloadAppSection/DownloadApp
 import HappyClients from "@/components/Home/HappyClients/HappyClients";
 import HeroSection from "@/components/Home/Hero/HeroSection";
 import HireProsSection from "@/components/Home/HireProsSection/HireProsSection";
+import PremiumPlans from "@/components/Home/PremiumPlans/PremiumPlans";
 import CompanyProgress from "@/components/Home/Progress/CompanyProgress";
 
 import Projects from "@/components/Home/Projects/Projects";
@@ -22,6 +23,7 @@ const HomePage = async () => {
     <div>
       <HeroSection  allData={allData}/>
       <Projects allData={allData}/>
+      <PremiumPlans />
       {/* <MoreProjects/> */}
       <WorksSections />
       <TrustSecuritySection/>
