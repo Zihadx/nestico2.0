@@ -22,7 +22,7 @@ const HomePage = async () => {
   return (
     <div>
       <HeroSection  allData={allData}/>
-      <Projects />
+      <Projects allData={allData}/>
       <MoreProjects/>
       <WorksSections />
       <TrustSecuritySection/>

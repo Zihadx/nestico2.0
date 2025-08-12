@@ -12,6 +12,7 @@
       "Better accessibility"
     ],
     "image": "https://i.ibb.co.com/ZpwrmZZJ/Walk-in-Shower-Banner.jpg",
+    "icon": "https://i.ibb.co.com/4n4YFYbY/shower-1.png",
     "advantages": [
       {
         "title": "Reduced Water Usage",
@@ -84,6 +85,7 @@
       "Home Therapy"
     ],
     "image": "https://i.ibb.co.com/23DhMJ6z/Walk-in-Tubs-Banner.jpg",
+    "icon": "https://i.ibb.co.com/N2cmjb1C/walk-In-Tub.png",
     "advantages": [
       {
         "title": "Insomania",
@@ -156,6 +158,8 @@
       "Modern style and comfort"
     ],
     "image": "https://i.ibb.co.com/TBjmnnKj/Kitchen-Remodeling-Banner.jpg",
+    "icon": "https://i.ibb.co.com/W4t3mP8k/kitchen-1.png",
+
     "advantages": [
       {
         "title": "Better Cooking Experience",
@@ -228,6 +232,7 @@
       "Modern Styles"
     ],
     "image": "https://i.ibb.co.com/mFBmxL6C/Window-replacement-Banner.jpg",
+    "icon": "https://i.ibb.co.com/VcDHv5Rt/Window-Replacement.png",
     "advantages": [
       {
         "title": "Home & Skin Protection",
@@ -300,6 +305,7 @@
       "Long-term fix guaranteed"
     ],
     "image": "https://i.ibb.co.com/bxwT2CB/Plumbing.jpg",
+    "icon": "https://i.ibb.co.com/tpNjYVh6/plumbing.png",
     "advantages": [
       {
         "title": "Water Damage Prevention",
@@ -372,6 +378,7 @@
       "Saves device replacement cost"
     ],
     "image": "https://i.ibb.co.com/WNTsZ7Vy/Appliance-Repair.jpg",
+    "icon": "https://i.ibb.co.com/7NJ6n6wM/compressor.png",
     "advantages": [
       {
         "title": "Extended Appliance Life",
@@ -444,6 +451,7 @@
       "Space saving"
     ],
     "image": "https://i.ibb.co.com/gZDSWDM7/Siding-Door.jpg",
+    "icon": "https://i.ibb.co.com/jP5JyKWd/siding-Door.png",
     "advantages": [
       {
         "title": "Smooth Function",
@@ -516,6 +524,7 @@
       "Energy saving setup"
     ],
     "image": "https://i.ibb.co.com/Vpp98Rsc/Geyser-Installation.jpg",
+    "icon": "https://i.ibb.co.com/sJwSjvBR/geyser.png",
     "advantages": [
       {
         "title": "Energy Efficiency",
@@ -588,6 +597,7 @@
       "Trusted local support"
     ],
     "image": "https://i.ibb.co.com/s9Lh170K/Vehicle-Repair.jpg",
+    "icon": "https://i.ibb.co.com/hJYyS7zd/vehicle-Repaire.png",
     "advantages": [
       {
         "title": "No Tow Needed",
@@ -660,6 +670,7 @@
       "Preventive care included"
     ],
     "image": "https://i.ibb.co.com/MkHJr9pv/Pest-Control.jpg",
+    "icon": "https://i.ibb.co.com/kg7XQMRP/pest-Conrol.png",
     "advantages": [
       {
         "title": "Allergen Removal",
@@ -732,6 +743,7 @@
       "Fast drying process"
     ],
     "image": "https://i.ibb.co.com/0RbQh7hT/Painting.jpg",
+    "icon": "https://i.ibb.co.com/S43MZ0J3/painting.png",
     "advantages": [
       {
         "title": "Visual Appeal",
@@ -804,6 +816,7 @@
       "Sturdy builds"
     ],
     "image": "https://i.ibb.co.com/FCFs8qM/Carpentry.jpg",
+    "icon": "https://i.ibb.co.com/8QrFRfG/carpentry.png",
     "advantages": [
       {
         "title": "Custom Fit",

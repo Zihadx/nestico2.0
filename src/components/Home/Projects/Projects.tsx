@@ -1,105 +1,136 @@
 "use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
-interface Service {
-  slug: string;
+interface ProjectData {
+  id: string;
   title: string;
-  description: string;
-  img: string;
+  description?: string;
+  img?: string;
+  icon?: string;
+  slug?: string;
 }
 
-// Fake Data---------------
-const services: Service[] = [
-  {
-    slug: "walk-in-shower",
-    title: "Walk In Shower",
-    description:
-      "Upgrade your bathroom with a sleek and modern walk-in shower.",
-    img: "/images/icon/Svgs/-_walk in shower.svg",
-  },
-  {
-    slug: "walk-in-tub",
-    title: "Walk In Tub",
-    description:
-      "Enjoy a luxurious and safe bathing experience with our walk-in tubs.",
-    img: "/images/icon/Svgs/-_walk in Tubs.svg",
-  },
-  {
-    slug: "kitchen-remodeling",
-    title: "Kitchen Remodeling",
-    description: "Transform your kitchen into a modern masterpiece.",
-    img: "/images/icon/Svgs/-_windows.svg",
-  },
-  {
-    slug: "window-replacement",
-    title: "Window Replacement",
-    description: "Enhance your home's energy efficiency with new windows.",
-    img: "/images/icon/Svgs/-_Kitchen Remodel.svg",
-  },
-];
-
-// Animation variants for cards
-// Animation variants with fixed ease type (array)
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.15,
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  }),
-};
-
-const titleVariants: Variants = {
-  hidden: { opacity: 0, y: -20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: "easeOut" }, // <-- fix here
-  },
-};
-
-const Projects = () => {
+const Projects = ({ allData }: { allData: ProjectData[] }) => {
   return (
-    <section className="mt-10 mb-20 px-4 sm:px-6 lg:px-0 max-w-6xl mx-auto text-center">
-      <motion.div initial="hidden" animate="visible" variants={titleVariants}>
-        <h1 className="text-3xl md:text-4xl font-semibold text-gray-800">
-          Our Services
-        </h1>
-        <div className="w-16 h-1 bg-cyan-400 mx-auto mt-3 rounded-full" />
-      </motion.div>
+    <section className="relative w-full py-24 bg-gradient-to-br from-gray-200 via-gray-50 to-gray-100 overflow-hidden">
+      {/* Glow Elements */}
+      <div className="absolute top-[-200px] left-[-200px] w-[500px] h-[500px] bg-cyan-500/50 blur-[120px] rounded-full" />
+      <div className="absolute bottom-[-200px] right-[-200px] w-[500px] h-[500px] bg-cyan-800/20 blur-[120px] rounded-full" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-12">
-        {services.map(({ slug, title, img }, i) => (
-          <Link href={`/${slug}`} key={slug} passHref>
-            <motion.div
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={cardVariants}
-              className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center justify-start border-b-2 border-transparent transition-colors duration-500 hover:border-cyan-500 cursor-pointer"
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 grid md:grid-cols-2 gap-16 items-start">
+        {/* Left Text */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="relative top-32 self-start max-w-lg"
+        >
+          {/* Extra Large Title behind */}
+          <span
+            aria-hidden="true"
+            className="absolute bottom-3 left-1/3 text-gray-300 font-extrabold select-none pointer-events-none"
+            style={{
+              fontSize: "6rem",
+              lineHeight: 1,
+              letterSpacing: "-0.05em",
+              zIndex: 0,
+              userSelect: "none",
+              transition: "transform 0.3s ease",
+              transform: "translateZ(0) translateY(10px)",
+              opacity: 0.4,
+            }}
+            id="bgTitle"
+          >
+            Upgrade Your Lifestyle
+          </span>
+
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-800 relative z-10">
+            <span>Upgrade Your Home with our service,</span> <br />
+            <span
+              className="bg-gradient-to-r from-cyan-500 to-cyan-700 bg-clip-text text-transparent relative "
+              onMouseEnter={() => {
+                const bgTitle = document.getElementById("bgTitle");
+                if (bgTitle) bgTitle.style.transform = "translateY(0)";
+              }}
+              onMouseLeave={() => {
+                const bgTitle = document.getElementById("bgTitle");
+                if (bgTitle) bgTitle.style.transform = "translateY(10px)";
+              }}
             >
-              <Image
-                src={img}
-                alt={title}
-                width={100}
-                height={100}
-                className="mb-4 mt-6 w-50 h-20"
-                priority
-              />
-              <h3 className="font-medium text-gray-800 group-hover:text-gray-600">
-                {title}
-              </h3>
-            </motion.div>
-          </Link>
-        ))}
+              Upgrade Your Lifestyle
+            </span>
+          </h2>
+
+          <p className="mt-6 text-lg text-gray-700 max-w-lg relative z-10">
+            We provide cutting-edge home improvement solutions with unmatched
+            quality and modern design.
+          </p>
+        </motion.div>
+
+        {/* Right Scrollable Card List */}
+        <div className="h-[500px] overflow-y-auto pr-2 custom-scrollbar scroll-smooth">
+          <div className="flex flex-col gap-6">
+            {allData.map((service, i) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.05 }}
+                viewport={{ once: false }}
+              >
+                <Link href={`/${service.slug || service.id}`}>
+                  <div className="group relative bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 flex items-center gap-6 hover:bg-white/10 transition-all duration-500">
+                    {/* Icon */}
+                    <div className="relative flex-shrink-0 w-20 h-20 rounded-xl bg-gradient-to-br from-cyan-50 to-cyan-800/10 flex items-center justify-center overflow-hidden">
+                      {service.icon && (
+                        <Image
+                          src={service.icon}
+                          alt={service.title}
+                          width={50}
+                          height={50}
+                          className="z-10 object-contain"
+                        />
+                      )}
+                    </div>
+
+                    {/* Text */}
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-gray-800">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-700 text-sm mt-1">
+                        {service.description || "No description available."}
+                      </p>
+                    </div>
+
+                    {/* Arrow */}
+                    <ArrowRight className="text-cyan-400 w-5 h-5 opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-1" />
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
+
+      {/* Custom Scrollbar Style */}
+      <style jsx>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: linear-gradient(to bottom, #22d3ee, #104b5f);
+          border-radius: 9999px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: transparent;
+        }
+      `}</style>
     </section>
   );
 };
