@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 
-
+/* service section ---- */
 @keyframes gradient-x {
   0%, 100% {
     background-position: 0% 50%;
@@ -19,21 +19,52 @@
 }
 
 
-@keyframes wave {
+/* plan section --- */
+
+@keyframes premiumGradient {
   0% {
-    transform: rotate(0deg) translateY(0px);
+    background-position: 0% 50%;
   }
   50% {
-    transform: rotate(1deg) translateY(-15px);
+    background-position: 100% 50%;
   }
   100% {
-    transform: rotate(0deg) translateY(0px);
+    background-position: 0% 50%;
   }
 }
 
-.animate-wave {
-  animation: wave 8s ease-in-out infinite;
+.animate-premium-gradient {
+  background: linear-gradient(
+    120deg,
+    rgba(0, 255, 255, 0.25),
+    rgba(255, 182, 193, 0.25),
+    rgba(0, 255, 200, 0.25)
+  );
+  background-size: 300% 300%;
+  animation: premiumGradient 10s ease-in-out infinite;
+  filter: blur(80px);
 }
+
+.animate-premium-gradient-slow {
+  background: linear-gradient(
+    120deg,
+    rgba(255, 192, 203, 0.2),
+    rgba(173, 216, 230, 0.2),
+    rgba(255, 182, 193, 0.2)
+  );
+  background-size: 300% 300%;
+  animation: premiumGradient 10s ease-in-out infinite;
+  filter: blur(100px);
+}
+
+/* how it work  */
+
+
+
+
+
+
+
 
 
 

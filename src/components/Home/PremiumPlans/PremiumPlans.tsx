@@ -54,7 +54,7 @@ const plans = [
   },
 ];
 
-export default function PremiumPlans() {
+const PremiumPlans = () => {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">(
     "monthly"
   );
@@ -79,7 +79,15 @@ export default function PremiumPlans() {
   };
 
   return (
-    <section className="relative w-full py-20 overflow-hidden bg-gradient-to-b from-cyan-50 to-white">
+    <section className="relative w-full py-20 overflow-hidden">
+      {/* Premium Animated Background */}
+      <div className="absolute inset-0 -z-10">
+        {/* Layer 1 */}
+        <div className="absolute inset-0 animate-premium-gradient opacity-70" />
+        {/* Layer 2 (slower, offset) */}
+        <div className="absolute inset-0 animate-premium-gradient-slow opacity-50" />
+      </div>
+
       {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
@@ -212,4 +220,6 @@ export default function PremiumPlans() {
       </div>
     </section>
   );
-}
+};
+
+export default PremiumPlans;
