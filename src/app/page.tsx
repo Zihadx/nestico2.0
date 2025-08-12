@@ -5,7 +5,6 @@ import HappyClients from "@/components/Home/HappyClients/HappyClients";
 import HeroSection from "@/components/Home/Hero/HeroSection";
 import HireProsSection from "@/components/Home/HireProsSection/HireProsSection";
 import CompanyProgress from "@/components/Home/Progress/CompanyProgress";
-import MoreProjects from "@/components/Home/Projects/MoreProjects";
 
 import Projects from "@/components/Home/Projects/Projects";
 import TrustSecuritySection from "@/components/Home/TrustSecuritySection/TrustSecuritySection";
@@ -23,7 +22,7 @@ const HomePage = async () => {
     <div>
       <HeroSection  allData={allData}/>
       <Projects allData={allData}/>
-      <MoreProjects/>
+      {/* <MoreProjects/> */}
       <WorksSections />
       <TrustSecuritySection/>
       <HireProsSection/>
