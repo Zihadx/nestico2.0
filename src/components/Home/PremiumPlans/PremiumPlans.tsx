@@ -103,34 +103,39 @@ const PremiumPlans = () => {
       </p>
 
       {/* Billing Toggle */}
-      <div className="flex justify-center my-8">
-        <div
-          onClick={() =>
-            setBillingCycle(billingCycle === "monthly" ? "yearly" : "monthly")
-          }
-          className="relative flex items-center bg-white/20 backdrop-blur-lg rounded-full py-1 px-2 cursor-pointer border border-white/30 shadow-inner"
-        >
-          <motion.div
-            layout
-            className="absolute top-0 bottom-0 w-1/2 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-800 shadow-lg"
-            style={{ left: billingCycle === "monthly" ? "2px" : "50%" }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-          />
-          <span
-            className={`z-10 w-20 text-center font-medium ${
-              billingCycle === "monthly" ? "text-white" : "text-gray-500"
-            }`}
+      <div className="text-center my-8">
+        <div className="flex justify-center">
+          <div
+            onClick={() =>
+              setBillingCycle(billingCycle === "monthly" ? "yearly" : "monthly")
+            }
+            className="relative flex items-center bg-white/20 backdrop-blur-lg rounded-full py-1 px-2 cursor-pointer border border-white/30 shadow-inner"
           >
-            Monthly
-          </span>
-          <span
-            className={`z-10 w-20 text-center font-medium ${
-              billingCycle === "yearly" ? "text-white" : "text-gray-500"
-            }`}
-          >
-            Yearly
-          </span>
+            <motion.div
+              layout
+              className="absolute top-0 bottom-0 w-1/2 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-800 shadow-lg"
+              style={{ left: billingCycle === "monthly" ? "2px" : "50%" }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            />
+            <span
+              className={`z-10 w-20 text-center font-medium ${
+                billingCycle === "monthly" ? "text-white" : "text-gray-500"
+              }`}
+            >
+              Monthly
+            </span>
+            <span
+              className={`z-10 w-20 text-center font-medium ${
+                billingCycle === "yearly" ? "text-white" : "text-gray-500"
+              }`}
+            >
+              Yearly
+            </span>
+          </div>
         </div>
+        <p className="text-sm font-medium italic text-red-400 mt-2">
+          🎉 Save <span className="font-bold">20%</span> with the yearly plan!
+        </p>
       </div>
 
       {/* Cards */}

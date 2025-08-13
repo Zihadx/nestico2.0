@@ -55,7 +55,17 @@ const testimonials = [
 
 const HappyClients = () => {
   return (
-    <section className="py-20 bg-gray-100 my-16 dark:bg-zinc-900">
+   <section className="relative w-full py-20 bg-gradient-to-br from-gray-50 via-pink-50/20 to-gray-50 overflow-hidden">
+      {/* Glow Elements--------- */}
+
+
+      <div className="absolute top-[-200px] left-[-200px] w-[500px] h-[500px] bg-cyan-500/30 blur-[120px] rounded-full" />
+
+
+      <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-cyan-800/30 blur-[120px] rounded-full" />
+
+     
+      
       <div className="max-w-7xl mx-auto px-4 relative">
         {/* Heading */}
         <div className="flex items-center gap-2">
