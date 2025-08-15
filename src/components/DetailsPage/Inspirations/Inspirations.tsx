@@ -100,7 +100,7 @@ const Inspirations = ({ allData, projectId }: InspirationProps) => {
         {/* Right: Content & Controls */}
         <div className="flex flex-col justify-center flex-1">
           <h2 className="text-5xl font-extrabold mb-3 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#22d3ee] to-[#104b5f] font-serif">
-            Inspirations
+            We do it
           </h2>
           <p className="text-gray-600 max-w-md mb-8 text-lg font-sans">
             Carefully curated visuals that inspire your vision for{" "}
