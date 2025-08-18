@@ -25,7 +25,7 @@ export default function SignupPage() {
   });
 
   return (
-    <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-gradient-to-br from-slate-950 to-slate-900 text-white">
+    <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-gradient-to-br from-slate-950 to-slate-900 text-white mt-20">
       {/* Left branding section */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
@@ -88,7 +88,17 @@ export default function SignupPage() {
                     <p className="text-red-400 text-sm mt-1">{formik.errors.password}</p>
                   )}
                 </div>
-                
+                <div>
+                  <Input
+                    type="password"
+                    placeholder="Confirm Password"
+                    {...formik.getFieldProps("confirmPassword")}
+                    className="bg-white/5 border-white/20 text-white placeholder:text-slate-400"
+                  />
+                  {formik.touched.confirmPassword && formik.errors.confirmPassword && (
+                    <p className="text-red-400 text-sm mt-1">{formik.errors.confirmPassword}</p>
+                  )}
+                </div>
                 <Button
                   type="submit"
                   className="mt-2 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white rounded-xl shadow-lg"

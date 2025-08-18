@@ -7,8 +7,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Lock } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function ResetPasswordPage() {
+  const router = useRouter();
+
   const formik = useFormik({
     initialValues: { password: "", confirmPassword: "" },
     validationSchema: Yup.object({
@@ -18,13 +21,14 @@ export default function ResetPasswordPage() {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      console.log("Password reset success:", values);
+      console.log("New password set:", values.password);
+      router.push("/login");
     },
   });
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 to-slate-900 text-white">
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 to-slate-900 text-white mt-20">
+      <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}>
         <Card className="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl rounded-2xl">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-2xl text-white">
@@ -44,17 +48,14 @@ export default function ResetPasswordPage() {
               )}
               <Input
                 type="password"
-                placeholder="Confirm Password"
+                placeholder="Confirm New Password"
                 {...formik.getFieldProps("confirmPassword")}
                 className="bg-white/5 border-white/20 text-white placeholder:text-slate-400"
               />
               {formik.touched.confirmPassword && formik.errors.confirmPassword && (
                 <p className="text-red-400 text-sm">{formik.errors.confirmPassword}</p>
               )}
-              <Button
-                type="submit"
-                className="bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white rounded-xl shadow-lg"
-              >
+              <Button type="submit" className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white rounded-xl shadow-lg">
                 Reset Password
               </Button>
             </form>

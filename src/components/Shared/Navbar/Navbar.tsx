@@ -50,6 +50,7 @@ const Navbar = () => {
         </DropdownMenu>
 
         <Link href="/contact">CONTACT</Link>
+        <Link href="/login">LOGIN</Link>
       </nav>
 
       {/* Contact & Button */}

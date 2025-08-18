@@ -103,30 +103,27 @@ export default function LoginPage() {
                 </div>
 
                 {/* Social logins */}
-                <div className="flex flex-col gap-3">
+                <div className="flex gap-3">
                   <Button
                     type="button"
                     variant="outline"
                     className="flex items-center justify-center gap-2 bg-white/5 border-white/20 text-white hover:bg-white/10"
                   >
-                    <img src="/google.svg" alt="Google" className="w-5 h-5" />
-                    Continue with Google
+                    <img src="images/social-logo/google.png" alt="Google" className="w-5 h-5" />
                   </Button>
                   <Button
                     type="button"
                     variant="outline"
                     className="flex items-center justify-center gap-2 bg-white/5 border-white/20 text-white hover:bg-white/10"
                   >
-                    <img src="/facebook.svg" alt="Facebook" className="w-5 h-5" />
-                    Continue with Facebook
+                    <img src="images/social-logo/facebook.png" alt="Facebook" className="w-5 h-5" />
                   </Button>
                   <Button
                     type="button"
                     variant="outline"
                     className="flex items-center justify-center gap-2 bg-white/5 border-white/20 text-white hover:bg-white/10"
                   >
-                    <img src="/phone.svg" alt="Phone" className="w-5 h-5" />
-                    Continue with Phone
+                    <img src="/images/social-logo/phone.png" alt="Phone" className="w-5 h-5" />
                   </Button>
                 </div>
 
