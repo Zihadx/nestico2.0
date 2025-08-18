@@ -55,6 +55,15 @@ const HeroSection = ({ allData }: AllData) => {
         transition={{ duration: 1 }}
       ></motion.div>
 
+      {/* hero section top gradient --- */}
+      {/* 
+      <div
+        className="absolute top-0 inset-x-0 h-28 
+    bg-gradient-to-b from-white/70 to-transparent 
+    dark:from-gray-900/80 dark:to-transparent 
+    pointer-events-none z-[5]"
+      /> */}
+
       {/* Decorative Glow */}
       <div className="absolute -top-20 -right-20 w-[400px] h-[400px] bg-cyan-300/30 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-cyan-500/20 rounded-full blur-lg" />
@@ -129,7 +138,7 @@ const HeroSection = ({ allData }: AllData) => {
         </motion.div>
 
         {/* Image Side */}
-        
+
         <motion.div
           className="relative flex justify-center lg:justify-end"
           initial={{ opacity: 0, x: 80 }}
