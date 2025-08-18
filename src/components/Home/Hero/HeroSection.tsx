@@ -46,7 +46,7 @@ const HeroSection = ({ allData }: AllData) => {
   }, []);
 
   return (
-    <section className="relative min-h-[80vh] flex items-center overflow-hidden mt-20">
+    <section className="relative min-h-[80vh] flex items-center overflow-hidden">
       {/* Background */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-cyan-100 via-white to-transparent"
