@@ -23,7 +23,7 @@ export default function AnnouncementStrip({
       backdrop-blur-xl 
       border-b border-white/20 dark:border-white/10"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl w-full px-4 lg:px-8">
         <div className="flex h-9 items-center justify-between text-xs">
           <TopMarquee />
           <div className="flex items-center gap-2 ml-auto md:ml-0 flex-nowrap">

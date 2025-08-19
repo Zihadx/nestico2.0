@@ -26,7 +26,7 @@ const WorksSections = () => {
     <section className="mt-16 px-4 bg-white overflow-hidden">
       {/* Heading */}
       <motion.div
-        className="text-center mb-12"
+        className="mx-auto max-w-7xl w-full px-4 lg:px-8 text-center mb-12"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}

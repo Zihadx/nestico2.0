@@ -109,13 +109,13 @@ const Navbar = () => {
           className="sticky top-9 z-[50]"
           aria-label="Primary"
         >
-          <div className="px-4 sm:px-6 lg:px-8 fixed w-full">
+          <div className=" fixed w-full">
             <div
-              className="max-w-7xl mx-auto relative mt-2 flex items-center justify-between 
+              className="mx-auto max-w-7xl w-full px-4 lg:px-8 relative mt-2 flex items-center justify-between 
               rounded-2xl border border-white/40 dark:border-white/10 
               bg-gradient-to-br from-cyan-50/70 via-white/60 to-white/20 
               dark:from-gray-900/60 dark:via-black/40 dark:to-transparent 
-              backdrop-blur-xl px-3 sm:px-4 py-2 
+              backdrop-blur-xl sm:px-4 py-2 
               shadow-[0_8px_60px_-12px_rgba(0,0,0,0.3)]"
             >
               {/* Neon ring */}

@@ -45,13 +45,11 @@ const Projects = ({ allData }: ProjectsProps) => {
     <section className="relative w-full py-20 bg-gradient-to-br from-gray-200 via-gray-50 to-gray-100 overflow-hidden">
       {/* Glow Elements--------- */}
 
-
       <div className="absolute top-[-200px] left-[-200px] w-[500px] h-[500px] bg-cyan-800/30 blur-[120px] rounded-full" />
-
 
       <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-cyan-500/50 blur-[120px] rounded-full" />
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 grid md:grid-cols-2 gap-16 items-start">
+      <div className="mx-auto max-w-7xl w-full px-4 lg:px-8 grid md:grid-cols-2 gap-16 items-start">
         {/* Left Content */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -71,15 +69,13 @@ const Projects = ({ allData }: ProjectsProps) => {
           </span>
 
           {/* Main Heading */}
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight text-gray-800 relative z-10"
-          onMouseEnter={() => handleTitleHover(true)}
-              onMouseLeave={() => handleTitleHover(false)}
+          <h2
+            className="text-4xl md:text-5xl font-bold leading-tight text-gray-800 relative z-10"
+            onMouseEnter={() => handleTitleHover(true)}
+            onMouseLeave={() => handleTitleHover(false)}
           >
             <span>Upgrade Your Home with our service,</span> <br />
-            <span
-              className="bg-gradient-to-r from-cyan-500 to-cyan-700 bg-clip-text text-transparent relative"
-              
-            >
+            <span className="bg-gradient-to-r from-cyan-500 to-cyan-700 bg-clip-text text-transparent relative">
               Upgrade Your Lifestyle
             </span>
           </h2>

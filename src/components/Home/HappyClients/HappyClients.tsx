@@ -66,7 +66,7 @@ const HappyClients = () => {
 
      
       
-      <div className="max-w-7xl mx-auto px-4 relative">
+      <div className="mx-auto max-w-7xl w-full px-4 lg:px-8 relative">
         {/* Heading */}
         <div className="flex items-center gap-2">
           <p className="flex items-center justify-center text-sm text-gray-700 tracking-wider uppercase mb-2 font-semibold">

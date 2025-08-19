@@ -66,13 +66,15 @@ const cardVariants: Variants = {
 const TrustSecuritySection = () => {
   return (
     <section className="bg-gradient-to-r from-[#22d3ee] via-[#0c3b4a] to-[#104b5f] py-16 px-4 text-white mt-16">
-      <div className="max-w-7xl mx-auto text-center mb-12">
+   
+      <div className="mx-auto max-w-7xl w-full px-4 lg:px-8">
+        <div className=" text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold">
           Your Trust and Security
         </h2>
         <div className="w-16 h-1 bg-white mx-auto mt-3 rounded"></div>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {features.map((item, i) => (
           <motion.div
             key={i}
@@ -91,6 +93,7 @@ const TrustSecuritySection = () => {
             </div>
           </motion.div>
         ))}
+      </div>
       </div>
     </section>
   );

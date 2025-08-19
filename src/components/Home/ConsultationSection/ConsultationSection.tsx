@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const ConsultationSection = () => {
   return (
     <section className="w-full bg-gradient-to-r from-[#22d3ee] to-[#104b5f] text-white py-10">
-      <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
+      <div className="mx-auto max-w-7xl w-full px-4 lg:px-8 flex flex-col lg:flex-row items-center justify-between">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

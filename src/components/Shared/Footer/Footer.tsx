@@ -3,8 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowUp } from "lucide-react";
+
 
 const Footer = () => {
   return (
@@ -22,7 +21,7 @@ const Footer = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-4 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Logo + Description */}
         <div className="space-y-4">
           <Image

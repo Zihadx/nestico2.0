@@ -93,7 +93,7 @@ const PremiumPlans = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-extrabold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-cyan-800"
+        className="mx-auto max-w-7xl w-full px-4 lg:px-8 text-4xl md:text-5xl font-extrabold text-center mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-cyan-800"
       >
         Unlock Your Premium Potential
       </motion.h2>
