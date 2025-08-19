@@ -212,7 +212,7 @@ export default function PremiumNavbar() {
   bg-gradient-to-br from-cyan-50/70 via-white/60 to-white/20 
   dark:from-gray-900/60 dark:via-black/40 dark:to-transparent 
   backdrop-blur-xl px-3 sm:px-4 py-2 
-  shadow-[0_8px_60px_-12px_rgba(0,0,0,0.3)]"
+  shadow-[0_8px_60px_-12px_rgba(0,0,0,0.3)] bg-red-400"
             >
               {/* Neon ring */}
               <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/50 dark:ring-white/10" />
@@ -508,7 +508,7 @@ function MobileMenu({
         <SheetHeader className="px-4 py-3 border-b">
           <SheetTitle className="flex items-center gap-2">
             <Sparkles className="h-4 w-4" />
-            Homely
+            Nestico
           </SheetTitle>
         </SheetHeader>
         <ScrollArea className="h-[calc(100vh-4rem)] p-4">
@@ -548,6 +548,8 @@ function MobileMenu({
     </Sheet>
   );
 }
+
+
 
 function MagneticCTA({
   href,
@@ -597,6 +599,8 @@ function MagneticCTA({
   );
 }
 
+// language switcher component--------
+
 function LocaleSwitcher() {
   const [open, setOpen] = useState(false);
   const locales = [
@@ -632,6 +636,7 @@ function LocaleSwitcher() {
   );
 }
 
+// cursor grow effect----
 function Spotlight() {
   const ref = useRef<HTMLDivElement | null>(null);
   useEffect(() => {

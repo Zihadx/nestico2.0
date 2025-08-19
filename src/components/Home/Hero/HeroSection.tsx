@@ -69,7 +69,7 @@ const HeroSection = ({ allData }: AllData) => {
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-cyan-500/20 rounded-full blur-lg" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-4 lg:px-8 grid lg:grid-cols-2 gap-12 items-center my-10">
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-4 lg:px-8 grid lg:grid-cols-2 gap-12 items-center py-20 mt-10">
         {/* Text Side */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}

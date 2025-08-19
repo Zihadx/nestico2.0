@@ -2,9 +2,9 @@
 import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-import Navbar from "@/components/Shared/Navbar/Navbar";
 import Footer from "@/components/Shared/Footer/Footer";
 import ParallaxWrapper from "@/utils/ParallaxWrapper";
+import Navbar1 from "@/components/Shared/Navbar/Navbar1";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -34,7 +34,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${robotoMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <Navbar />
+        <Navbar1 />
         
          <ParallaxWrapper>
           <main className="flex-grow">{children}</main>
