@@ -22,7 +22,8 @@ export default function ServicesMegaMenu({ services }: ServicesMegaMenuProps) {
           className="group h-9 px-3 font-medium tracking-tight"
         >
           <div className="flex items-center gap-1">
-            Services{" "}
+          
+            <p className="text-sm font-medium tracking-tight">Services</p>
             <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
           </div>
         </Button>

@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { MapPin, Moon, Sun } from "lucide-react";
-import Marquee from "./TopMarquee";
+
 import LocaleSwitcher from "./LocaleSwitcher";
 import TopMarquee from "./TopMarquee";
 

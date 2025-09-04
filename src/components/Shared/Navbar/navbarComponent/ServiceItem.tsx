@@ -1,3 +1,4 @@
+import { slugify } from "@/utils/slugify";
 import Link from "next/link";
 
 interface ServiceItemProps {
@@ -6,10 +7,15 @@ interface ServiceItemProps {
   desc: string;
 }
 
-export default function ServiceItem({ icon: Icon, label, desc }: ServiceItemProps) {
+export default function ServiceItem({
+  icon: Icon,
+  label,
+  desc,
+}: ServiceItemProps) {
+  const slug = slugify(label);
   return (
     <Link
-      href={`/services/${slugify(label)}`}
+      href={`/${slug}`}
       className="group flex items-start gap-3 rounded-lg border p-3 hover:border-foreground/20"
     >
       <div className="grid h-9 w-9 place-items-center rounded-md bg-muted group-hover:shadow">
@@ -21,11 +27,4 @@ export default function ServiceItem({ icon: Icon, label, desc }: ServiceItemProp
       </div>
     </Link>
   );
-}
-
-function slugify(s: string) {
-  return s
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9-]/g, "");
 }

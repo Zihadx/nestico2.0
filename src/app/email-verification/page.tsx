@@ -10,23 +10,15 @@ import { useRouter } from "next/navigation";
 
 export default function EmailVerificationPage() {
   const [otp, setOtp] = useState(Array(6).fill(""));
-  const [resendTimer, setResendTimer] = useState(30); // 30s cooldown
+  const [resendTimer, setResendTimer] = useState(30);
   const inputsRef = useRef<Array<HTMLInputElement | null>>([]);
   const router = useRouter();
 
-  // Countdown logic (auto start + restart when timer reset)
   useEffect(() => {
     if (resendTimer > 0) {
       const interval = setInterval(() => {
-        setResendTimer((prev) => {
-          if (prev <= 1) {
-            clearInterval(interval);
-            return 0;
-          }
-          return prev - 1;
-        });
+        setResendTimer((prev) => (prev <= 1 ? 0 : prev - 1));
       }, 1000);
-
       return () => clearInterval(interval);
     }
   }, [resendTimer]);
@@ -36,10 +28,7 @@ export default function EmailVerificationPage() {
       const newOtp = [...otp];
       newOtp[index] = value;
       setOtp(newOtp);
-
-      if (value && index < 5) {
-        inputsRef.current[index + 1]?.focus();
-      }
+      if (value && index < 5) inputsRef.current[index + 1]?.focus();
     }
   };
 
@@ -63,29 +52,27 @@ export default function EmailVerificationPage() {
   };
 
   const handleResend = () => {
-    if (resendTimer === 0) {
-      console.log("Resend OTP triggered");
-      setResendTimer(30); // triggers useEffect countdown
-    }
+    if (resendTimer === 0) setResendTimer(30);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 to-slate-900 text-white mt-20">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 transition-colors duration-300">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <Card className="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl rounded-2xl">
+        <Card className="w-full max-w-md bg-white dark:bg-slate-900/80 backdrop-blur-xl border border-slate-300 dark:border-slate-700 shadow-2xl rounded-2xl">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-2xl text-white">
-              <ShieldCheck className="w-6 h-6 text-cyan-400" /> Verify Email
+            <CardTitle className="flex items-center gap-2 text-2xl text-slate-800 dark:text-white">
+              <ShieldCheck className="w-6 h-6 text-cyan-500" /> Verify Email
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-slate-400 text-sm text-center mb-6">
+            <p className="text-slate-600 dark:text-slate-400 text-sm text-center mb-6">
               Enter the 6-digit code we sent to your email
             </p>
+
             <div className="flex gap-3 justify-center mb-6">
               {otp.map((digit, i) => (
                 <Input
@@ -95,28 +82,31 @@ export default function EmailVerificationPage() {
                   value={digit}
                   onChange={(e) => handleChange(e.target.value, i)}
                   onKeyDown={(e) => handleKeyDown(e, i)}
-                  ref={(el) => {
+                  ref={(el: HTMLInputElement | null) => {
                     inputsRef.current[i] = el;
                   }}
-                  className="w-12 h-12 text-center text-lg bg-white/5 border-white/20 text-white rounded-xl focus:ring-2 focus:ring-cyan-400"
+                  className="w-14 h-14 text-center text-lg bg-white border border-slate-300 text-slate-800 rounded-xl
+               dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 focus:ring-2 focus:ring-cyan-500 transition"
                 />
               ))}
             </div>
+
             <Button
               onClick={handleSubmit}
-              className="w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white rounded-xl shadow-lg"
+              className="w-full bg-gradient-to-r from-cyan-500 to-cyan-800 hover:from-cyan-600 hover:to-cyan-700 text-white font-medium py-2 rounded-xl shadow-lg"
             >
               Verify
             </Button>
-            <p className="text-slate-400 text-center text-sm mt-4">
+
+            <p className="text-slate-600 dark:text-slate-400 text-center text-sm mt-4">
               Didn’t receive code?{" "}
               <button
                 onClick={handleResend}
                 disabled={resendTimer > 0}
                 className={`ml-1 ${
                   resendTimer === 0
-                    ? "text-cyan-400 hover:underline"
-                    : "text-slate-600"
+                    ? "text-cyan-500 hover:underline"
+                    : "text-slate-400 dark:text-slate-600 cursor-not-allowed"
                 }`}
               >
                 {resendTimer > 0 ? `Resend in ${resendTimer}s` : "Resend OTP"}

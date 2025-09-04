@@ -45,7 +45,7 @@ export default function MagneticCTA({ href, children }: MagneticCTAProps) {
     <Link
       href={href}
       ref={ref}
-      className="relative group inline-flex h-9 items-center overflow-hidden rounded-xl border border-foreground/20 bg-foreground/90 px-4 text-foreground-foreground text-sm font-semibold text-white shadow-md"
+      className="relative group inline-flex h-9 items-center overflow-hidden rounded-xl border border-foreground/20 px-4 text-foreground-foreground text-sm font-semibold shadow-md"
     >
       <span className="relative z-10 flex items-center gap-2">
         <Sparkles className="h-4 w-4" /> {children}

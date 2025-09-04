@@ -29,10 +29,6 @@ import AnnouncementStrip from "./navbarComponent/AnnouncementStrip";
 import ScrollProgressBar from "./navbarComponent/ScrollProgressBar";
 import SpotlightCursor from "./navbarComponent/SpotlightCursor";
 
-// ---------- Helper ----------
-const slugify = (s: string) =>
-  s.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
-
 // ---------- Component ----------
 const Navbar = () => {
   const pathname = usePathname();
@@ -71,9 +67,9 @@ const Navbar = () => {
   // Links
   const links = [
     { href: "/", label: "Home" },
-    { href: "/pricing", label: "Pricing" },
-    { href: "/services", label: "Services" },
-    { href: "/cities", label: "Cities" },
+    // { href: "/pricing", label: "Pricing" },
+    // { href: "/services", label: "Services" },
+    { href: "/contact", label: "Contact" },
     { href: "/about", label: "About" },
   ];
 
@@ -140,7 +136,9 @@ const Navbar = () => {
                 >
                   <Search className="h-4 w-4 mr-2" /> Quick Search
                 </Button>
-                <MagneticCTA href="/get-quote">Get Quote</MagneticCTA>
+                <div className="hidden md:block bg-gray-100/10 dark:bg-gray-900/80 rounded-lg text-gray-800 dark:text-gray-200">
+                  <MagneticCTA href="/get-quote">Get Quote</MagneticCTA>
+                </div>
                 <div className="md:hidden">
                   <MobileMenu services={services} links={links} />
                 </div>
